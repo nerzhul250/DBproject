@@ -1,0 +1,64 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8B925F5D-AA29-7AD7-A5DD-A92A5502A73E" name="parametros">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:49:53 UTC</createdTime>
+<generatorID>21F1CF8A-3592-4A56-DF46-D2704D532171</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="codigo" id="E020C3B8-BA66-E637-3FEF-188861E00D9F">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:49:53 UTC</createdTime>
+<generatorID>78B36FB0-6755-6EEF-B883-59FF9F39F761</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="D47D13C0-A9E2-CD08-A45D-F71E94015FDD">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:49:53 UTC</createdTime>
+<generatorID>7BF22D7E-EC72-8039-4C2E-9D3B640D8D61</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="valor" id="5ACBE120-4434-D70C-1778-6CCBFFE06785">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:49:53 UTC</createdTime>
+<generatorID>5E0EB9AF-4D82-3E2C-0BD5-822712F6B073</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="EF379EE1-4244-D4A1-59C9-79AF77A6B025" name="parametros_PK">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:50:45 UTC</createdTime>
+<generatorID>1C804D2F-874E-1B24-BCC5-67ECE85697CB</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E020C3B8-BA66-E637-3FEF-188861E00D9F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

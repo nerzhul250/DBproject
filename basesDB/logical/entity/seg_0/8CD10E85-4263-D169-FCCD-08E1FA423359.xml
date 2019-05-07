@@ -1,0 +1,109 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="8CD10E85-4263-D169-FCCD-08E1FA423359" name="cliente">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>66E706CE-EF5C-B540-9EFB-5971C593951B</importedID>
+<engineerTo>
+<item key="684AB406-EA42-5574-1FD6-6138A60D9DF9" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="cedula" id="59F293A5-99D7-BC45-2CFE-5CCDA13CFA2E">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>DD548F35-33F5-41E5-CD44-B825A55380B1</importedID>
+<engineerTo>
+<item key="684AB406-EA42-5574-1FD6-6138A60D9DF9" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nombre" id="FE384D93-CD43-D433-1CC8-76274A4937F1">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>8CF5DA8F-AE1B-7660-8613-1B8A5B0E1D6E</importedID>
+<engineerTo>
+<item key="684AB406-EA42-5574-1FD6-6138A60D9DF9" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fechaNacimiento" id="A4D5F083-75D5-8DD8-EA0E-0F3B80816152">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>30512CE6-B366-223C-89AE-1CA423DF2837</importedID>
+<engineerTo>
+<item key="684AB406-EA42-5574-1FD6-6138A60D9DF9" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="direccion" id="F70F3AF6-E8E4-F83A-5EF1-C22278A76F08">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>A293FD7E-115B-544D-5325-8F40CF6C24A8</importedID>
+<engineerTo>
+<item key="684AB406-EA42-5574-1FD6-6138A60D9DF9" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="telefono" id="DA65D717-6231-7B20-AB19-BD88B1E8F0FB">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>54889891-D768-906D-D48D-4091E2099F6B</importedID>
+<engineerTo>
+<item key="684AB406-EA42-5574-1FD6-6138A60D9DF9" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="D33EC138-697B-48E8-345D-721F3618399A" name="Cliente PK">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<importedID>5922E33F-4B6D-5F12-DD4F-3333A1FE2179</importedID>
+<engineerTo>
+<item key="684AB406-EA42-5574-1FD6-6138A60D9DF9" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>59F293A5-99D7-BC45-2CFE-5CCDA13CFA2E</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

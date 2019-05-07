@@ -1,0 +1,67 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="ED6251E0-5FF2-7D26-6DC7-49505B96F5DA" name="solicitudModificacionProducto">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>465D5A30-631A-880C-EFD2-1B3BB29C0A51</importedID>
+<engineerTo>
+<item key="684AB406-EA42-5574-1FD6-6138A60D9DF9" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="codigo" id="78329A7C-4160-53D4-3666-01CC493DA083">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>2D1F9D7A-AF8A-D989-97F7-C4D70580204B</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>3D04AF60-7F12-BD31-6E64-9B25C9AEBE46</importedID>
+<engineerTo>
+<item key="684AB406-EA42-5574-1FD6-6138A60D9DF9" value="true"/>
+</engineerTo>
+<referedAttribute>248C7E79-096E-4823-59EA-A2841B74508F</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="codigo1" id="8BC963AA-BE40-806B-007B-E6152325F4AB">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 12:18:39 UTC</createdTime>
+<generatorID>511EB651-72A3-7FAB-B555-E97BC7DCD769</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<engineerTo>
+<item key="684AB406-EA42-5574-1FD6-6138A60D9DF9" value="true"/>
+</engineerTo>
+<referedAttribute>670E1B8B-910B-08D1-90FD-A2D555956107</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="52885E29-7CCF-5FDD-F518-E4A0D4D80C3B" name="solicitudModificacionProducto PK">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<importedID>924E03F5-0699-150A-0335-9A1DCF212707</importedID>
+<engineerTo>
+<item key="684AB406-EA42-5574-1FD6-6138A60D9DF9" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>78329A7C-4160-53D4-3666-01CC493DA083</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

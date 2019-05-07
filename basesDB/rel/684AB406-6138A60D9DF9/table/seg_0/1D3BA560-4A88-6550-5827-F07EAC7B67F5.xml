@@ -1,0 +1,55 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1D3BA560-4A88-6550-5827-F07EAC7B67F5" name="solicitudCancelacionProducto">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>E60C441F-8A1F-8C2D-3C1C-846FFC7622CE</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>B84A7B31-0869-FFA5-50B4-42A7A0498C68</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="solicitud_codigo" id="359535C0-4C14-EA0C-4ECB-0BACB1C4DD66">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>90A9CEA7-C880-C052-9FD1-B70043E56CD8</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>271BBC63-94BE-D526-0958-EC4B7B819AC8</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EEDFD78F-CE12-4AEA-3AD6-4AE6345DF9B3" referredColumn="8F5137AA-D116-561A-9A62-79122EF01816"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="16C43515-0C2C-A15D-EEFB-CA22875D98DF" name="solicitudCancelacionProducto_PK">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>95EC9875-3FC5-07A5-8554-EB42D8EA5F78</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>94CB400F-BDEF-32DC-5D71-BDC000922B18</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="359535C0-4C14-EA0C-4ECB-0BACB1C4DD66"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4013F78F-2880-B44F-CA43-FD5FCA622865" name="solicitudCancelacionProducto_solicitud_FK">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>B142F75F-C0B3-0820-EDC2-A4EA28ACA29B</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="359535C0-4C14-EA0C-4ECB-0BACB1C4DD66"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

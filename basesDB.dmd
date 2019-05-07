@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="basesDB" id="20494F66-F360-3476-D441-ACD727F0F403" version="3.5">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:16 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>20494F66-F360-3476-D441-ACD727F0F403</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="5437D925-04FD-8834-5AA2-EBF741E4D345">
+<designStoragePath>C:\Users\WINDOWS 10\Desktop\poyectoBasesDeDatos</designStoragePath>
+</designDescr>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="D2139A50-A1C5-FAC0-A998-906703A797DF">
+<designStoragePath>C:\Users\asus\Desktop\dd\dd</designStoragePath>
+</designDescr>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="A1DF0B92-CE0D-B200-237D-31F7D90BC908">
+<designStoragePath>C:\Users\asus\Desktop\bases</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
+</OSDM_Design>

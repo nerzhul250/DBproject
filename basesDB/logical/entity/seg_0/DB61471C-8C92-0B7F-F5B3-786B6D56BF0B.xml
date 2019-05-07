@@ -1,0 +1,52 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="DB61471C-8C92-0B7F-F5B3-786B6D56BF0B" name="solicitudReclamo">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>84F745D2-2778-D081-8225-168C599F960F</importedID>
+<engineerTo>
+<item key="684AB406-EA42-5574-1FD6-6138A60D9DF9" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="codigo" id="6F6DB8CD-3826-BA33-FA7D-9BBBFD122562">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>124E500A-FE9D-3764-7F90-F212AFEC5401</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>FA4A7AD4-C99A-6C85-95D8-2546CE958305</importedID>
+<engineerTo>
+<item key="684AB406-EA42-5574-1FD6-6138A60D9DF9" value="true"/>
+</engineerTo>
+<referedAttribute>248C7E79-096E-4823-59EA-A2841B74508F</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="A2AA9A02-3965-EEAD-71FC-BE666E990D40" name="solicitudReclamo PK">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<importedID>49D6960E-0D81-13B6-8D78-CE2F8C0E6F35</importedID>
+<engineerTo>
+<item key="684AB406-EA42-5574-1FD6-6138A60D9DF9" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>6F6DB8CD-3826-BA33-FA7D-9BBBFD122562</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

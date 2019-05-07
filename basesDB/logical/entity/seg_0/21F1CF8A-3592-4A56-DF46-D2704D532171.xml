@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="21F1CF8A-3592-4A56-DF46-D2704D532171" name="parametros">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:46:44 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<engineerTo>
+<item key="684AB406-EA42-5574-1FD6-6138A60D9DF9" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="codigo" id="78B36FB0-6755-6EEF-B883-59FF9F39F761">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:46:54 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<engineerTo>
+<item key="684AB406-EA42-5574-1FD6-6138A60D9DF9" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nombre" id="7BF22D7E-EC72-8039-4C2E-9D3B640D8D61">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:47:25 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<engineerTo>
+<item key="684AB406-EA42-5574-1FD6-6138A60D9DF9" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="valor" id="5E0EB9AF-4D82-3E2C-0BD5-822712F6B073">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:47:53 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<engineerTo>
+<item key="684AB406-EA42-5574-1FD6-6138A60D9DF9" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="1C804D2F-874E-1B24-BCC5-67ECE85697CB" name="parametros PK">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:50:38 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="684AB406-EA42-5574-1FD6-6138A60D9DF9" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>78B36FB0-6755-6EEF-B883-59FF9F39F761</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

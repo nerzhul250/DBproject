@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="CA88CE01-CDB4-A6D5-89EC-A997D91964CB" name="servicioPrestado">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>B9C2CC4B-A71D-EE4C-DBB8-CAA176233A66</importedID>
+<engineerTo>
+<item key="684AB406-EA42-5574-1FD6-6138A60D9DF9" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="codigo" id="51A74198-C2C1-4C47-BE89-06A280EC9101">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>76827F37-9D5D-2A86-D93E-4BBE2D7AD658</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>87A10377-9840-FB40-8633-416447F439D1</importedID>
+<engineerTo>
+<item key="684AB406-EA42-5574-1FD6-6138A60D9DF9" value="true"/>
+</engineerTo>
+<referedAttribute>670E1B8B-910B-08D1-90FD-A2D555956107</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cedula" id="7A4051A0-05B9-1465-E774-6166C6B24F48">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>621705CC-676F-3A86-746B-AB863084865B</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>DBBDA576-A948-EE9B-A7A1-F22D712E3E2A</importedID>
+<engineerTo>
+<item key="684AB406-EA42-5574-1FD6-6138A60D9DF9" value="true"/>
+</engineerTo>
+<referedAttribute>59F293A5-99D7-BC45-2CFE-5CCDA13CFA2E</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fechaInicioServicio" id="49464FDD-9EC8-B5B7-1E26-C98347217002">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>E88DAC94-BF7F-A122-9BC1-15AD94817C67</importedID>
+<engineerTo>
+<item key="684AB406-EA42-5574-1FD6-6138A60D9DF9" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fechaTerminacionServicio" id="B9D0A29F-D70C-4339-44C2-7DDD809DE618">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>488F2708-ECA2-F0DD-8B04-370F5E68470D</importedID>
+<engineerTo>
+<item key="684AB406-EA42-5574-1FD6-6138A60D9DF9" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="40E5B02A-23D9-EC20-D2F4-DD5F9B761250" name="servicioPrestado PK">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<importedID>2F7D5491-65BC-2FBF-D9EF-7012924DF827</importedID>
+<engineerTo>
+<item key="684AB406-EA42-5574-1FD6-6138A60D9DF9" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>51A74198-C2C1-4C47-BE89-06A280EC9101</attributeRef>
+<attributeRef>7A4051A0-05B9-1465-E774-6166C6B24F48</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

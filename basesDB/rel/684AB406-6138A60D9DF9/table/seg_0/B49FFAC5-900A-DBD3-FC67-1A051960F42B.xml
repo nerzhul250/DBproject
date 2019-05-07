@@ -1,0 +1,96 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B49FFAC5-900A-DBD3-FC67-1A051960F42B" name="funcionario">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>5F13DE2A-F6B7-35DA-BC80-7CF13D706060</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>8F559EF6-229F-E169-4E3A-993DB1BDAB57</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="cedula" id="9DB7FA78-F540-A241-C3CA-BF64578A9C4A">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>BA18B418-355B-F4EE-B2CD-4E89BD3FF331</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>7DBC24CB-79EC-3267-A50C-130FA9FD27DA</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="5B6394D3-E296-CF10-85CE-B1FDEDD8DE27">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>D9D9B823-E4C4-426A-0856-18FAC3D40B84</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>08DE65A0-991E-B279-F747-B0C7650722BE</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fechaNacimiento" id="BCF36ECE-308A-F7AB-CCE5-6958B1AA081B">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>39473ADA-5213-1DEE-89D3-F7F4844EFFDD</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>3AC17CCA-0E61-0F30-5EA1-FC105FB17560</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="direccion" id="F162806C-1451-E203-61D1-BBBD6161E0E8">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>847C2715-49EB-71E5-596F-F7308E74BDD4</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>DF40AAC2-98F4-63A5-B52D-3D2AEA12081A</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="telefono" id="DCC78B26-582C-0CD8-4062-F39CAA9B22EA">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>9C10F392-31F4-BF99-1A9F-23AD4434BB53</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>CE67B1DD-31DF-ACE6-B84A-BAA8954ADF81</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5DE7C470-B53E-AE78-D30E-98321375D033" name="funcionario_PK">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>6A91ADA4-974B-46D8-885E-874F80ACDE24</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>21D29BA9-5815-E7F5-BB3D-8700A8CF0CDB</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9DB7FA78-F540-A241-C3CA-BF64578A9C4A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

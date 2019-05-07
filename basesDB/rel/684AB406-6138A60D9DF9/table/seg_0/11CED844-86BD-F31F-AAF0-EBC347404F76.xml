@@ -1,0 +1,55 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="11CED844-86BD-F31F-AAF0-EBC347404F76" name="solicitudReclamo">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>DB61471C-8C92-0B7F-F5B3-786B6D56BF0B</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>4EB3D33E-1D79-6AB2-6251-0579C6F0A6A8</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="solicitud_codigo" id="2689044D-90FF-D110-58D8-BC6A9E4FD193">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>6F6DB8CD-3826-BA33-FA7D-9BBBFD122562</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>6C3F728C-C55C-6625-70E7-48730CB27899</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="15FCEC8A-5D8C-4109-B7C3-7E023E2D5DDC" referredColumn="8F5137AA-D116-561A-9A62-79122EF01816"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="70F9F8CD-DB82-0124-1200-FBEEE4178DB2" name="solicitudReclamo_PK">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>A2AA9A02-3965-EEAD-71FC-BE666E990D40</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>F9A6A3C7-A1DB-A580-65A9-FC7CCD171953</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2689044D-90FF-D110-58D8-BC6A9E4FD193"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="436DC4C2-BF51-F5EB-A167-017C4B89BA36" name="solicitudReclamo_solicitud_FK">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>124E500A-FE9D-3764-7F90-F212AFEC5401</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2689044D-90FF-D110-58D8-BC6A9E4FD193"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

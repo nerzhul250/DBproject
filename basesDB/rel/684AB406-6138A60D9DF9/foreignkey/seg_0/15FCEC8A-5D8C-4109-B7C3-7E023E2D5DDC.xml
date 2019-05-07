@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="15FCEC8A-5D8C-4109-B7C3-7E023E2D5DDC" containerWithKeyObject="11CED844-86BD-F31F-AAF0-EBC347404F76" localFKIndex="436DC4C2-BF51-F5EB-A167-017C4B89BA36" name="solicitudReclamo_solicitud_FK">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>124E500A-FE9D-3764-7F90-F212AFEC5401</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>412AE090-DF81-07B5-AEE9-24CA9CB9F412</importedID>
+<referredTableLongName>solicitud</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>2BAA0FA1-2037-CC86-CC15-B51ABBAC3779</referredTableID>
+<keyObject>A2B6084F-BF8E-9D24-0F93-332931982B6C</keyObject>
+<referredKeyID>A2B6084F-BF8E-9D24-0F93-332931982B6C</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>codigo</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

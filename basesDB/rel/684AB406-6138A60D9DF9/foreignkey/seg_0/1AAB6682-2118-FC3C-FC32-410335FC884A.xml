@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="1AAB6682-2118-FC3C-FC32-410335FC884A" containerWithKeyObject="2CCA6202-9412-C687-7FF8-4B2E33D38BD1" localFKIndex="338B1735-4BD9-6B49-6854-B4439CA6F402" name="solicitudReporteDanios_tipoAnomalia_FK">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>3F5EE6F2-7A68-E2CF-EA43-9ED57835F13B</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>B5E740F3-C5B2-02AF-724B-98460EC394AD</importedID>
+<referredTableLongName>tipoAnomalia</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>22B542E7-9A89-94C8-A65B-D491AF5773BD</referredTableID>
+<keyObject>373C16F3-A87C-CBEA-0AA7-BB92CE461E8B</keyObject>
+<referredKeyID>373C16F3-A87C-CBEA-0AA7-BB92CE461E8B</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -1,0 +1,55 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="22B542E7-9A89-94C8-A65B-D491AF5773BD" name="tipoAnomalia">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>237A6549-8277-9F0E-DFF3-43727A33173C</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>9C16C759-418F-0512-757F-EDFEB36FA059</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="9EBEBC00-5578-0EAD-340A-8EB75073989A">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>4466CB3F-CB49-BB02-4843-4E8173FE4168</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>E10267E1-C208-0733-3CEA-132A23C4B51A</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<ownDataTypeParameters>,4,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="descripcion" id="0C9A23C2-BF04-C7A0-8034-9A4E96C1BE8B">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>4E7E97C3-E370-7606-D2AC-6E1FAB003E78</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>BF5E9A8F-969D-ED9C-D5D9-1A06D79869AA</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2000 CHAR</dataTypeSize>
+<ownDataTypeParameters>2000 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="373C16F3-A87C-CBEA-0AA7-BB92CE461E8B" name="tipoAnomalia_PK">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>7A97998D-3BE9-1035-4687-F120B395FBC0</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>9987AB6D-50F8-6E15-60F0-C8B6C706D872</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9EBEBC00-5578-0EAD-340A-8EB75073989A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

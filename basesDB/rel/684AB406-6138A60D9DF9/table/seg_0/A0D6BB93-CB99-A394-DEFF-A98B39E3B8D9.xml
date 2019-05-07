@@ -1,0 +1,55 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A0D6BB93-CB99-A394-DEFF-A98B39E3B8D9" name="solicitudCreacion">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>376A1671-39BB-7AD7-22D7-ADDBF6AD0037</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>1AF72EAC-AD85-2D2B-8264-7A2D866689FD</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="solicitud_codigo" id="70FC4DF2-97F5-2212-EEC2-F3BDCCD3FA6E">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>481371E9-BAA4-C4BA-BBDC-7E914C37849A</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>F72F5C75-761B-FCAF-DFB0-A2267ADA84EB</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E3760D67-EA32-8E87-DD65-7438AAB012A6" referredColumn="8F5137AA-D116-561A-9A62-79122EF01816"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CE39927F-9C41-D1AC-8265-C7E1F31C2695" name="solicitudCreacion_PK">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>832A48D3-DAC4-073C-69E0-0FB6ABDEBE7D</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>B4219AE3-7BBB-E267-D702-77558D18CE33</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="70FC4DF2-97F5-2212-EEC2-F3BDCCD3FA6E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FDE72A1F-0834-E49E-2C2B-0BC6726564DB" name="solicitudCreacion_solicitud_FK">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>8F492EFC-6971-616D-5010-2ABA134BB979</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="70FC4DF2-97F5-2212-EEC2-F3BDCCD3FA6E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

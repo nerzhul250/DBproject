@@ -1,0 +1,82 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="660266AF-A665-17D5-3640-0B3DA0E94A6A" name="solicitudModificacionProducto">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>ED6251E0-5FF2-7D26-6DC7-49505B96F5DA</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>F8BCAE7A-06A4-5B79-1C7B-86935728274F</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="solicitud_codigo" id="5B2C11CC-B303-3996-B764-4AB6B437222F">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>78329A7C-4160-53D4-3666-01CC493DA083</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>F63D9130-BC8A-DFE1-2785-F9446FAEC66C</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6F885129-7C67-1FAB-BA0F-2C0D283BC177" referredColumn="8F5137AA-D116-561A-9A62-79122EF01816"/>
+</associations>
+</Column>
+<Column name="producto_codigo" id="67F00B17-15D3-BDFE-8234-B5CEFC2AB598">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 12:19:51 UTC</createdTime>
+<generatorID>8BC963AA-BE40-806B-007B-E6152325F4AB</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9E43C691-118D-0C9D-545D-C2FB9963733B" referredColumn="96966DF1-842A-7696-4BFB-177F473373EB"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="06114741-C734-EF98-B10F-593022EA1537" name="solicitudModificacionProducto_PK">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>52885E29-7CCF-5FDD-F518-E4A0D4D80C3B</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>B88670E8-605B-6EA4-7673-99ECDBD3BFE0</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5B2C11CC-B303-3996-B764-4AB6B437222F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="79DC6D75-A76C-51A8-8AE6-E223B4C95A0A" name="solicitudModificacionProducto_solicitud_FK">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>2D1F9D7A-AF8A-D989-97F7-C4D70580204B</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5B2C11CC-B303-3996-B764-4AB6B437222F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2009560A-0060-2800-FD7A-A6C2937B0BD6" name="solicitudModificacionProducto_producto_FK">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 12:19:51 UTC</createdTime>
+<generatorID>511EB651-72A3-7FAB-B555-E97BC7DCD769</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="67F00B17-15D3-BDFE-8234-B5CEFC2AB598"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

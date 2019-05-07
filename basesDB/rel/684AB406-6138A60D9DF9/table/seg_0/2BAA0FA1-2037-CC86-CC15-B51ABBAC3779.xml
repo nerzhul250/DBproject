@@ -1,0 +1,123 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2BAA0FA1-2037-CC86-CC15-B51ABBAC3779" name="solicitud">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>9C271D25-578E-2193-AD57-B148E4FA8953</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>E2E752B2-A8B8-E117-C91A-D3775F2C534F</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="codigo" id="8F5137AA-D116-561A-9A62-79122EF01816">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>248C7E79-096E-4823-59EA-A2841B74508F</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>D8CB7D11-98E6-B20F-54D2-1C4A21E1EA99</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="estado" id="792779BC-A1D9-A3D0-BFE3-8295EB23F43F">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>DE6A0460-AFA4-9C93-CC76-13FC95D2F0EC</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>C9D0AF58-140E-08B3-4F74-11EC07AE6B1B</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="descripcion" id="A513F556-FB14-89F1-F51C-AF7A1A46C4E0">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>A0B45553-2D95-E517-2B4E-5638C4427B8E</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>5514F8D7-A5A2-EDC7-5923-23437A35227F</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2000 CHAR</dataTypeSize>
+<ownDataTypeParameters>2000 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cliente_cedula" id="D287F11D-622A-169E-1811-3BD1A0835C1D">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>3BE1CC7C-9B6B-2F6A-505F-2278AB9967B6</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>AFEE1D26-D9BB-7FA7-05D8-44073DCB72CE</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="370B1DD3-59EC-FC40-7002-71CD603DB3FF" referredColumn="E43AA949-4AF1-3459-EC7F-5030009D94D6"/>
+</associations>
+</Column>
+<Column name="producto_codigo" id="90981942-96E0-F662-BA4D-71D9064446C6">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>894A3158-1EBF-75FA-2BFD-B6E6225D77E7</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>84CD30ED-D33E-09D3-384F-E7C028F887E4</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="13AD7540-EE80-FD97-79A1-8A35CCA39ACC" referredColumn="96966DF1-842A-7696-4BFB-177F473373EB"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A2B6084F-BF8E-9D24-0F93-332931982B6C" name="solicitud_PK">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>FA103181-6888-BE3D-508E-0814B0DAE372</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>82909BBA-5C6E-32C4-FAD5-85346C7E294D</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8F5137AA-D116-561A-9A62-79122EF01816"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D441D01F-CB99-1256-AC95-DDB7FCEE67E6" name="solicitud_producto_FK">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>7F52C2FD-690E-F447-8697-0961C3981737</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="90981942-96E0-F662-BA4D-71D9064446C6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="33553826-A7E7-8D23-BFC6-ABF501605CB1" name="solicitud_cliente_FK">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>8083DF09-87B6-5798-4906-A3EA6FCA8D1F</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D287F11D-622A-169E-1811-3BD1A0835C1D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

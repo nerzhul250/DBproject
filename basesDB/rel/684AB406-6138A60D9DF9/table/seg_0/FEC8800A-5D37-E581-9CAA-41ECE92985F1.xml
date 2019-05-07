@@ -1,0 +1,109 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FEC8800A-5D37-E581-9CAA-41ECE92985F1" name="servicioPrestado">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>CA88CE01-CDB4-A6D5-89EC-A997D91964CB</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>BF6EAEC1-39EC-3A96-67A3-8E84449F8386</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="producto_codigo" id="B16E94EA-6B60-E006-781A-3F7D9B53CB6E">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>51A74198-C2C1-4C47-BE89-06A280EC9101</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>082CCFCA-66A0-432F-5E23-0B79C4C2C3A4</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C279F9BD-5FF5-1ADC-F403-2F6999F9B31E" referredColumn="96966DF1-842A-7696-4BFB-177F473373EB"/>
+</associations>
+</Column>
+<Column name="cliente_cedula" id="979369EF-5225-EABF-7112-6B0441E58E83">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>7A4051A0-05B9-1465-E774-6166C6B24F48</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>AB189142-1E7C-0D39-E084-937E9B557C74</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9CC5903D-E1AA-55CA-6A88-2863A925FDCF" referredColumn="E43AA949-4AF1-3459-EC7F-5030009D94D6"/>
+</associations>
+</Column>
+<Column name="fechaInicioServicio" id="2340E5D5-CB03-379B-045A-A582B590F96A">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>49464FDD-9EC8-B5B7-1E26-C98347217002</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>9A6BF2E7-40D8-D401-CF0D-1C4C056041E1</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fechaTerminacionServicio" id="794B26F6-8856-52EA-E190-F4ABEE55A40A">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>B9D0A29F-D70C-4339-44C2-7DDD809DE618</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>F6E76909-467F-6B81-3846-7F5BD56785EF</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D06C04D3-12C4-E2E6-29AE-9CC3BED35932" name="servicioPrestado_PK">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>40E5B02A-23D9-EC20-D2F4-DD5F9B761250</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>08B1B598-322A-336D-DA1A-BCD439ADE209</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B16E94EA-6B60-E006-781A-3F7D9B53CB6E"/>
+<colUsage columnID="979369EF-5225-EABF-7112-6B0441E58E83"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0BF9BB28-A463-BB99-2A53-848E62679415" name="servicioPrestado_producto_FK">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>76827F37-9D5D-2A86-D93E-4BBE2D7AD658</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B16E94EA-6B60-E006-781A-3F7D9B53CB6E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="86B18E99-4C78-4F9D-1E57-98C79114CAE1" name="servicioPrestado_cliente_FK">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>621705CC-676F-3A86-746B-AB863084865B</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="979369EF-5225-EABF-7112-6B0441E58E83"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

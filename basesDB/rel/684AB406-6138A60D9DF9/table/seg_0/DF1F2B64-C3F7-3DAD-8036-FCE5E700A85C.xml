@@ -1,0 +1,69 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DF1F2B64-C3F7-3DAD-8036-FCE5E700A85C" name="producto">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>B40FB999-9D8E-0132-DE8A-C0C14DA1901A</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>A9AA92A5-E64C-E34F-F884-4B149EB3EDA5</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="codigo" id="96966DF1-842A-7696-4BFB-177F473373EB">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>670E1B8B-910B-08D1-90FD-A2D555956107</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>ED763D51-BA53-DFA0-8EC1-697EE8ADE451</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="descripcion" id="73BBC976-2CBF-CDCD-35B3-DF7479E77381">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>69215B3F-1C0B-DDCF-9243-523376E7DCD1</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>6CB2C0BA-69A0-894A-34A0-1F22A65FBD48</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tipo" id="13F3B06D-62B8-EB96-E968-F53CA6805D7B">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>483230A4-1A0F-B9C6-4F16-2B90A68B9C36</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>4EADAEE3-E537-D0C0-9C41-3220BB993239</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CF97F470-53F6-9643-1087-C7C8435D055A" name="producto_PK">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>2F4F29DE-B2E9-F53F-C569-CBB5EF956D39</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>5084FBBB-3A22-2906-DEE7-4EEB37E50B1F</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="96966DF1-842A-7696-4BFB-177F473373EB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

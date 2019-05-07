@@ -1,0 +1,137 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2157C9AA-F25A-28A8-63AA-25F7784EF970" name="asignacion">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>21C8A307-8F10-5030-66F3-C5C8BEFF3824</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>656C36CD-FB85-A055-33F4-B84555974627</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="fechaAsignacion" id="9A94FE7C-5A48-186C-BEE8-A0D4EDA45F2B">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>EA951E43-B06D-7151-E8A2-AA58338247F5</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>306E4472-06F1-9AA3-7B74-5A1BD1F4D080</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="funcionario_cedula" id="2210957C-ED1C-A5F3-7B35-7463E152E977">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>62305266-6574-A1EB-49EB-187D66D4B470</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>B00ED2EA-A155-DACF-133E-5AB5F68B293B</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="747A63C9-EA36-0825-DCB5-EA4B5A0B64DA" referredColumn="9DB7FA78-F540-A241-C3CA-BF64578A9C4A"/>
+</associations>
+</Column>
+<Column name="solicitud_codigo" id="FFB667E9-194F-BDED-991E-930959337EFD">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>F2CA8DE0-3DCF-4A34-FFAC-988F3C7ABF7C</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>417805EE-53BD-D09E-3FF4-3DF081D5FBF2</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A4F454F8-E5FF-E068-943D-14A3A6BCED9B" referredColumn="8F5137AA-D116-561A-9A62-79122EF01816"/>
+</associations>
+</Column>
+<Column name="fechaAtencion" id="C0B51253-8E39-2E40-5ACF-F919A9EEA81F">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>30C4561C-AC90-F93E-2DC7-F1BDB47A443E</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>B337368C-149D-799C-2F67-A02839493A90</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="comentariosFuncionario" id="654809E7-AC77-FD85-1B9A-B56C8A914517">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>EB1AB6B6-13F7-7C74-55AD-B13CFECE1D78</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>77DACC26-55E2-DA3C-3258-E56F10DBEEE5</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2000 CHAR</dataTypeSize>
+<ownDataTypeParameters>2000 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="atendido" id="4D8FC353-E768-172C-29EC-53E1FCE3605C">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>8A0D4F03-7410-CC90-1FCD-34B372BEBB3E</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>F71B33F2-EF2F-C7E5-E813-2B985E88547B</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E268476C-1D1C-1C6F-4334-313AAEE930B7" name="asignacion_PK">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>A856ACF5-4808-8CCB-03DE-8F2FE34BDEEA</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>FB40A5EF-26E5-5D4D-E9AE-F743C0C261EF</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2210957C-ED1C-A5F3-7B35-7463E152E977"/>
+<colUsage columnID="FFB667E9-194F-BDED-991E-930959337EFD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="61333864-D0D7-D60D-8E2A-0CE25F69B0D9" name="asignacion_funcionario_FK">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>C1FF6D92-F973-2365-CF07-D8E5DAE31758</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2210957C-ED1C-A5F3-7B35-7463E152E977"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="62BE7A97-8F34-8C4F-235E-8E19BE6EBE5D" name="asignacion_solicitud_FK">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-07 11:44:52 UTC</createdTime>
+<generatorID>18307E22-3331-96CA-F838-CBFDAB23EC6C</generatorID>
+<ownerDesignName>basesDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FFB667E9-194F-BDED-991E-930959337EFD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
