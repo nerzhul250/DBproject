@@ -1,5 +1,5 @@
 -- Generado por Oracle SQL Developer Data Modeler 18.4.0.339.1536
---   en:        2019-05-11 15:58:31 COT
+--   en:        2019-05-12 09:46:25 COT
 --   sitio:      Oracle Database 11g
 --   tipo:      Oracle Database 11g
 
@@ -38,7 +38,8 @@ CREATE TABLE asignacion (
     fechaatencion            DATE,
     comentariosfuncionario   VARCHAR2(2000 CHAR),
     atendido                 CHAR(1)
-);
+)
+LOGGING;
 
 ALTER TABLE asignacion ADD CONSTRAINT asignacion_pk PRIMARY KEY ( funcionario_cedula,
                                                                   solicitud_codigo );
@@ -49,7 +50,8 @@ CREATE TABLE cliente (
     fechanacimiento   DATE,
     direccion         VARCHAR2(20 CHAR),
     telefono          VARCHAR2(20 CHAR)
-);
+)
+LOGGING;
 
 ALTER TABLE cliente ADD CONSTRAINT cliente_pk PRIMARY KEY ( cedula );
 
@@ -59,7 +61,8 @@ CREATE TABLE funcionario (
     fechanacimiento   DATE,
     direccion         VARCHAR2(20 CHAR),
     telefono          VARCHAR2(20 CHAR)
-);
+)
+LOGGING;
 
 ALTER TABLE funcionario ADD CONSTRAINT funcionario_pk PRIMARY KEY ( cedula );
 
@@ -67,7 +70,8 @@ CREATE TABLE parametros (
     codigo   NUMBER(10) NOT NULL,
     nombre   VARCHAR2(20 CHAR),
     valor    VARCHAR2(50 CHAR)
-);
+)
+LOGGING;
 
 ALTER TABLE parametros ADD CONSTRAINT parametros_pk PRIMARY KEY ( codigo );
 
@@ -75,7 +79,8 @@ CREATE TABLE producto (
     codigo        VARCHAR2(10 CHAR) NOT NULL,
     descripcion   VARCHAR2(100 CHAR),
     tipo          NUMBER(6)
-);
+)
+LOGGING;
 
 ALTER TABLE producto ADD CONSTRAINT producto_pk PRIMARY KEY ( codigo );
 
@@ -84,20 +89,23 @@ CREATE TABLE servicioprestado (
     cliente_cedula             VARCHAR2(20 CHAR) NOT NULL,
     fechainicioservicio        DATE,
     fechaterminacionservicio   DATE
-);
+)
+LOGGING;
 
 ALTER TABLE servicioprestado ADD CONSTRAINT servicioprestado_pk PRIMARY KEY ( producto_codigo,
                                                                               cliente_cedula );
 
 CREATE TABLE solcancelacionproducto (
     solicitud_codigo NUMBER(10) NOT NULL
-);
+)
+LOGGING;
 
 ALTER TABLE solcancelacionproducto ADD CONSTRAINT solcanceprod_pk PRIMARY KEY ( solicitud_codigo );
 
 CREATE TABLE solcreacion (
     solicitud_codigo NUMBER(10) NOT NULL
-);
+)
+LOGGING;
 
 ALTER TABLE solcreacion ADD CONSTRAINT solcreacion_pk PRIMARY KEY ( solicitud_codigo );
 
@@ -106,89 +114,108 @@ CREATE TABLE solicitud (
     estado            VARCHAR2(50 CHAR),
     descripcion       VARCHAR2(2000 CHAR),
     cliente_cedula    VARCHAR2(20 CHAR) NOT NULL,
-    producto_codigo   VARCHAR2(10 CHAR) NOT NULL
-);
+    producto_codigo   VARCHAR2(10 CHAR) NOT NULL,
+    fechacreacion     DATE
+)
+LOGGING;
 
 ALTER TABLE solicitud ADD CONSTRAINT solicitud_pk PRIMARY KEY ( codigo );
 
 CREATE TABLE solmodificacionproducto (
     solicitud_codigo   NUMBER(10) NOT NULL,
     producto_codigo    VARCHAR2(10 CHAR) NOT NULL
-);
+)
+LOGGING;
 
 ALTER TABLE solmodificacionproducto ADD CONSTRAINT solmodprod_pk PRIMARY KEY ( solicitud_codigo );
 
 CREATE TABLE solreclamo (
     solicitud_codigo NUMBER(10) NOT NULL
-);
+)
+LOGGING;
 
 ALTER TABLE solreclamo ADD CONSTRAINT solreclamo_pk PRIMARY KEY ( solicitud_codigo );
 
 CREATE TABLE solreportedanios (
     solicitud_codigo   NUMBER(10) NOT NULL,
     tipoanomalia_id    NUMBER(4) NOT NULL
-);
+)
+LOGGING;
 
 ALTER TABLE solreportedanios ADD CONSTRAINT solrepdan_pk PRIMARY KEY ( solicitud_codigo );
 
 CREATE TABLE tipoanomalia (
     id            NUMBER(4) NOT NULL,
     descripcion   VARCHAR2(2000 CHAR)
-);
+)
+LOGGING;
 
 ALTER TABLE tipoanomalia ADD CONSTRAINT tipoanomalia_pk PRIMARY KEY ( id );
 
 ALTER TABLE asignacion
     ADD CONSTRAINT asignacion_funcionario_fk FOREIGN KEY ( funcionario_cedula )
-        REFERENCES funcionario ( cedula );
+        REFERENCES funcionario ( cedula )
+    NOT DEFERRABLE;
 
 ALTER TABLE asignacion
     ADD CONSTRAINT asignacion_solicitud_fk FOREIGN KEY ( solicitud_codigo )
-        REFERENCES solicitud ( codigo );
+        REFERENCES solicitud ( codigo )
+    NOT DEFERRABLE;
 
 ALTER TABLE servicioprestado
     ADD CONSTRAINT servicioprestado_cliente_fk FOREIGN KEY ( cliente_cedula )
-        REFERENCES cliente ( cedula );
+        REFERENCES cliente ( cedula )
+    NOT DEFERRABLE;
 
 ALTER TABLE servicioprestado
     ADD CONSTRAINT servicioprestado_producto_fk FOREIGN KEY ( producto_codigo )
-        REFERENCES producto ( codigo );
+        REFERENCES producto ( codigo )
+    NOT DEFERRABLE;
 
 ALTER TABLE solcancelacionproducto
     ADD CONSTRAINT solcanceprod_solicitud_fk FOREIGN KEY ( solicitud_codigo )
-        REFERENCES solicitud ( codigo );
+        REFERENCES solicitud ( codigo )
+    NOT DEFERRABLE;
 
 ALTER TABLE solcreacion
     ADD CONSTRAINT solcreacion_solicitud_fk FOREIGN KEY ( solicitud_codigo )
-        REFERENCES solicitud ( codigo );
+        REFERENCES solicitud ( codigo )
+    NOT DEFERRABLE;
 
 ALTER TABLE solicitud
     ADD CONSTRAINT solicitud_cliente_fk FOREIGN KEY ( cliente_cedula )
-        REFERENCES cliente ( cedula );
+        REFERENCES cliente ( cedula )
+    NOT DEFERRABLE;
 
 ALTER TABLE solicitud
     ADD CONSTRAINT solicitud_producto_fk FOREIGN KEY ( producto_codigo )
-        REFERENCES producto ( codigo );
+        REFERENCES producto ( codigo )
+    NOT DEFERRABLE;
 
 ALTER TABLE solmodificacionproducto
     ADD CONSTRAINT solmodiprod_producto_fk FOREIGN KEY ( producto_codigo )
-        REFERENCES producto ( codigo );
+        REFERENCES producto ( codigo )
+    NOT DEFERRABLE;
 
 ALTER TABLE solmodificacionproducto
     ADD CONSTRAINT solmodprod_solicitud_fk FOREIGN KEY ( solicitud_codigo )
-        REFERENCES solicitud ( codigo );
+        REFERENCES solicitud ( codigo )
+    NOT DEFERRABLE;
 
 ALTER TABLE solreclamo
     ADD CONSTRAINT solreclamo_solicitud_fk FOREIGN KEY ( solicitud_codigo )
-        REFERENCES solicitud ( codigo );
+        REFERENCES solicitud ( codigo )
+    NOT DEFERRABLE;
 
 ALTER TABLE solreportedanios
     ADD CONSTRAINT solrepdan_solicitud_fk FOREIGN KEY ( solicitud_codigo )
-        REFERENCES solicitud ( codigo );
+        REFERENCES solicitud ( codigo )
+    NOT DEFERRABLE;
 
 ALTER TABLE solreportedanios
     ADD CONSTRAINT solrepdan_tipoanomalia_fk FOREIGN KEY ( tipoanomalia_id )
-        REFERENCES tipoanomalia ( id );
+        REFERENCES tipoanomalia ( id )
+    NOT DEFERRABLE;
 
 
 
