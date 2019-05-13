@@ -1,30 +1,30 @@
 CREATE OR REPLACE PACKAGE pkSolCancelacionProducto AS -- spec
-PROCEDURE pInsertarSolCancelacionProducto (ivCodigo solicitud.codigo%TYPE,ivEstado solicitud.estado%TYPE,ivDescripcion solicitud.descripcion%TYPE,ivClienteCedula solicitud.cliente_cedula%TYPE, ivProductoCodigo solicitud.producto_codigo%TYPE);
-PROCEDURE pBorrarSolCancelacionProducto (ivCodigo solicitud.codigo%TYPE);
-PROCEDURE pModificarSolCancelacionProducto (ivCodigo solicitud.codigo%TYPE,ivEstado solicitud.estado%TYPE,ivDescripcion solicitud.descripcion%TYPE,ivClienteCedula solicitud.cliente_cedula%TYPE, ivProductoCodigo solicitud.producto_codigo%TYPE);
-FUNCTION fConsultarSolCancelacionProducto (ivCodigo solicitud.codigo%TYPE) RETURN VARCHAR2;
+PROCEDURE pInsertar (ivCodigo solicitud.codigo%TYPE,ivEstado solicitud.estado%TYPE,ivDescripcion solicitud.descripcion%TYPE,ivClienteCedula solicitud.cliente_cedula%TYPE, ivProductoCodigo solicitud.producto_codigo%TYPE);
+PROCEDURE pBorrar (ivCodigo solicitud.codigo%TYPE);
+PROCEDURE pModificar (ivCodigo solicitud.codigo%TYPE,ivEstado solicitud.estado%TYPE,ivDescripcion solicitud.descripcion%TYPE,ivClienteCedula solicitud.cliente_cedula%TYPE, ivProductoCodigo solicitud.producto_codigo%TYPE);
+FUNCTION fConsultar (ivCodigo solicitud.codigo%TYPE) RETURN VARCHAR2;
 END pkSolCancelacionProducto;
 /
 CREATE OR REPLACE PACKAGE BODY pkSolCancelacionProducto AS
 -- insertar
-PROCEDURE pInsertarSolCancelacionProducto (ivCodigo solicitud.codigo%TYPE,ivEstado solicitud.estado%TYPE,ivDescripcion solicitud.descripcion%TYPE,ivClienteCedula solicitud.cliente_cedula%TYPE, ivProductoCodigo solicitud.producto_codigo%TYPE) IS
+PROCEDURE pInsertar (ivCodigo solicitud.codigo%TYPE,ivEstado solicitud.estado%TYPE,ivDescripcion solicitud.descripcion%TYPE,ivClienteCedula solicitud.cliente_cedula%TYPE, ivProductoCodigo solicitud.producto_codigo%TYPE) IS
 BEGIN
 INSERT INTO solicitud VALUES (ivCodigo,ivEstado,ivDescripcion,ivClienteCedula,ivProductoCodigo,sysdate);
 INSERT INTO solcancelacionproducto VALUES (ivCodigo);
-END pInsertarSolCancelacionProducto;
+END pInsertar;
 -- borrar
-PROCEDURE pBorrarSolCancelacionProducto (ivCodigo solicitud.codigo%TYPE) IS
+PROCEDURE pBorrar (ivCodigo solicitud.codigo%TYPE) IS
 BEGIN
 DELETE FROM solcancelacionproducto WHERE solicitud_codigo = ivCodigo;
 DELETE FROM solicitud WHERE codigo = ivCodigo;
-END pBorrarSolCancelacionProducto;
+END pBorrar;
 -- modificar
-PROCEDURE pModificarSolCancelacionProducto (ivCodigo solicitud.codigo%TYPE,ivEstado solicitud.estado%TYPE,ivDescripcion solicitud.descripcion%TYPE,ivClienteCedula solicitud.cliente_cedula%TYPE, ivProductoCodigo solicitud.producto_codigo%TYPE) IS
+PROCEDURE pModificar (ivCodigo solicitud.codigo%TYPE,ivEstado solicitud.estado%TYPE,ivDescripcion solicitud.descripcion%TYPE,ivClienteCedula solicitud.cliente_cedula%TYPE, ivProductoCodigo solicitud.producto_codigo%TYPE) IS
 BEGIN
 UPDATE solicitud SET estado=ivEstado,descripcion=ivDescripcion,cliente_cedula=ivClienteCedula,producto_codigo=ivProductoCodigo,fechacreacion=sysdate WHERE codigo = ivCodigo;
-END pModificarSolCancelacionProducto;
+END pModificar;
 -- consultar
-FUNCTION fConsultarSolCancelacionProducto (ivCodigo solicitud.codigo%TYPE) RETURN VARCHAR2 IS
+FUNCTION fConsultar (ivCodigo solicitud.codigo%TYPE) RETURN VARCHAR2 IS
 vCodigo solicitud.codigo%TYPE;
 vEstado solicitud.estado%TYPE;
 vDescripcion solicitud.descripcion%TYPE;
@@ -43,5 +43,5 @@ EXCEPTION
     RAISE_APPLICATION_ERROR(-20001,'Error, no existe solicito de reporte de danios con ese id');
     WHEN OTHERS THEN
     RAISE_APPLICATION_ERROR(-20001,'Error desconocido'||SQLERRM||SQLCODE);
-END fConsultarSolCancelacionProducto;
+END fConsultar;
 END pkSolCancelacionProducto;
