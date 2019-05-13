@@ -3,7 +3,7 @@ PROCEDURE pInsertar (ivCodigo solicitud.codigo%TYPE,ivEstado solicitud.estado%TY
 PROCEDURE pBorrar (ivCodigo solicitud.codigo%TYPE);
 PROCEDURE pModificar (ivCodigo solicitud.codigo%TYPE,ivEstado solicitud.estado%TYPE,ivDescripcion solicitud.descripcion%TYPE,ivClienteCedula solicitud.cliente_cedula%TYPE, ivProductoCodigo solicitud.producto_codigo%TYPE, ivFechaCracion solicitud.fechaCreacion%TYPE);
 FUNCTION fConsultar (ivCodigo solicitud.codigo%TYPE) RETURN VARCHAR2;
-END pkSolCreacion;
+END pkSolReclamo;
 /
 CREATE OR REPLACE PACKAGE BODY pkSolReclamo AS
 --insertar
