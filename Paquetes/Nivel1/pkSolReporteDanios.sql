@@ -1,31 +1,31 @@
 CREATE OR REPLACE PACKAGE pkSolReporteDanios AS -- spec
-PROCEDURE pInsertarSolReporteDanios (ivCodigo solicitud.codigo%TYPE,ivEstado solicitud.estado%TYPE,ivDescripcion solicitud.descripcion%TYPE,ivClienteCedula solicitud.cliente_cedula%TYPE, ivProductoCodigo solicitud.producto_codigo%TYPE,ivTipoAnomalia_Id solreportedanios.tipoanomalia_id%TYPE);
-PROCEDURE pBorrarSolReporteDanios (ivCodigo solicitud.codigo%TYPE);
-PROCEDURE pModificarSolReporteDanios (ivCodigo solicitud.codigo%TYPE,ivEstado solicitud.estado%TYPE,ivDescripcion solicitud.descripcion%TYPE,ivClienteCedula solicitud.cliente_cedula%TYPE, ivProductoCodigo solicitud.producto_codigo%TYPE,ivTipoAnomalia_Id solreportedanios.tipoanomalia_id%TYPE);
-FUNCTION fConsultarSolReporteDanios (ivCodigo solicitud.codigo%TYPE) RETURN VARCHAR2;
+PROCEDURE pInsertar (ivCodigo solicitud.codigo%TYPE,ivEstado solicitud.estado%TYPE,ivDescripcion solicitud.descripcion%TYPE,ivClienteCedula solicitud.cliente_cedula%TYPE, ivProductoCodigo solicitud.producto_codigo%TYPE,ivTipoAnomalia_Id solreportedanios.tipoanomalia_id%TYPE);
+PROCEDURE pBorrar (ivCodigo solicitud.codigo%TYPE);
+PROCEDURE pModificar (ivCodigo solicitud.codigo%TYPE,ivEstado solicitud.estado%TYPE,ivDescripcion solicitud.descripcion%TYPE,ivClienteCedula solicitud.cliente_cedula%TYPE, ivProductoCodigo solicitud.producto_codigo%TYPE,ivTipoAnomalia_Id solreportedanios.tipoanomalia_id%TYPE);
+FUNCTION fConsultar (ivCodigo solicitud.codigo%TYPE) RETURN VARCHAR2;
 END pkSolReporteDanios;
 /
 CREATE OR REPLACE PACKAGE BODY pkSolReporteDanios AS
 -- insertar
-PROCEDURE pInsertarSolReporteDanios (ivCodigo solicitud.codigo%TYPE,ivEstado solicitud.estado%TYPE,ivDescripcion solicitud.descripcion%TYPE,ivClienteCedula solicitud.cliente_cedula%TYPE, ivProductoCodigo solicitud.producto_codigo%TYPE,ivTipoAnomalia_Id solreportedanios.tipoanomalia_id%TYPE) IS
+PROCEDURE pInsertar (ivCodigo solicitud.codigo%TYPE,ivEstado solicitud.estado%TYPE,ivDescripcion solicitud.descripcion%TYPE,ivClienteCedula solicitud.cliente_cedula%TYPE, ivProductoCodigo solicitud.producto_codigo%TYPE,ivTipoAnomalia_Id solreportedanios.tipoanomalia_id%TYPE) IS
 BEGIN
 INSERT INTO solicitud VALUES (ivCodigo,ivEstado,ivDescripcion,ivClienteCedula,ivProductoCodigo,sysdate);
 INSERT INTO solreportedanios VALUES (ivCodigo,ivTipoAnomalia_Id);
-END pInsertarSolReporteDanios;
+END pInsertar;
 -- borrar
-PROCEDURE pBorrarSolReporteDanios (ivCodigo solicitud.codigo%TYPE) IS
+PROCEDURE pBorrar (ivCodigo solicitud.codigo%TYPE) IS
 BEGIN
 DELETE FROM solreportedanios WHERE solicitud_codigo = ivCodigo;
 DELETE FROM solicitud WHERE codigo = ivCodigo;
-END pBorrarSolReporteDanios;
+END pBorrar;
 -- modificar
-PROCEDURE pModificarSolReporteDanios (ivCodigo solicitud.codigo%TYPE,ivEstado solicitud.estado%TYPE,ivDescripcion solicitud.descripcion%TYPE,ivClienteCedula solicitud.cliente_cedula%TYPE, ivProductoCodigo solicitud.producto_codigo%TYPE,ivTipoAnomalia_Id solreportedanios.tipoanomalia_id%TYPE) IS
+PROCEDURE pModificar (ivCodigo solicitud.codigo%TYPE,ivEstado solicitud.estado%TYPE,ivDescripcion solicitud.descripcion%TYPE,ivClienteCedula solicitud.cliente_cedula%TYPE, ivProductoCodigo solicitud.producto_codigo%TYPE,ivTipoAnomalia_Id solreportedanios.tipoanomalia_id%TYPE) IS
 BEGIN
 UPDATE solicitud SET estado=ivEstado,descripcion=ivDescripcion,cliente_cedula=ivClienteCedula,producto_codigo=ivProductoCodigo,fechacreacion=sysdate WHERE codigo = ivCodigo;
 UPDATE solreportedanios SET tipoanomalia_id=ivTipoAnomalia_Id WHERE solicitud_codigo = ivCodigo;
-END pModificarSolReporteDanios;
+END pModificar;
 -- consultar
-FUNCTION fConsultarSolReporteDanios (ivCodigo solicitud.codigo%TYPE) RETURN VARCHAR2 IS
+FUNCTION fConsultar (ivCodigo solicitud.codigo%TYPE) RETURN VARCHAR2 IS
 vCodigo solicitud.codigo%TYPE;
 vEstado solicitud.estado%TYPE;
 vDescripcion solicitud.descripcion%TYPE;
@@ -45,5 +45,5 @@ EXCEPTION
     RAISE_APPLICATION_ERROR(-20001,'Error, no existe solicito de reporte de danios con ese id');
     WHEN OTHERS THEN
     RAISE_APPLICATION_ERROR(-20001,'Error desconocido'||SQLERRM||SQLCODE);
-END fConsultarSolReporteDanios;
+END fConsultar;
 END pkSolReporteDanios;
