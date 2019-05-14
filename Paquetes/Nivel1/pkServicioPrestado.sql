@@ -24,5 +24,19 @@ CREATE OR REPLACE PACKAGE BODY pkServicioPrestado AS
 	FUNCTION fConsultar (ivProductoCodigo servicioprestado.producto_codigo%TYPE, ivClienteCedula servicioprestado.cliente_cedula%TYPE) RETURN VARCHAR2 IS
 		vproductocodigo servicioprestado.producto_codigo%TYPE;
 		vclientecedula servicioprestado.cliente_cedula%TYPE;
-		
+		vfechainicioservicio servicioprestado.fechainicioservicio%TYPE;
+		vfechaterminacionservicio servicioprestado.fechaterminacionservicio%TYPE;
+		ovConsulta VARCHAR2(5000);
+	BEGIN
+		SELECT producto_codigo, cliente_cedula, fechainicioservicio, fechaterminacionservicio INTO vproductocodigo, vclientecedula,vfechainicioservicio,vfechaterminacionservicio
+		FROM servicioprestado
+		WHERE producto_codigo = ivProductoCodigo AND cliente_cedula= ivClienteCedula;
+		ovConsulta:= vproductocodigo||','||vclientecedula||','||vfechainicioservicio||','||vfechaterminacionservicio;
+		return ovConsulta;
+		EXCEPTION
+			WHEN NO_DATA_FOUND THEN
+			RAISE_APPLICATION_ERROR(-20001,'Error, no existe solicito de reporte de danios con ese id');
+			WHEN OTHERS THEN
+			RAISE_APPLICATION_ERROR(-20001,'Error desconocido'||SQLERRM||SQLCODE);
+	END fConsultar;
 END pkServicioPrestado;
