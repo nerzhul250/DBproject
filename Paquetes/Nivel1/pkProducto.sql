@@ -29,7 +29,7 @@ CREATE OR REPLACE PACKAGE BODY pkProducto AS
 		SELECT codigo, descripcion, tipo INTO vCodigo, vDescripcion, vTipo
 		FROM producto
 		WHERE codigo = ivCodigo;
-		ovConsulta:= vCodigo||','||vDescripcion||','||vTipo||;
+		ovConsulta:= vCodigo||','||vDescripcion||','||vTipo;
 		return ovConsulta;
 		EXCEPTION
 			WHEN NO_DATA_FOUND THEN
