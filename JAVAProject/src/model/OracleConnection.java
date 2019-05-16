@@ -4,14 +4,17 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class OracleConnection {
-	static Connection oracleConnection;
-	public void closeConnection() throws SQLException {
+	private static Connection oracleConnection;
+	private OracleConnection() {
+		System.out.println("HEHEHEHEHE");
+	}
+	public static void closeConnection() throws SQLException {
 		if(oracleConnection!=null) {
 			oracleConnection.close();
 			oracleConnection=null;
 		}
 	}
-	public Connection returnConnection (String username, String password) throws SQLException {
+	public static Connection returnConnection (String username, String password) throws SQLException {
 		if(oracleConnection==null) {
 			oracleConnection = DriverManager.getConnection(
 					"jdbc:Oracle:thin:@//200.3.193.24:1522/ESTUD",
