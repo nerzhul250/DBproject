@@ -37,7 +37,7 @@ CREATE OR REPLACE PACKAGE BODY pkCliente AS
 		return ovConsulta;
 		EXCEPTION
 			WHEN NO_DATA_FOUND THEN
-			RAISE_APPLICATION_ERROR(-20001,'Error, no existe solicito de reporte de danios con ese id');
+			RAISE_APPLICATION_ERROR(-20001,'Error, no existe el cliente solicitado');
 			WHEN OTHERS THEN
 			RAISE_APPLICATION_ERROR(-20001,'Error desconocido'||SQLERRM||SQLCODE);
 	END fConsultar;
