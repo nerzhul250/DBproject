@@ -26,10 +26,9 @@ FUNCTION fConsultar (ivId tipoanomalia.id%TYPE) RETURN tipoanomalia%rowtype IS
 ovconsulta tipoanomalia%rowtype;
 BEGIN
 SELECT * into ovconsulta FROM tipoanomalia WHERE id=ivId;
+RETURN ovconsulta;
 EXCEPTION
-    WHEN NO_DATA_FOUND THEN
-    RAISE_APPLICATION_ERROR(-20001,'Error, no existe tipo de anomalia con ese id');
-    WHEN OTHERS THEN
-    RAISE_APPLICATION_ERROR(-20001,'Error desconocido'||SQLERRM||SQLCODE);
+    WHEN NO_DATA_FOUND THEN RAISE_APPLICATION_ERROR(-20001,'Error, no existe tipo de anomalia con id: '||ivId);
+    WHEN OTHERS THEN RAISE_APPLICATION_ERROR(-20002,'Error desconocido'||SQLERRM||SQLCODE);
 END fConsultar;
 END pkTipoAnomalia;
