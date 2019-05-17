@@ -1,7 +1,7 @@
 CREATE OR REPLACE PACKAGE pkCliente AS -- spec
 	PROCEDURE pInsertar (ivCedula cliente.cedula%TYPE, 	ivNombre cliente.nombre%TYPE, ivfechaNacimiento cliente.fechanacimiento%TYPE, ivdireccion cliente.direccion%TYPE, ivTelefono cliente.telefono%TYPE);
 	PROCEDURE pBorrar(ivCedula cliente.cedula%TYPE);
-	PROCEDURE pModificar(ivCedula cliente.cedula%TYPE, 	ivNombre cliente.nombre%TYPE, ivfechaNacimiento cliente.fechanacimiento%TYPE, ivdireccion cliente.direccion%TYPE, ivTelefono cliente.telefono%TYPE));
+	PROCEDURE pModificar(ivCedula cliente.cedula%TYPE, 	ivNombre cliente.nombre%TYPE, ivfechaNacimiento cliente.fechanacimiento%TYPE, ivdireccion cliente.direccion%TYPE, ivTelefono cliente.telefono%TYPE);
 	FUNCTION fConsultar (ivCedula cliente.cedula%TYPE) RETURN VARCHAR2;
 END pkCliente;
 
@@ -17,7 +17,7 @@ CREATE OR REPLACE PACKAGE BODY pkCliente AS
 		DELETE FROM cliente WHERE cedula= ivCedula;
 	END pBorrar;
 	
-	PROCEDURE pModificar(ivCedula cliente.cedula%TYPE, 	ivNombre cliente.nombre%TYPE, ivfechaNacimiento cliente.fechanacimiento%TYPE, ivdireccion cliente.direccion%TYPE, ivTelefono cliente.telefono%TYPE)) IS
+	PROCEDURE pModificar(ivCedula cliente.cedula%TYPE, 	ivNombre cliente.nombre%TYPE, ivfechaNacimiento cliente.fechanacimiento%TYPE, ivdireccion cliente.direccion%TYPE, ivTelefono cliente.telefono%TYPE) IS
 	BEGIN
 		UPDATE cliente SET cedula= ivCedula, nombre = ivNombre, fechanacimiento= ivfechaNacimiento, direccion= ivdireccion, telefono = ivTelefono WHERE cedula= ivCedula;
 	END pModificar;

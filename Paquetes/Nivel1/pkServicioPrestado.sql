@@ -19,7 +19,7 @@ CREATE OR REPLACE PACKAGE BODY pkServicioPrestado AS
 	PROCEDURE pModificar(ivProductoCodigo servicioprestado.producto_codigo%TYPE, ivClienteCedula servicioprestado.cliente_cedula%TYPE, ivFechainicioservicio servicioprestado.fechainicioservicio%TYPE, ivFechaTerminacionServicio servicioprestado.fechaterminacionservicio%TYPE) IS
 	BEGIN
 		UPDATE servicioprestado SET producto_codigo = ivProductoCodigo, cliente_cedula = ivClienteCedula, fechainicioservicio = ivFechainicioservicio, fechaterminacionservicio= ivFechaTerminacionServicio WHERE producto_codigo= ivProductoCodigo AND cliente_cedula= ivClienteCedula;
-	END
+	END pModificar;
 	
 	FUNCTION fConsultar (ivProductoCodigo servicioprestado.producto_codigo%TYPE, ivClienteCedula servicioprestado.cliente_cedula%TYPE) RETURN VARCHAR2 IS
 		vproductocodigo servicioprestado.producto_codigo%TYPE;
