@@ -19,15 +19,15 @@
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <Label layoutX="14.0" layoutY="14.0" text="Crear tipo de anomalia" />
-                              <TextField fx:id="txfCrearDescripcionAnomalia" layoutX="14.0" layoutY="38.0" promptText="Descripción" />
-                              <Button fx:id="btCrearAnomalia" layoutX="184.0" layoutY="38.0" mnemonicParsing="false" text="Crear" />
-                              <Label layoutX="14.0" layoutY="79.0" text="Modificar tipo de anomalia" />
-                              <TextField fx:id="txfModificarIdAnomalia" layoutX="14.0" layoutY="111.0" promptText="Id" />
-                              <TextField fx:id="txfModificarDescripcionAnomalia" layoutX="174.0" layoutY="111.0" promptText="Nueva descripción" />
-                              <Button fx:id="btModificarAnomalia" layoutX="335.0" layoutY="111.0" mnemonicParsing="false" text="Modificar" />
-                              <Label layoutX="14.0" layoutY="151.0" text="Eliminar tipo de anomalia" />
-                              <TextField fx:id="txfEliminarAnomalia" layoutX="14.0" layoutY="183.0" promptText="Id" />
-                              <Button fx:id="btEliminarAnomalia" layoutX="181.0" layoutY="183.0" mnemonicParsing="false" text="Eliminar" />
+                              <TextField fx:id="txfCrearDescripcionAnomalia" alignment="TOP_LEFT" layoutX="14.0" layoutY="44.0" prefHeight="81.0" prefWidth="315.0" promptText="Descripción" />
+                              <Button fx:id="btCrearAnomalia" layoutX="346.0" layoutY="72.0" mnemonicParsing="false" text="Crear" />
+                              <Label layoutX="14.0" layoutY="140.0" text="Modificar tipo de anomalia" />
+                              <TextField fx:id="txfModificarIdAnomalia" layoutX="11.0" layoutY="171.0" promptText="Id" />
+                              <TextField fx:id="txfModificarDescripcionAnomalia" alignment="TOP_LEFT" layoutX="11.0" layoutY="210.0" prefHeight="81.0" prefWidth="318.0" promptText="Nueva descripción" />
+                              <Button fx:id="btModificarAnomalia" layoutX="346.0" layoutY="238.0" mnemonicParsing="false" text="Modificar" />
+                              <Label layoutX="18.0" layoutY="307.0" text="Eliminar tipo de anomalia" />
+                              <TextField fx:id="txfEliminarAnomalia" layoutX="18.0" layoutY="338.0" promptText="Id" />
+                              <Button fx:id="btEliminarAnomalia" layoutX="189.0" layoutY="338.0" mnemonicParsing="false" text="Eliminar" />
                            </children></AnchorPane>
                     </content>
                   </Tab>
@@ -72,7 +72,19 @@
     </Tab>
     <Tab text="Creacion de solicitudes">
       <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="Informacion general" />
+                  <TextField alignment="TOP_LEFT" layoutX="14.0" layoutY="81.0" prefHeight="84.0" prefWidth="310.0" promptText="Descripción" />
+                  <TextField layoutX="14.0" layoutY="46.0" promptText="Cedula cliente" />
+                  <TextField layoutX="175.0" layoutY="46.0" promptText="Codigo producto" />
+                  <Label layoutX="14.0" layoutY="172.0" text="Reportar daños" />
+                  <TextField layoutX="14.0" layoutY="198.0" promptText="Id de anomalia" />
+                  <Label layoutX="14.0" layoutY="233.0" text="Solicitar cambio de producto" />
+                  <Button layoutX="182.0" layoutY="198.0" mnemonicParsing="false" text="Registrar reporte de daños" />
+                  <TextField layoutX="14.0" layoutY="262.0" promptText="Codigo nuevo producto" />
+                  <Button layoutX="182.0" layoutY="262.0" mnemonicParsing="false" text="Registrar solicitud de cambio de producto" />
+               </children></AnchorPane>
       </content>
     </Tab>
       <Tab text="Asignacion">
