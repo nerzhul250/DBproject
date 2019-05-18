@@ -2,9 +2,9 @@ CREATE OR REPLACE PACKAGE pkCliente AS -- spec
 	PROCEDURE pInsertar (ivCedula cliente.cedula%TYPE, 	ivNombre cliente.nombre%TYPE, ivfechaNacimiento cliente.fechanacimiento%TYPE, ivdireccion cliente.direccion%TYPE, ivTelefono cliente.telefono%TYPE);
 	PROCEDURE pBorrar(ivCedula cliente.cedula%TYPE);
 	PROCEDURE pModificar(ivCedula cliente.cedula%TYPE, 	ivNombre cliente.nombre%TYPE, ivfechaNacimiento cliente.fechanacimiento%TYPE, ivdireccion cliente.direccion%TYPE, ivTelefono cliente.telefono%TYPE);
-	FUNCTION fConsultar (ivCedula cliente.cedula%TYPE) RETURN VARCHAR2;
+	FUNCTION fConsultar (ivCedula cliente.cedula%TYPE) RETURN cliente%rowtype;
 END pkCliente;
-
+/
 CREATE OR REPLACE PACKAGE BODY pkCliente AS
 	
 	PROCEDURE pInsertar (ivCedula cliente.cedula%TYPE, 	ivNombre cliente.nombre%TYPE, ivfechaNacimiento cliente.fechanacimiento%TYPE, ivdireccion cliente.direccion%TYPE, ivTelefono cliente.telefono%TYPE) IS
@@ -22,18 +22,12 @@ CREATE OR REPLACE PACKAGE BODY pkCliente AS
 		UPDATE cliente SET cedula= ivCedula, nombre = ivNombre, fechanacimiento= ivfechaNacimiento, direccion= ivdireccion, telefono = ivTelefono WHERE cedula= ivCedula;
 	END pModificar;
 	
-	FUNCTION fConsultar (ivCedula cliente.cedula%TYPE) RETURN VARCHAR2 IS
-		vCedula cliente.cedula%TYPE;
-		vNombre cliente.nombre%TYPE;
-		vFechaNacimiento cliente.fechanacimiento%TYPE;
-		vDireccion cliente.direccion%TYPE;
-		vTelefono cliente.telefono%TYPE;
-		ovConsulta VARCHAR2(5000);
+	FUNCTION fConsultar (ivCedula cliente.cedula%TYPE) RETURN cliente%rowtype IS
+		ovConsulta cliente%rowtype;
 	BEGIN
-		SELECT cedula, nombre, fechanacimiento, direccion,telefono INTO vCedula,vNombre,vFechaNacimiento,vDireccion, vTelefono
+		SELECT * INTO ovConsulta
 		FROM cliente
 		WHERE cedula = ivCedula;
-		ovConsulta:= vCedula||','||vNombre||','||vFechaNacimiento||','||vDireccion||','||vTelefono;
 		return ovConsulta;
 		EXCEPTION
 			WHEN NO_DATA_FOUND THEN
