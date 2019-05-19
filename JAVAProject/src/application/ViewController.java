@@ -75,12 +75,86 @@ public class ViewController implements Initializable{
 	private TextField txfEliminarCedulaCliente;
 	@FXML
 	private Button btEliminarCliente;
+	
+	/**
+	 * Crear parametro
+	 */
+	@FXML
+	private TextField txfCrearNombreParametro;
+	@FXML
+	private TextField txfCrearValorParametro;
+	@FXML
+	private Button btCrearParametro;
+	/**
+	 * Modificar parametro
+	 */
+	@FXML
+	private TextField txfModificarCodigoParametro;
+	@FXML
+	private TextField txfModificarNombreParametro;
+	@FXML
+	private TextField txfModificarValorParametro;
+	@FXML
+	private Button btModificarParametro;
+	/**
+	 * Eliminar parametro
+	 */
+	@FXML
+	private TextField txfEliminarCodigoParametro;
+	@FXML
+	private Button btEliminarParametro;
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		setUpTipoAnomaliaOps();
 		setUpClienteOps();
+		setUpParametrosOps();
 	}
-	
+	private void setUpParametrosOps() {
+		btCrearParametro.setOnAction(value-> {
+			Connection conn;
+			try {
+				conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
+				String query = "{CALL PKGESTIONTABLAS.pRegistrarParametro(?,?)}";
+				CallableStatement stmt = conn.prepareCall(query);
+				stmt.setString(1,txfCrearNombreParametro.getText());
+				stmt.setString(2,txfCrearValorParametro.getText());
+				stmt.execute();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		});
+		btModificarParametro.setOnAction(value-> {
+			Connection conn;
+			try {
+				conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
+				String query = "{CALL PKGESTIONTABLAS.pModificarParametro(?,?,?)}";
+				CallableStatement stmt = conn.prepareCall(query);
+				stmt.setString(1,txfModificarCodigoParametro.getText());
+				stmt.setString(2,txfModificarNombreParametro.getText());
+				stmt.setString(3,txfModificarValorParametro.getText());				
+				stmt.execute();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		});
+		btEliminarParametro.setOnAction(value-> {
+			Connection conn;
+			try {
+				conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
+				String query = "{CALL PKGESTIONTABLAS.pEliminarParametro(?)}";
+				CallableStatement stmt = conn.prepareCall(query);
+				stmt.setString(1,txfEliminarCodigoParametro.getText());				
+				stmt.execute();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		});
+		
+	}
 	private void setUpClienteOps() {
 		btCrearCliente.setOnAction(value-> {
 			try {

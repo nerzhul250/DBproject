@@ -63,7 +63,21 @@
                   </Tab>
                   <Tab text="Parametros">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="14.0" layoutY="14.0" text="Crear parametro" />
+                              <TextField fx:id="txfCrearNombreParametro" layoutX="14.0" layoutY="43.0" promptText="Nombre" />
+                              <TextField fx:id="txfCrearValorParametro" layoutX="182.0" layoutY="43.0" promptText="Valor" />
+                              <Button fx:id="btCrearParametro" layoutX="347.0" layoutY="43.0" mnemonicParsing="false" text="Crear parametro" />
+                              <Label layoutX="14.0" layoutY="82.0" text="Modificar parametro (dejar en blanco campos que no se quieran modificar)" />
+                              <TextField fx:id="txfModificarCodigoParametro" layoutX="14.0" layoutY="112.0" promptText="Codigo" />
+                              <TextField fx:id="txfModificarNombreParametro" layoutX="175.0" layoutY="112.0" promptText="Nuevo nombre" />
+                              <TextField fx:id="txfModificarValorParametro" layoutX="338.0" layoutY="112.0" promptText="Nuevo valor" />
+                              <Label layoutX="14.0" layoutY="146.0" text="Eliminar parametro" />
+                              <TextField fx:id="txfEliminarCodigoParametro" layoutX="14.0" layoutY="171.0" promptText="Codigo" />
+                              <Button fx:id="btModificarParametro" layoutX="506.0" layoutY="112.0" mnemonicParsing="false" text="Modificar parametro" />
+                              <Button fx:id="btEliminarParametro" layoutX="175.0" layoutY="171.0" mnemonicParsing="false" text="Eliminar parametro" />
+                           </children></AnchorPane>
                     </content>
                   </Tab>
               </tabs>

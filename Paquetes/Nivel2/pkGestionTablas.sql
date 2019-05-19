@@ -6,6 +6,10 @@ PROCEDURE pEliminarTipoAnomalia(ivId tipoanomalia.id%TYPE);
 PROCEDURE pRegistrarCliente(ivCedula cliente.cedula%TYPE,ivNombre cliente.nombre%TYPE,ivfechaNacimiento cliente.fechanacimiento%TYPE,ivdireccion cliente.direccion%TYPE,ivTelefono cliente.telefono%TYPE);
 PROCEDURE pModificarCliente(ivCedula cliente.cedula%TYPE,ivNombre cliente.nombre%TYPE,ivfechaNacimiento cliente.fechanacimiento%TYPE,ivdireccion cliente.direccion%TYPE,ivTelefono cliente.telefono%TYPE);
 PROCEDURE pEliminarCliente(ivCedula cliente.cedula%TYPE);
+
+PROCEDURE pRegistrarParametro(ivNombre parametros.nombre%TYPE,ivValor parametros.valor%TYPE);
+PROCEDURE pModificarParametro(ivCodigo parametros.codigo%TYPE,ivNombre parametros.nombre%TYPE,ivValor parametros.valor%TYPE);
+PROCEDURE pEliminarParametro(ivCodigo parametros.codigo%TYPE);
 END pkGestionTablas;
 /
 CREATE OR REPLACE PACKAGE BODY pkGestionTablas AS -- body
@@ -110,4 +114,50 @@ PKCLIENTE.pBorrar(ivCedula);
 EXCEPTION
     WHEN noFound THEN RAISE_APPLICATION_ERROR(-20001,'Error, no existe cliente con cedula: '||ivCedula);
 END pEliminarCliente;
+
+-- Parametros OPS
+
+PROCEDURE pRegistrarParametro(ivNombre parametros.nombre%TYPE,ivValor parametros.valor%TYPE) IS
+lastID NUMBER;
+BEGIN
+SELECT MAX(codigo) into lastID FROM parametros;
+IF lastID IS NULL then
+    lastID:=0;
+END IF;
+PKPARAMETROS.pInsertar(lastID+1,ivNombre,ivValor);
+END pRegistrarParametro;
+PROCEDURE pModificarParametro(ivCodigo parametros.codigo%TYPE,ivNombre parametros.nombre%TYPE,ivValor parametros.valor%TYPE) IS
+vDummy parametros%rowtype;
+vNombre parametros.nombre%TYPE;
+vValor parametros.valor%TYPE;
+noFound EXCEPTION;
+PRAGMA EXCEPTION_INIT(noFound,-20001);
+BEGIN
+vDummy:=PKPARAMETROS.fConsultar(ivCodigo);
+IF ivNombre IS NULL THEN
+    vNombre:=vDummy.nombre;
+    ELSE
+    vNombre:=ivNombre;
+END IF;
+IF ivValor IS NULL THEN
+    vValor:=vDummy.valor;
+    ELSE
+    vValor:=ivValor;
+END IF;
+PKPARAMETROS.pModificar(ivCodigo,vNombre,vValor);
+EXCEPTION
+    WHEN noFound THEN RAISE_APPLICATION_ERROR(-20001,'Error, no existe parametro con codigo: '||ivCodigo);
+    WHEN OTHERS THEN RAISE_APPLICATION_ERROR(-20002,'Error desconocido: '||SQLERRM||SQLCODE);
+END pModificarParametro;
+PROCEDURE pEliminarParametro(ivCodigo parametros.codigo%TYPE) IS
+vDummy parametros%rowtype;
+noFound EXCEPTION;
+PRAGMA EXCEPTION_INIT(noFound,-20001);
+BEGIN
+vDummy:=PKPARAMETROS.fConsultar(ivCodigo);
+PKPARAMETROS.pBorrar(ivCodigo);
+EXCEPTION
+    WHEN noFound THEN RAISE_APPLICATION_ERROR(-20001,'Error, no existe parametro con codigo: '||ivCodigo);
+    WHEN OTHERS THEN RAISE_APPLICATION_ERROR(-20002,'Error desconocido: '||SQLERRM||SQLCODE);
+END pEliminarParametro;
 END pkGestionTablas;
