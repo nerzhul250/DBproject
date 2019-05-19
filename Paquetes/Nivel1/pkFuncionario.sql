@@ -7,17 +7,17 @@ END pkFuncionario;
 /
 CREATE OR REPLACE PACKAGE BODY pkFuncionario AS
 -- insertar
-PROCEDURE pInsertar (ivCedula funcionario.cedula%TYPE, ivNombre funcionario.nombre%TYPE, ivFechaNacimiento funcionario.fechanacimiento%TYPE, ivDireccion funcionario.direccion%TYPE, ivTelefono funcionario.telefono%TYPE);
+PROCEDURE pInsertar (ivCedula funcionario.cedula%TYPE, ivNombre funcionario.nombre%TYPE, ivFechaNacimiento funcionario.fechanacimiento%TYPE, ivDireccion funcionario.direccion%TYPE, ivTelefono funcionario.telefono%TYPE) IS
 BEGIN
 INSERT INTO funcionario VALUES(ivCedula, ivNombre, ivFechaNacimiento, ivDireccion, ivTelefono);
 END pInsertar;
 --borrar
-PROCEDURE pBorrar (ivCedula funcionario.cedula%TYPE);
+PROCEDURE pBorrar (ivCedula funcionario.cedula%TYPE) IS
 BEGIN
 DELETE FROM funcionario WHERE  funcionario.cedula = ivCedula;
 END pBorrar;
 --modificar
-PROCEDURE pModificar (ivCedula funcionario.cedula%TYPE, ivNombre funcionario.nombre%TYPE, ivFechaNacimiento funcionario.fechanacimiento%TYPE, ivDireccion funcionario.direccion%TYPE, ivTelefono funcionario.telefono%TYPE);
+PROCEDURE pModificar (ivCedula funcionario.cedula%TYPE, ivNombre funcionario.nombre%TYPE, ivFechaNacimiento funcionario.fechanacimiento%TYPE, ivDireccion funcionario.direccion%TYPE, ivTelefono funcionario.telefono%TYPE) IS
 BEGIN
 UPDATE funcionario SET nombre = ivNombre, fechanacimiento = ivFechaNacimiento, direccion = ivDireccion, telefono = ivTelefono WHERE cedula = ivCedula;
 END pModificar;
