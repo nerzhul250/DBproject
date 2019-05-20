@@ -1,0 +1,33 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="solreclamo" directorySegmentName="seg_0" id="44D03D6D-60BF-541C-E050-6171F3C258DB">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="solicitud_codigo" id="163A6D90-2879-41DE-54FF-767D734EFD0B">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="solreclamo_solicitud_fk" id="AD3296B2-2FD2-0DA4-93E0-1127115EAD51">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="solreclamo_pk" id="A56FFB73-1AFE-1190-55F3-F9326E3DEDF0">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

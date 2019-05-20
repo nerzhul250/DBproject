@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="4702082E-61A3-F4CE-B921-2ED645C39043" containerWithKeyObject="58A1B653-F9DF-59EA-7930-09B0DE109F58" localFKIndex="57D2679D-F6A0-D138-D953-AC46FFCEF669" name="solrepdan_tipoanomalia_fk">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>8FC59310-E293-B014-C2AA-13C6484D1844</importedID>
+<referredTableLongName>tipoanomalia</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>CE93A5C6-FE3D-A967-0527-E91D99142959</referredTableID>
+<keyObject>15AF9E99-E124-F7B2-DB22-18A34B94B37F</keyObject>
+<referredKeyID>15AF9E99-E124-F7B2-DB22-18A34B94B37F</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

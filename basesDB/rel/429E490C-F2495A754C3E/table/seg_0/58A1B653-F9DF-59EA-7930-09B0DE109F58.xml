@@ -1,0 +1,78 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="58A1B653-F9DF-59EA-7930-09B0DE109F58" name="solreportedanios">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>EB673C1E-D2AB-9EC4-7E8F-36DC31A275C9</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="solicitud_codigo" id="E5E1305D-EC35-2CB4-33DC-7C97756D3D49">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>F9169A48-3B13-EBB6-FCB2-EC9207C8C5A1</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>FD9884D8-6863-3430-8F91-C2D79D7EE114</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1616C64D-559C-00A4-25CC-9967689C68BB" referredColumn="36BD4A9E-EDC1-E835-0CF7-5B09EC51FEBF"/>
+</associations>
+</Column>
+<Column name="tipoanomalia_id" id="51E0E033-5D89-08DC-A059-5BC542E9D04B">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>F60158F2-4281-FC66-2A09-C934529B3BAD</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>76B1594F-9865-F5CC-89F3-C8A71013A7F4</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4702082E-61A3-F4CE-B921-2ED645C39043" referredColumn="41E29954-A16B-F9D1-E507-283D151D7948"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1BDD7A92-9FD1-9D5F-BD5C-AABD2D760DC8" name="solrepdan_pk">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>41B48F1A-9DEF-4230-8C37-882F78C992B7</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E5E1305D-EC35-2CB4-33DC-7C97756D3D49"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4D69202B-9D90-780D-A156-6002AE24A448" name="solrepdan_solicitud_fk">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E5E1305D-EC35-2CB4-33DC-7C97756D3D49"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="57D2679D-F6A0-D138-D953-AC46FFCEF669" name="solrepdan_tipoanomalia_fk">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="51E0E033-5D89-08DC-A059-5BC542E9D04B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

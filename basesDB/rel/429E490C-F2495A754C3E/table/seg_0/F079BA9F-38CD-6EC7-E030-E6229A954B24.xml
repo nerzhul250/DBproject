@@ -1,0 +1,92 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F079BA9F-38CD-6EC7-E030-E6229A954B24" name="cliente">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>3ECC2A79-669B-70D3-335A-C4CCB60CA536</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="cedula" id="07CF9A50-6B49-2BAE-663E-A4BA259F6786">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>291E55E0-939C-DF3E-EF41-CF84CAB6A410</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>6EEAAF4A-0055-9F16-29FA-6FC84AAA99C2</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="6CA07972-F877-B0C3-E66A-C21BB0A9CDFA">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>83FD0CFE-ECE4-830B-863B-AD489C4ED573</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>531AC51A-7629-96FD-442B-8C8178E22BD6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fechanacimiento" id="C2D88505-3FBC-E295-EC77-911F301304CB">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>5225F6DC-93E5-A865-0110-1670F2788570</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>5C5F6EAB-11AB-40E0-347D-36C87025F0AB</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="direccion" id="98B82282-C8F0-9C48-FD8A-707A6A7E79BF">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>898F0F65-AF98-782D-BE63-2FC4377D2216</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>6EEAAF4A-0055-9F16-29FA-6FC84AAA99C2</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="telefono" id="CA0CF81F-1BC8-DE4E-A43F-733F4E90FF5B">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>83DD1BFC-18CC-CBCE-E827-9337CCB7BCDB</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>6EEAAF4A-0055-9F16-29FA-6FC84AAA99C2</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2FB62E34-2706-B19B-CC2F-3DC1C2E490D6" name="cliente_pk">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>F11FD5E3-CF0B-FD1F-9783-47D63048D145</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="07CF9A50-6B49-2BAE-663E-A4BA259F6786"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

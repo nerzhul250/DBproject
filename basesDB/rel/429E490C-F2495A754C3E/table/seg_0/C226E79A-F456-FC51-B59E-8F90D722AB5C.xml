@@ -1,0 +1,105 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C226E79A-F456-FC51-B59E-8F90D722AB5C" name="servicioprestado">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>A6355E1B-A765-177F-A686-597353168558</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="producto_codigo" id="AA107339-138A-30B1-0777-B19831D6F31B">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>AA007CFD-F003-971B-1412-90DFEBAD1C37</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>2B1D5227-2EFE-CFDC-EA30-9472D76D2FCA</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0886F42E-4850-BD37-A1D2-79673196D2A0" referredColumn="872522A0-85D1-44C9-9409-FFC5F8D40E55"/>
+</associations>
+</Column>
+<Column name="cliente_cedula" id="1C8FCE97-67F8-5F81-3446-0993BE3346A8">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>DF876FF0-2A1E-15D7-537F-E390B96CF876</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>6EEAAF4A-0055-9F16-29FA-6FC84AAA99C2</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="158FCA2A-5D67-3C38-23FC-5AB9338EA5E5" referredColumn="07CF9A50-6B49-2BAE-663E-A4BA259F6786"/>
+</associations>
+</Column>
+<Column name="fechainicioservicio" id="79DFBE2F-9D77-E188-3C1C-7CA738E8C3C5">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>D05C989A-8BD6-9F27-8209-106C2A5D41DF</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>5C5F6EAB-11AB-40E0-347D-36C87025F0AB</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fechaterminacionservicio" id="12243A92-EAD7-E4D5-9BC5-9888CF92EF38">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>2D3197D3-0B08-B429-6CA4-B68E9DACD434</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>5C5F6EAB-11AB-40E0-347D-36C87025F0AB</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="55C9BBF6-F1D9-4D4F-E59D-52A6DC5B8107" name="servicioprestado_pk">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>D75AFE11-F160-2A8A-6676-4F7BD93C7EDC</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AA107339-138A-30B1-0777-B19831D6F31B"/>
+<colUsage columnID="1C8FCE97-67F8-5F81-3446-0993BE3346A8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CDC8730E-87C0-229E-3D5C-DF31583EE4B7" name="servicioprestado_cliente_fk">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1C8FCE97-67F8-5F81-3446-0993BE3346A8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5C101E9E-5D93-8FB5-9627-1F4E967DD2ED" name="servicioprestado_producto_fk">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AA107339-138A-30B1-0777-B19831D6F31B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

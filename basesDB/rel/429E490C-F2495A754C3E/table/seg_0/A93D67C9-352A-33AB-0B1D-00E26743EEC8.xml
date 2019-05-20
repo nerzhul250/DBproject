@@ -1,0 +1,141 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A93D67C9-352A-33AB-0B1D-00E26743EEC8" name="solicitud">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>FF1B0B17-C813-A234-485F-7D54442E4B03</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="codigo" id="36BD4A9E-EDC1-E835-0CF7-5B09EC51FEBF">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>8D3C64BC-7051-5F05-F644-4711AA393930</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>FD9884D8-6863-3430-8F91-C2D79D7EE114</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="estado" id="6908846F-FCB7-C968-2F77-24EFB625A75C">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>BD78045B-0D5C-0E0C-690D-2A9C6BCA3C6B</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>531AC51A-7629-96FD-442B-8C8178E22BD6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="descripcion" id="F8A29CE2-3498-88B2-61B6-FDB65EEBCD07">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>C70A347C-63E8-20D9-EEFD-98622FC71D61</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>6B438433-9471-13CE-FE15-99E90F0505D8</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cliente_cedula" id="C0701D03-BD93-D7D0-3D7D-4ACD28A646E8">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>543E7060-4C4D-9CCA-987F-14ABBD0BAC46</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>6EEAAF4A-0055-9F16-29FA-6FC84AAA99C2</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="265D14DC-308B-479F-63EB-8CFFAFA384A2" referredColumn="07CF9A50-6B49-2BAE-663E-A4BA259F6786"/>
+</associations>
+</Column>
+<Column name="producto_codigo" id="C5808FD0-D660-14CB-042F-0205EDABABF2">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>9688189C-F728-FA71-0E38-EA7FF1F7E832</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>2B1D5227-2EFE-CFDC-EA30-9472D76D2FCA</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="658A98B9-4F8A-D6E0-41EB-18824A1F5D4E" referredColumn="872522A0-85D1-44C9-9409-FFC5F8D40E55"/>
+</associations>
+</Column>
+<Column name="fechacreacion" id="A5F1C1B9-0A7B-F7D5-42D7-CC6DA86B9D86">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>60082E7E-2E43-61AB-FF7E-9509DE187354</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>5C5F6EAB-11AB-40E0-347D-36C87025F0AB</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tipo" id="9E0E5C4F-FB6E-A160-C9EE-9C56DA557E03">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 14:01:27 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B99F56A6-80EA-5E34-BE45-22905CC76313" name="solicitud_pk">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>08EC3E8C-C053-36E6-755D-EA8A3D3CB67D</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="36BD4A9E-EDC1-E835-0CF7-5B09EC51FEBF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2FDE6B81-CB7E-7DEA-0C92-742F5FF2CF7B" name="solicitud_cliente_fk">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C0701D03-BD93-D7D0-3D7D-4ACD28A646E8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F95E78C7-44C6-1171-B7C2-F0AAF06261DC" name="solicitud_producto_fk">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C5808FD0-D660-14CB-042F-0205EDABABF2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

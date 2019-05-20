@@ -1,0 +1,53 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8C53AB19-2229-3936-A6EF-DDF93BBC822A" name="solcreacion">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>0241F034-0246-F108-9006-7BD568163D67</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="solicitud_codigo" id="7D48FA0F-149E-1660-DE71-EB5B06EB35D5">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>F3CED84C-2BEC-D54F-79DC-14055F989CD0</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>FD9884D8-6863-3430-8F91-C2D79D7EE114</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="332515EE-A187-5129-DA26-E9FCFE7D5E17" referredColumn="36BD4A9E-EDC1-E835-0CF7-5B09EC51FEBF"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="0CFB8717-70BC-D298-66D5-75A3C2CE6095" name="solcreacion_pk">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>61CFBDD3-1E53-4C3A-F12C-39D856DBE447</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7D48FA0F-149E-1660-DE71-EB5B06EB35D5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CB7E1C8C-9851-6A1D-623F-C2328BE0A4BB" name="solcreacion_solicitud_fk">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7D48FA0F-149E-1660-DE71-EB5B06EB35D5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

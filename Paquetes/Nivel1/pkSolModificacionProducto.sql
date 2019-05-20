@@ -1,5 +1,5 @@
 CREATE OR REPLACE PACKAGE pkSolModificacionProducto AS -- spec
-PROCEDURE pInsertar (ivCodigo solicitud.codigo%TYPE,ivEstado solicitud.estado%TYPE,ivDescripcion solicitud.descripcion%TYPE,ivClienteCedula solicitud.cliente_cedula%TYPE, ivProductoCodigo solicitud.producto_codigo%TYPE, ivFechaCracion solicitud.fechaCreacion%TYPE, ivProductoCodigo2 solicitud.producto_codigo%TYPE);
+PROCEDURE pInsertar (ivCodigo solicitud.codigo%TYPE,ivEstado solicitud.estado%TYPE,ivDescripcion solicitud.descripcion%TYPE,ivClienteCedula solicitud.cliente_cedula%TYPE, ivProductoCodigo solicitud.producto_codigo%TYPE, ivFechaCreacion solicitud.fechaCreacion%TYPE, ivProductoCodigo2 solicitud.producto_codigo%TYPE);
 PROCEDURE pBorrar (ivCodigo solicitud.codigo%TYPE);
 PROCEDURE pModificar (ivCodigo solicitud.codigo%TYPE,ivEstado solicitud.estado%TYPE,ivDescripcion solicitud.descripcion%TYPE,ivClienteCedula solicitud.cliente_cedula%TYPE, ivProductoCodigo solicitud.producto_codigo%TYPE, ivFechaCracion solicitud.fechaCreacion%TYPE, ivProductoCodigo2 solicitud.producto_codigo%TYPE);
 FUNCTION fConsultar (ivCodigo solicitud.codigo%TYPE) RETURN VARCHAR2;
@@ -7,9 +7,9 @@ END pkSolModificacionProducto;
 /
 CREATE OR REPLACE PACKAGE BODY pkSolModificacionProducto AS
 --insertar
-PROCEDURE pInsertar (ivCodigo solicitud.codigo%TYPE,ivEstado solicitud.estado%TYPE,ivDescripcion solicitud.descripcion%TYPE,ivClienteCedula solicitud.cliente_cedula%TYPE, ivProductoCodigo solicitud.producto_codigo%TYPE, ivFechaCracion solicitud.fechaCreacion%TYPE, ivProductoCodigo2 solicitud.producto_codigo%TYPE) IS
+PROCEDURE pInsertar (ivCodigo solicitud.codigo%TYPE,ivEstado solicitud.estado%TYPE,ivDescripcion solicitud.descripcion%TYPE,ivClienteCedula solicitud.cliente_cedula%TYPE, ivProductoCodigo solicitud.producto_codigo%TYPE, ivFechaCreacion solicitud.fechaCreacion%TYPE, ivProductoCodigo2 solicitud.producto_codigo%TYPE) IS
 BEGIN
-INSERT INTO solicitud VALUES (ivCodigo,ivEstado,ivDescripcion,ivClienteCedula,ivProductoCodigo,ivFechaCracion);
+INSERT INTO solicitud VALUES (ivCodigo,ivEstado,ivDescripcion,ivClienteCedula,ivProductoCodigo,ivFechaCreacion);
 INSERT INTO solmodificacionproducto VALUES (ivCodigo, ivProductoCodigo2);
 END pInsertar;
 

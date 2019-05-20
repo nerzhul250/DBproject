@@ -1,0 +1,78 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="856639B3-8B50-C4EF-49C4-811A3D440607" name="solmodificacionproducto">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>23BEE45A-5E2B-AC53-EABB-0030699DD5C0</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="solicitud_codigo" id="1EC383E3-05EF-22D9-F067-D87939605949">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>E1F1A183-93A6-5458-F6D0-A62B9D696F20</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>FD9884D8-6863-3430-8F91-C2D79D7EE114</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="81DD0E46-05D2-E027-0EC0-5733C103E75C" referredColumn="36BD4A9E-EDC1-E835-0CF7-5B09EC51FEBF"/>
+</associations>
+</Column>
+<Column name="producto_codigo" id="38D9C9F1-6ED8-B6C0-7A89-129145EDDE44">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>BC4A494A-3704-9C21-D732-6D43E9E68FAD</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>2B1D5227-2EFE-CFDC-EA30-9472D76D2FCA</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D0D85084-2672-E383-A5C6-4352DBD14E6C" referredColumn="872522A0-85D1-44C9-9409-FFC5F8D40E55"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3C970891-9C55-C1A6-3CF3-9CE04978801A" name="solmodprod_pk">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>2488AD5E-3DC7-E78D-6C89-77CBEB996C8F</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1EC383E3-05EF-22D9-F067-D87939605949"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E288E775-93B8-9517-A2A0-A455B65376A6" name="solmodiprod_producto_fk">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="38D9C9F1-6ED8-B6C0-7A89-129145EDDE44"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="12B68617-A515-94A4-BB8A-28F47628343B" name="solmodprod_solicitud_fk">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1EC383E3-05EF-22D9-F067-D87939605949"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -15,5 +15,8 @@
 <designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="A1DF0B92-CE0D-B200-237D-31F7D90BC908">
 <designStoragePath>C:\Users\asus\Desktop\bases</designStoragePath>
 </designDescr>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="ECDACB7F-9850-36EF-3897-53ACA512A1B1">
+<designStoragePath>C:\DDLScripts</designStoragePath>
+</designDescr>
 </usedDesignStorageDescriptors>
 </OSDM_Design>

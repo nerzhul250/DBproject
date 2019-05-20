@@ -11,7 +11,6 @@ SELECT MAX(codigo) into vLastId FROM tipoanomalia;
 IF vLastId IS NULL then
     vLastId:=0;
 END IF;
-PKSOLICITUD.pInsertar(vLastId+1,'pendiente',ivDescripcion,ivCedulaCliente,ivProducto,sysdate);
-PKSOLREPORTEDANIOS.pInsertar(vLastId+1,ivTipoAnomaliaId);
+PKSOLREPORTEDANIOS.pInsertar(vLastId+1,'pendiente',ivDescripcion,ivCedulaCliente,ivProducto,sysdate,ivTipoAnomaliaId);
 END pRegistrarSolicitudReporteDanios;
 END pkRegistroNivel2;

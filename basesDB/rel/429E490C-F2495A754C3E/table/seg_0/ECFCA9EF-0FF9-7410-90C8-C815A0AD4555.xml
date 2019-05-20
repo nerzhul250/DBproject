@@ -1,0 +1,131 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="ECFCA9EF-0FF9-7410-90C8-C815A0AD4555" name="asignacion">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>1980B1D3-34EB-F67E-1099-158B9E036AF0</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="fechaasignacion" id="4258371C-60EC-A81C-2DEF-795A52172950">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>F0DCE010-C84C-5021-685A-BB0C500E1194</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>5C5F6EAB-11AB-40E0-347D-36C87025F0AB</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="funcionario_cedula" id="63FBF74D-76AE-E058-A1ED-FE527CCF2C90">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>F0B3A108-5D30-0F1F-4298-EB9C460BEC88</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>6EEAAF4A-0055-9F16-29FA-6FC84AAA99C2</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E02D4F35-E855-2CA4-33B8-BE942E659CDA" referredColumn="77E292E3-E6FA-9241-601E-E45C46D0CB0D"/>
+</associations>
+</Column>
+<Column name="solicitud_codigo" id="D0A7A251-C2D1-685E-54CE-43ABBB5C5032">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>42273513-B637-FFEB-A026-6F68F7EA28A3</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>FD9884D8-6863-3430-8F91-C2D79D7EE114</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8780F915-3544-5977-9A8A-D68829916390" referredColumn="36BD4A9E-EDC1-E835-0CF7-5B09EC51FEBF"/>
+</associations>
+</Column>
+<Column name="fechaatencion" id="016F2381-2D2B-D519-4E8C-3272A1D661C9">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>AE7E10FC-EAFF-0916-D3A7-51047A19096E</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>5C5F6EAB-11AB-40E0-347D-36C87025F0AB</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="comentariosfuncionario" id="B4DAFA9E-7FA2-2B51-ECD2-180DD9DB80FD">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>0247C72D-7E33-9ECC-750A-084346599D43</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>6B438433-9471-13CE-FE15-99E90F0505D8</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="atendido" id="1DF57C44-128C-D1B0-7C9F-460B983E898B">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>0930E0E3-9260-5BF6-4EAB-119431073D37</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<domain>3670A648-39B6-1508-2494-6115A877771F</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4D22F1C5-14A5-B467-ACF4-6634F4E33D9A" name="asignacion_pk">
+<sourceDDLFile>DDLScripts.ddl</sourceDDLFile>
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<importedID>1DA5122F-9A81-8444-9D40-E0DDF2F56A29</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="63FBF74D-76AE-E058-A1ED-FE527CCF2C90"/>
+<colUsage columnID="D0A7A251-C2D1-685E-54CE-43ABBB5C5032"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F65F1C9F-311B-4D6B-C4C9-FC442369963C" name="asignacion_funcionario_fk">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="63FBF74D-76AE-E058-A1ED-FE527CCF2C90"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DA67B4BF-C990-1FC7-3729-E1AF722A4CAB" name="asignacion_solicitud_fk">
+<createdBy>asus</createdBy>
+<createdTime>2019-05-20 13:57:47 UTC</createdTime>
+<ownerDesignName>basesDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D0A7A251-C2D1-685E-54CE-43ABBB5C5032"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
