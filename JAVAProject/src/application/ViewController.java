@@ -103,12 +103,42 @@ public class ViewController implements Initializable{
 	private TextField txfEliminarCodigoParametro;
 	@FXML
 	private Button btEliminarParametro;
-	
+	/**
+	 * Registrar solicitud de reporte de danios
+	 */
+	@FXML
+	private TextField txfRegistrarCeduCliSolicitud;
+	@FXML
+	private TextField txfRegistrarCodProdSolicitud;
+	@FXML
+	private TextField txfRegistrarDescripSolicitud;
+	@FXML
+	private TextField txfRegistrarIdAnomSolRepDan;
+	@FXML
+	private Button btRegistrarSolRepDan;
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		setUpTipoAnomaliaOps();
 		setUpClienteOps();
 		setUpParametrosOps();
+		setUpRegistroSolicitudes();
+	}
+	private void setUpRegistroSolicitudes() {
+		btRegistrarSolRepDan.setOnAction(value->{
+			try {
+				Connection conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
+				String query = "{CALL PKREGISTRONIVEL2.pRegistrarSolicitudReporteDanios(?,?,?,?)}";
+				CallableStatement stmt = conn.prepareCall(query);
+				stmt.setString(1,txfRegistrarCeduCliSolicitud.getText());
+				stmt.setString(2,txfRegistrarCodProdSolicitud.getText());
+				stmt.setString(3,txfRegistrarDescripSolicitud.getText());
+				stmt.setString(4,txfRegistrarIdAnomSolRepDan.getText());
+				stmt.execute();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		});
 	}
 	private void setUpParametrosOps() {
 		btCrearParametro.setOnAction(value-> {

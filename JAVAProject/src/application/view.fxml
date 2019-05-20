@@ -8,7 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="694.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ViewController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="694.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ViewController">
   <tabs>
     <Tab text="Gestion de Tablas">
          <content>
@@ -89,13 +89,13 @@
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
                   <Label layoutX="14.0" layoutY="14.0" text="Informacion general" />
-                  <TextField alignment="TOP_LEFT" layoutX="14.0" layoutY="81.0" prefHeight="84.0" prefWidth="310.0" promptText="Descripción" />
-                  <TextField layoutX="14.0" layoutY="46.0" promptText="Cedula cliente" />
-                  <TextField layoutX="175.0" layoutY="46.0" promptText="Codigo producto" />
+                  <TextField fx:id="txfRegistrarDescripSolicitud" alignment="TOP_LEFT" layoutX="14.0" layoutY="81.0" prefHeight="84.0" prefWidth="310.0" promptText="Descripción" />
+                  <TextField fx:id="txfRegistrarCeduCliSolicitud" layoutX="14.0" layoutY="46.0" promptText="Cedula cliente" />
+                  <TextField fx:id="txfRegistrarCodProdSolicitud" layoutX="175.0" layoutY="46.0" promptText="Codigo producto" />
                   <Label layoutX="14.0" layoutY="172.0" text="Reportar daños" />
-                  <TextField layoutX="14.0" layoutY="198.0" promptText="Id de anomalia" />
+                  <TextField fx:id="txfRegistrarIdAnomSolRepDan" layoutX="14.0" layoutY="198.0" promptText="Id de anomalia" />
                   <Label layoutX="14.0" layoutY="233.0" text="Solicitar cambio de producto" />
-                  <Button layoutX="182.0" layoutY="198.0" mnemonicParsing="false" text="Registrar reporte de daños" />
+                  <Button fx:id="btRegistrarSolRepDan" layoutX="182.0" layoutY="198.0" mnemonicParsing="false" text="Registrar reporte de daños" />
                   <TextField layoutX="14.0" layoutY="262.0" promptText="Codigo nuevo producto" />
                   <Button layoutX="182.0" layoutY="262.0" mnemonicParsing="false" text="Registrar solicitud de cambio de producto" />
                </children></AnchorPane>
