@@ -5,7 +5,7 @@ PROCEDURE pModificar (ivFechaAsignacion asignacion.fechaasignacion%TYPE, ivFunci
 FUNCTION fConsultar(ivFuncionarioCedula asignacion.funcionario_cedula%TYPE, ivSolicitudCodigo asignacion.solicitud_codigo%TYPE) RETURN asignacion%rowtype;
 END pkAsignacion;
 /
-CREATE OR REPLACE PACKAGE BODY pkAsignacion AS
+CREATE OR REPLACE PACKAGE BODY pkAsignacion  AS
 -- insertar
 PROCEDURE pInsertar (ivFechaAsignacion asignacion.fechaasignacion%TYPE,ivFuncionarioCedula asignacion.funcionario_cedula%TYPE,ivSolicitudCodigo asignacion.solicitud_codigo%TYPE,ivFechaAtencion asignacion.fechaatencion%TYPE,ivComentariosFuncionario asignacion.comentariosfuncionario%TYPE,ivAtendido asignacion.atendido%TYPE) IS
 BEGIN
