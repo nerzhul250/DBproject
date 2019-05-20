@@ -40,7 +40,7 @@ vDescripcion solicitud.descripcion%TYPE;
 vClienteCedula solicitud.cliente_cedula%TYPE;
 vProductoCodigo solicitud.producto_codigo%TYPE;
 vFechaCreacion solicitud.fechacreacion%TYPE;
-vProductoCodigo2 solicitud.producto_codigo&TYPE;
+vProductoCodigo2 solicitud.producto_codigo%TYPE;
 ovconsulta VARCHAR2(5000);
 BEGIN
 SELECT codigo,estado,descripcion,cliente_cedula,solicitud.producto_codigo,fechacreacion,solmodificacionproducto.producto_codigo

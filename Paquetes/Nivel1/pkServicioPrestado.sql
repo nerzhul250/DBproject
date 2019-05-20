@@ -14,7 +14,7 @@ CREATE OR REPLACE PACKAGE BODY pkServicioPrestado AS
 	PROCEDURE pBorrar (ivProductoCodigo servicioprestado.producto_codigo%TYPE, ivClienteCedula servicioprestado.cliente_cedula%TYPE) IS
 	BEGIN
 		DELETE FROM servicioprestado WHERE producto_codigo = ivProductoCodigo AND cliente_cedula= ivClienteCedula;
-	END pInsertar;
+	END pBorrar;
 	
 	PROCEDURE pModificar(ivProductoCodigo servicioprestado.producto_codigo%TYPE, ivClienteCedula servicioprestado.cliente_cedula%TYPE, ivFechainicioservicio servicioprestado.fechainicioservicio%TYPE, ivFechaTerminacionServicio servicioprestado.fechaterminacionservicio%TYPE) IS
 	BEGIN

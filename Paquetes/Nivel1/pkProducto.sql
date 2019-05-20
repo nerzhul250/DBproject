@@ -4,6 +4,7 @@ CREATE OR REPLACE PACKAGE pkProducto AS -- spec
 	PROCEDURE pModificar(ivCodigo producto.codigo%TYPE, ivDescripcion producto.descripcion%TYPE, ivTipo producto.tipo%TYPE);
 	FUNCTION fConsultar (ivCodigo producto.codigo%TYPE) RETURN VARCHAR2;
 END pkProducto;
+/
 CREATE OR REPLACE PACKAGE BODY pkProducto AS
 	PROCEDURE pInsertar (ivCodigo producto.codigo%TYPE, ivDescripcion producto.descripcion%TYPE, ivTipo producto.tipo%TYPE) IS
 	BEGIN
