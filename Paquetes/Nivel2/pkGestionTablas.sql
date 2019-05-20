@@ -17,13 +17,13 @@ CREATE OR REPLACE PACKAGE BODY pkGestionTablas AS -- body
 --TipoAnomalia OPS
 
 PROCEDURE pRegistrarTipoAnomalia(ivDescripcion tipoanomalia.descripcion%TYPE) IS
-lastID NUMBER;
+vLastId NUMBER;
 BEGIN
-SELECT MAX(id) into lastID FROM tipoanomalia;
-IF lastID IS NULL then
-    lastID:=0;
+SELECT MAX(id) into vLastId FROM tipoanomalia;
+IF vLastId IS NULL then
+    vLastId:=0;
 END IF;
-PKTIPOANOMALIA.pInsertar(lastID+1,ivDescripcion);
+PKTIPOANOMALIA.pInsertar(vLastId+1,ivDescripcion);
 END pRegistrarTipoAnomalia;
 PROCEDURE pModificarTipoAnomalia(ivId tipoanomalia.id%TYPE,ivDescripcion tipoanomalia.descripcion%TYPE) IS
 dummy tipoanomalia%rowtype;

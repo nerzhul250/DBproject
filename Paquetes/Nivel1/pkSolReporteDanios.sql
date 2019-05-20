@@ -1,5 +1,5 @@
 CREATE OR REPLACE PACKAGE pkSolReporteDanios AS -- spec
-PROCEDURE pInsertar (ivCodigo solicitud.codigo%TYPE,ivEstado solicitud.estado%TYPE,ivDescripcion solicitud.descripcion%TYPE,ivClienteCedula solicitud.cliente_cedula%TYPE, ivProductoCodigo solicitud.producto_codigo%TYPE,ivFechaCreacion solicitud.fechacreacion%TYPE,ivTipoAnomalia_Id solreportedanios.tipoanomalia_id%TYPE);
+PROCEDURE pInsertar (ivCodigo solicitud.codigo%TYPE,ivTipoAnomalia_Id solreportedanios.tipoanomalia_id%TYPE);
 PROCEDURE pBorrar (ivCodigo solicitud.codigo%TYPE);
 PROCEDURE pModificar (ivCodigo solicitud.codigo%TYPE,ivEstado solicitud.estado%TYPE,ivDescripcion solicitud.descripcion%TYPE,ivClienteCedula solicitud.cliente_cedula%TYPE, ivProductoCodigo solicitud.producto_codigo%TYPE,ivFechaCreacion solicitud.fechacreacion%TYPE,ivTipoAnomalia_Id solreportedanios.tipoanomalia_id%TYPE);
 FUNCTION fConsultar (ivCodigo solicitud.codigo%TYPE) RETURN VARCHAR2;
@@ -7,9 +7,8 @@ END pkSolReporteDanios;
 /
 CREATE OR REPLACE PACKAGE BODY pkSolReporteDanios AS
 -- insertar
-PROCEDURE pInsertar (ivCodigo solicitud.codigo%TYPE,ivEstado solicitud.estado%TYPE,ivDescripcion solicitud.descripcion%TYPE,ivClienteCedula solicitud.cliente_cedula%TYPE, ivProductoCodigo solicitud.producto_codigo%TYPE,ivFechaCreacion solicitud.fechacreacion%TYPE,ivTipoAnomalia_Id solreportedanios.tipoanomalia_id%TYPE) IS
+PROCEDURE pInsertar (ivCodigo solicitud.codigo%TYPE,ivTipoAnomalia_Id solreportedanios.tipoanomalia_id%TYPE) IS
 BEGIN
-INSERT INTO solicitud VALUES (ivCodigo,ivEstado,ivDescripcion,ivClienteCedula,ivProductoCodigo,ivfechacreacion);
 INSERT INTO solreportedanios VALUES (ivCodigo,ivTipoAnomalia_Id);
 END pInsertar;
 -- borrar
