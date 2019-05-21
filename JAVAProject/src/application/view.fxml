@@ -136,8 +136,8 @@
                   <TextField fx:id="txfRegistrarIdAnomSolRepDan" layoutX="14.0" layoutY="198.0" promptText="Id de anomalia" />
                   <Label layoutX="14.0" layoutY="233.0" text="Solicitar cambio de producto" />
                   <Button fx:id="btRegistrarSolRepDan" layoutX="182.0" layoutY="198.0" mnemonicParsing="false" text="Registrar reporte de daños" />
-                  <TextField layoutX="14.0" layoutY="262.0" promptText="Codigo nuevo producto" />
-                  <Button layoutX="182.0" layoutY="262.0" mnemonicParsing="false" text="Registrar solicitud de cambio de producto" />
+                  <TextField fx:id="txfRegistrarIdNuevoProdSolModProd" layoutX="14.0" layoutY="262.0" promptText="Codigo nuevo producto" />
+                  <Button fx:id="btRegistrarSolModProd" layoutX="182.0" layoutY="262.0" mnemonicParsing="false" text="Registrar solicitud de cambio de producto" />
                </children></AnchorPane>
       </content>
     </Tab>
