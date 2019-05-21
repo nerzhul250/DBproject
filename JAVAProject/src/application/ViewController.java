@@ -116,6 +116,58 @@ public class ViewController implements Initializable{
 	private TextField txfRegistrarIdAnomSolRepDan;
 	@FXML
 	private Button btRegistrarSolRepDan;
+	
+	/**
+	 *  Crear funcionario
+	 */
+	@FXML
+	private TextField txfCrearCedulaFuncionario;
+	
+	@FXML
+	private TextField txfCrearNombreFuncionario;
+	
+	@FXML
+	private DatePicker dpCrearFechaNacimientoFuncionario;
+	
+	@FXML
+	private TextField txfCrearDireccionFuncionario;
+	
+	@FXML
+	private TextField txfCrearTelefonoFuncionario;
+	
+	@FXML
+	private Button btCrearFuncionario;
+	
+	/**
+	 * Modificar funcionario
+	 */
+	@FXML
+	private TextField txfModificarCedulaFuncionario;
+	
+	@FXML
+	private TextField txfModificarNombreFuncionario;
+	
+	@FXML
+	private DatePicker dpModificarFechaNacimientoFuncionario;
+	
+	@FXML
+	private TextField txfModificarDireccionFuncionario;
+	
+	@FXML
+	private TextField txfModificarTelefonoFuncionario;
+	
+	@FXML
+	private Button btModificarFuncionario;
+	
+	/**
+	 * Eliminar funcionario
+	 */
+	@FXML
+	private TextField txfEliminarCedulaFuncionario;
+	
+	@FXML
+	private Button btEliminarFuncionario;
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		setUpTipoAnomaliaOps();
@@ -294,7 +346,6 @@ public class ViewController implements Initializable{
 				stmt.setString(1,txfEliminarAnomalia.getText());
 				stmt.execute();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 				System.out.println(e.getMessage());
 			}
