@@ -105,7 +105,7 @@ public class ViewController implements Initializable{
 	@FXML
 	private Button btEliminarParametro;
 	/**
-	 * Registrar solicitud de reporte de danios
+	 * Registrar solicitud
 	 */
 	@FXML
 	private TextField txfRegistrarCeduCliSolicitud;
@@ -113,11 +113,20 @@ public class ViewController implements Initializable{
 	private TextField txfRegistrarCodProdSolicitud;
 	@FXML
 	private TextField txfRegistrarDescripSolicitud;
+	/**
+	 * Registrar solicitud de reporte de danios
+	 */
 	@FXML
 	private TextField txfRegistrarIdAnomSolRepDan;
 	@FXML
 	private Button btRegistrarSolRepDan;
-	
+	/**
+	 * Registrar solicitud de modificacion de producto
+	 */
+	@FXML
+	private TextField txfRegistrarIdNuevoProdSolModProd;
+	@FXML
+	private Button btRegistrarSolModProd;
 	/**
 	 *  Crear funcionario
 	 */
@@ -231,7 +240,22 @@ public class ViewController implements Initializable{
 				stmt.setString(4,txfRegistrarIdAnomSolRepDan.getText());
 				stmt.execute();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
+				System.out.println(e.getMessage());
+				e.printStackTrace();
+			}
+		});
+		btRegistrarSolModProd.setOnAction(value -> {
+			try {
+				Connection conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
+				String query = "{CALL PKREGISTRONIVEL2.pRegistrarSolicitudModificacionProducto(?,?,?,?)}";
+				CallableStatement stmt = conn.prepareCall(query);
+				stmt.setString(1,txfRegistrarCeduCliSolicitud.getText());
+				stmt.setString(2,txfRegistrarCodProdSolicitud.getText());
+				stmt.setString(3,txfRegistrarDescripSolicitud.getText());
+				stmt.setString(4,txfRegistrarIdNuevoProdSolModProd.getText());
+				stmt.execute();
+			}catch(SQLException e) {
+				System.out.println(e.getMessage());
 				e.printStackTrace();
 			}
 		});
@@ -247,7 +271,7 @@ public class ViewController implements Initializable{
 				stmt.setString(2,txfCrearValorParametro.getText());
 				stmt.execute();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
+				System.out.println(e.getMessage());
 				e.printStackTrace();
 			}
 		});
@@ -262,7 +286,7 @@ public class ViewController implements Initializable{
 				stmt.setString(3,txfModificarValorParametro.getText());				
 				stmt.execute();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
+				System.out.println(e.getMessage());
 				e.printStackTrace();
 			}
 		});
@@ -275,7 +299,7 @@ public class ViewController implements Initializable{
 				stmt.setString(1,txfEliminarCodigoParametro.getText());				
 				stmt.execute();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
+				System.out.println(e.getMessage());
 				e.printStackTrace();
 			}
 		});
