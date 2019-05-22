@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import model.OracleConnection;
@@ -167,6 +168,49 @@ public class ViewController implements Initializable{
 	
 	@FXML
 	private Button btEliminarFuncionario;
+	
+	/**
+	 * Crear producto
+	 */
+	@FXML
+	private TextField txfCrearCodigoProducto;
+	
+	@FXML
+	private TextField txfCrearDescripcionProducto;
+	
+	@FXML
+	private ChoiceBox<String> mbCrearTipoProducto;
+	
+	@FXML
+	private Button btCrearProducto;
+	
+	/**
+	 * Modificar producto
+	 */
+	@FXML
+	private TextField txfModificarCodigoProducto;
+	
+	@FXML
+	private TextField txfModificarDescripcionProducto;
+	
+	@FXML
+	private ChoiceBox<String> mbModificarTipoProducto;
+	
+	@FXML
+	private Button btModificarProducto;
+	
+	/**
+	 * Eliminar producto
+	 */
+	@FXML
+	private TextField txfEliminarCodigoProducto;
+	
+	@FXML
+	private Button btEliminarProducto;
+	
+	
+	
+	
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {

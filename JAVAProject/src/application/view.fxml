@@ -94,13 +94,13 @@
                               <Label layoutX="321.0" layoutY="14.0" prefHeight="17.0" prefWidth="296.0" text="Seleccione el tipo del producto:" />
                               <Button fx:id="btCrearProducto" layoutX="14.0" layoutY="136.0" mnemonicParsing="false" text="Crear" />
                               <Label layoutX="13.0" layoutY="171.0" prefHeight="17.0" prefWidth="130.0" text="Modificar un producto" />
-                              <TextField layoutX="13.0" layoutY="198.0" prefHeight="25.0" prefWidth="300.0" promptText="Código" />
-                              <TextField layoutX="13.0" layoutY="233.0" prefHeight="60.0" prefWidth="300.0" promptText="Descripción" />
+                              <TextField fx:id="txfModificarCodigoProducto" layoutX="13.0" layoutY="198.0" prefHeight="25.0" prefWidth="300.0" promptText="Código" />
+                              <TextField fx:id="txfModificarDescripcionProducto" layoutX="13.0" layoutY="233.0" prefHeight="60.0" prefWidth="300.0" promptText="Descripción" />
                               <Label layoutX="320.0" layoutY="173.0" prefHeight="17.0" prefWidth="296.0" text="Seleccione el tipo del producto:" />
-                              <ChoiceBox fx:id="mbCrearTipoProducto1" layoutX="323.0" layoutY="198.0" prefHeight="25.0" prefWidth="164.0" />
-                              <Button layoutX="13.0" layoutY="303.0" mnemonicParsing="false" text="Modificar" />
-                              <Button layoutX="323.0" layoutY="338.0" mnemonicParsing="false" text="Eliminar" />
-                              <TextField layoutX="14.0" layoutY="338.0" prefHeight="25.0" prefWidth="300.0" promptText="Código" />
+                              <ChoiceBox fx:id="mbModificarTipoProducto" layoutX="323.0" layoutY="198.0" prefHeight="25.0" prefWidth="164.0" />
+                              <Button fx:id="btModificarProducto" layoutX="13.0" layoutY="303.0" mnemonicParsing="false" text="Modificar" />
+                              <Button fx:id="btEliminarProducto" layoutX="323.0" layoutY="338.0" mnemonicParsing="false" text="Eliminar" />
+                              <TextField fx:id="txfEliminarCodigoProducto" layoutX="14.0" layoutY="338.0" prefHeight="25.0" prefWidth="300.0" promptText="Código" />
                            </children></AnchorPane>
                     </content>
                   </Tab>
