@@ -2,7 +2,7 @@ CREATE OR REPLACE PACKAGE pkAsignacionNivel2 AS -- spec
 	PROCEDURE realizarAsignacion (ivFechaAsignacion asignacion.fechaasignacion%TYPE, ivFuncionarioCedula asignacion.funcionario_cedula%TYPE, ivSolicitudCodigo asignacion.solicitud_codigo%TYPE, ivFechaAtencion asignacion.fechaatencion%TYPE, ivComentariosFuncionario asignacion.comentariosfuncionario%TYPE, ivAtendido asignacion.atendido%TYPE);
 	FUNCTION fRetornarFuncionarioDisponible RETURN funcionario.cedula%TYPE;
 END pkAsignacionNivel2;
-
+/
 CREATE OR REPLACE PACKAGE BODY pkAsignacionNivel2 AS
 	PROCEDURE realizarAsignacion (ivFechaAsignacion asignacion.fechaasignacion%TYPE, ivFuncionarioCedula asignacion.funcionario_cedula%TYPE, ivSolicitudCodigo asignacion.solicitud_codigo%TYPE, ivFechaAtencion asignacion.fechaatencion%TYPE, ivComentariosFuncionario asignacion.comentariosfuncionario%TYPE, ivAtendido asignacion.atendido%TYPE) IS
 	BEGIN
