@@ -27,5 +27,7 @@ pkProducto.pInsertar('C03', 'producto con codigo C03', 3);
 pkProducto.pInsertar('D04', 'producto con codigo D04', 4);
 pkProducto.pInsertar('E05', 'producto con codigo E05', 5);
 
--- 
+--Se crean 5 solicitudes de creación
+pkSolCreacion.pInsertar('01','ACTIVO','Se quiere crear está mondad', '01', 'A01', 'CREACION', '06/07/2019');
+
 END;
