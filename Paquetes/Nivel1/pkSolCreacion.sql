@@ -10,13 +10,13 @@ CREATE OR REPLACE PACKAGE BODY pkSolCreacion AS
 PROCEDURE pInsertar (ivCodigo solicitud.codigo%TYPE,ivEstado solicitud.estado%TYPE,ivDescripcion solicitud.descripcion%TYPE,ivClienteCedula solicitud.cliente_cedula%TYPE, ivProductoCodigo solicitud.producto_codigo%TYPE, ivTipo solicitud.tipo%TYPE, ivFechaCracion solicitud.fechaCreacion%TYPE) IS
 BEGIN
 INSERT INTO solicitud VALUES (ivCodigo,ivEstado,ivDescripcion,ivClienteCedula,ivProductoCodigo,ivFechaCracion, ivTipo);
-INSERT INTO solreclamo VALUES (ivCodigo);
+INSERT INTO solcreacion VALUES (ivCodigo);
 END pInsertar;
 
 --borrar
 PROCEDURE pBorrar (ivCodigo solicitud.codigo%TYPE) IS
 BEGIN
-DELETE FROM solreclamo WHERE solicitud_codigo = ivCodigo;
+DELETE FROM solcreacion WHERE solicitud_codigo = ivCodigo;
 DELETE FROM solicitud WHERE codigo = ivCodigo;
 END pBorrar;
 

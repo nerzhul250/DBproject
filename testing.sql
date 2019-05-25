@@ -1,4 +1,4 @@
-BEGIN
+--BEGIN
 -- Se crean 5 funcionarios
 pkFuncionario.pInsertar(1234,'Funcionario 1', '26/02/1999', 'Terranova', '3206457287');
 pkFuncionario.pInsertar(1235,'Funcionario 2', '2/04/1985', 'Jamundi', '3204521657');
@@ -27,7 +27,12 @@ pkProducto.pInsertar('C03', 'producto con codigo C03', 3);
 pkProducto.pInsertar('D04', 'producto con codigo D04', 4);
 pkProducto.pInsertar('E05', 'producto con codigo E05', 5);
 
+BEGIN
 --Se crean 5 solicitudes de creación
-pkSolCreacion.pInsertar('01','ACTIVO','Se quiere crear está mondad', '01', 'A01', 'CREACION', '06/07/2019');
+pkSolCreacion.pInsertar('02','ACTIVO','Se quiere crear está mondad', 1, 'A01', 'CREACION', '06/07/2019');
+pkSolCreacion.pInsertar('03','CANCELADO','Huehuehue', 2, 'B02', 'CREACION', '06/03/2019');
+pkSolCreacion.pInsertar('04','ACTIVO','Huihuihui', 1, 'C03', 'CREACION', '02/07/2019');
+pkSolCreacion.pInsertar('05','CANCELADO','Mira vos', 3, 'A01', 'CREACION', '06/07/2011');
+pkSolCreacion.pInsertar('06','ACTIVO','Ay nuuuu', 5, 'E05', 'CREACION', '06/07/2010');
 
 END;
