@@ -7,6 +7,7 @@ public class OracleConnection {
 	public static final String USER="P09551_1_10";
 	public static final String PASS= "P09551_1_10_20191";
 	private static Connection oracleConnection;
+
 	private OracleConnection() {
 		System.out.println("HEHEHEHEHE");
 	}
