@@ -5,11 +5,18 @@ END pkAsignacionNivel2;
 /
 CREATE OR REPLACE PACKAGE BODY pkAsignacionNivel2 AS
 	PROCEDURE realizarAsignacion (ivFechaAsignacion asignacion.fechaasignacion%TYPE, ivFuncionarioCedula asignacion.funcionario_cedula%TYPE, ivSolicitudCodigo asignacion.solicitud_codigo%TYPE, ivFechaAtencion asignacion.fechaatencion%TYPE, ivComentariosFuncionario asignacion.comentariosfuncionario%TYPE, ivAtendido asignacion.atendido%TYPE) IS
-	BEGIN
-        IF EXISTS (SELECT codigo FROM solicitud WHERE codigo= ivSolicitudCodigo) AND EXISTS(SELECT cedula FROM funcionario WHERE cedula=ivFuncionarioCedula) AND NOT EXISTS (SELECT funcionarioCedula FROM asignacion WHERE funcionario_cedula= ivfuncionarioCedula AND solicitud_codigo= ivSolicitudCodigo) THEN   
+	numRegistrosSolicitud integer;
+    numRegistrosFuncionarios integer;
+    numRegistrosAsignacion integer;
+    BEGIN
+    SELECT COUNT(*) INTO numRegistrosSolicitud FROM solicitud WHERE codigo= ivSolicitudCodigo;
+    SELECT COUNT(*)INTO numRegistrosFuncionarios FROM funcionario WHERE cedula=ivFuncionarioCedula;
+    SELECT COUNT(*) INTO numRegistrosAsignacion FROM asignacion WHERE funcionario_cedula= ivfuncionarioCedula AND solicitud_codigo= ivSolicitudCodigo;
+        IF numRegistrosSolicitud =1 AND numRegistrosFuncionarios =1 AND numRegistrosAsignacion=0 THEN   
           pkAsignacion.pInsertar(ivFechaAsignacion, ivFuncionarioCedula,ivSolicitudCodigo,ivFechaAtencion,ivcomentariosfuncionario,ivAtendido);
         ELSE
             RAISE_APPLICATION_ERROR(-20001,"funcionario no existe o usuario no existe o asignacion ya hecha");
+
         END IF;
 	END realizarAsignacion;
     
