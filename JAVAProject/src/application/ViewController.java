@@ -3,6 +3,7 @@ package application;
 import java.net.URL;
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
@@ -12,9 +13,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import model.OracleConnection;
+import model.*;
+import oracle.sql.DATE;
 
 public class ViewController implements Initializable{
+	
+	
+	SistemaGestion sistemaGestion;
+	
 	/**
 	 * Creacion tipo anomalia
 	 */
@@ -227,7 +233,21 @@ public class ViewController implements Initializable{
 		setUpClienteOps();
 		setUpParametrosOps();
 		setUpRegistroSolicitudes();
+		sistemaGestion = new SistemaGestion();
 	}
+	
+	/**
+	 * Registro funcionario
+	 */
+	
+	@FXML
+	private void registrarFuncionario() {
+		Date d = new Date(1999, 02, 26);
+		Funcionario f = new Funcionario("12","Juan", d, "Terranova", "3206457287");
+		String mensaje = sistemaGestion.registrarFuncionario(f);
+		System.out.println(mensaje);
+	}
+	
 	private void setUpRegistroSolicitudes() {
 		btRegistrarSolRepDan.setOnAction(value->{
 			try {
