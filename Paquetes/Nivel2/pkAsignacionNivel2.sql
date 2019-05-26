@@ -15,7 +15,8 @@ CREATE OR REPLACE PACKAGE BODY pkAsignacionNivel2 AS
         IF numRegistrosSolicitud =1 AND numRegistrosFuncionarios =1 AND numRegistrosAsignacion=0 THEN   
           pkAsignacion.pInsertar(ivFechaAsignacion, ivFuncionarioCedula,ivSolicitudCodigo,ivFechaAtencion,ivcomentariosfuncionario,ivAtendido);
         ELSE
-            RAISE_APPLICATION_ERROR(-20001,"funcionario no existe o usuario no existe o asignacIONn ya hecha");
+            RAISE_APPLICATION_ERROR(-20001,"funcionario no existe o usuario no existe o asignacion ya hecha");
+
         END IF;
 	END realizarAsignacion;
     

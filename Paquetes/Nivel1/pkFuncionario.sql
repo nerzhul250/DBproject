@@ -27,7 +27,7 @@ BEGIN
 SELECT * INTO ovConsulta FROM funcionario WHERE cedula = ivCedula;
 RETURN ovConsulta;
 EXCEPTION 
-    WHEN NO_DATA_FOUND THEN RAISE_APPLICATION_ERROR(-20001,'Error, no existe una asignacion con ese id');
+    WHEN NO_DATA_FOUND THEN RAISE_APPLICATION_ERROR(-20001,'Error, no existe un funcionario con ese id');
     WHEN OTHERS THEN RAISE_APPLICATION_ERROR(-20002,'Error desconocido'||SQLERRM||SQLCODE);
 END fConsultar;
 END pkFuncionario;
