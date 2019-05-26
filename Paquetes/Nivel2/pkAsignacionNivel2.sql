@@ -9,7 +9,7 @@ CREATE OR REPLACE PACKAGE BODY pkAsignacionNivel2 AS
         IF EXISTS (SELECT codigo FROM solicitud WHERE codigo= ivSolicitudCodigo) AND EXISTS(SELECT cedula FROM funcionario WHERE cedula=ivFuncionarioCedula) AND NOT EXISTS (SELECT funcionarioCedula FROM asignacion WHERE funcionario_cedula= ivfuncionarioCedula AND solicitud_codigo= ivSolicitudCodigo) THEN   
           pkAsignacion.pInsertar(ivFechaAsignacion, ivFuncionarioCedula,ivSolicitudCodigo,ivFechaAtencion,ivcomentariosfuncionario,ivAtendido);
         ELSE
-            RAISE_APPLICATION_ERROR(-20001,"funcionario no existe o usuario no existe o asignación ya hecha");
+            RAISE_APPLICATION_ERROR(-20001,"funcionario no existe o usuario no existe o asignacion ya hecha");
         END IF;
 	END realizarAsignacion;
     
