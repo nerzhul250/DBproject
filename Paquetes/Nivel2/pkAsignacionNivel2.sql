@@ -29,11 +29,14 @@ CREATE OR REPLACE PACKAGE BODY pkAsignacionNivel2 AS
         WHERE asignacion.funcionario_cedula= cedula)<3;
         codigoSol solicitud.codigo%TYPE;
    BEGIN
+     dbms_output.put_line( 'STARTING' ); 
         OPEN c1;
         FOR fun in c2
         LOOP
             FETCH c1 INTO codigoSol;
+             dbms_output.put_line( fun.cedula ); 
             pkAsignacionnivel2.realizarAsignacion(SYSDATE, fun.cedula, codigoSol,null,null,null);
+            cambiarEstadoSolicitud(codigosol,'Asignado');
         END LOOP;
         CLOSE c1;
    END asignacionProgramada;
