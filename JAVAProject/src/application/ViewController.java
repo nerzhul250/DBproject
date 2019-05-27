@@ -398,6 +398,17 @@ public class ViewController implements Initializable{
 		labelResultadoProducto.setText(mensaje);	
 	}
 	
+	@FXML	
+	public void borrarProducto() {
+		String mensaje = "";
+		if(txfEliminarCodigoProducto.getText().equals("")) {
+			mensaje = "Por favor escriba el codigo del producto a eliminar";	
+		}else {
+			mensaje = sistemaGestion.borrarProducto(txfEliminarCodigoProducto.getText());
+		}
+		labelResultadoProducto.setText(mensaje);
+	}
+	
 	@FXML
 	public void asignarSolicitudAFuncionario(ActionEvent e) {
 		try {

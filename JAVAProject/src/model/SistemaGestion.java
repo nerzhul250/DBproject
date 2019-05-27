@@ -110,6 +110,23 @@ public class SistemaGestion {
 		return mensaje;
 	}
 	
+	public String borrarProducto(String codigo) {
+		String mensaje = "";
+		
+		try {
+			conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
+			String query = "{CALL pkProductoNivel2.borrarProducto(?)}";
+			CallableStatement stmt = conn.prepareCall(query);
+			stmt.setString(1, codigo);
+			stmt.executeQuery();
+			mensaje = "El producto con codigo " + codigo + " fue eliminado satisfactoriamente";
+		} catch (SQLException e) {
+			mensaje = e.getMessage();
+		}
+		
+		return mensaje;
+	}
+	
 	public void crearParametro(Parametro p) throws SQLException {
 		conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
 		String query = "{CALL PKGESTIONTABLAS.pRegistrarParametro(?,?)}";
