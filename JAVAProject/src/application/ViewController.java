@@ -448,6 +448,7 @@ public class ViewController implements Initializable{
 				stmt.execute();
 				String type = stmt.getString(1);
 				System.out.println("TIPO " + type);
+				type=type.toUpperCase();
 				switch (type) {
 				case "REPORTEDANIOS":
 					String accepted = cbAprobado.isSelected() ? "ATENIDA" : "ANULADA";
