@@ -323,14 +323,14 @@ PROCEDURE pAutoAccept IS
         SELECT Asignacion.FechaAsignacion, Asignacion.Solicitud_Codigo, Asignacion.Funcionario_Cedula
         FROM Asignacion INNER JOIN SOLICITUD ON Asignacion.Solicitud_Codigo = Solicitud.Codigo
         WHERE Asignacion.FechaAsignacion - (SELECT SYSDATE
-        FROM dual) < (SELECT VALOR FROM PARAMETROS WHERE Parametros.Codigo = '135')
+        FROM dual) < (SELECT VALOR FROM PARAMETROS WHERE Parametros.Codigo = '16')
         AND (SOLICITUD.TIPO = 'reclamo') AND SOLICITUD.ESTADO = 'Asignado';
         
     CURSOR toModifyDanio IS
         SELECT Asignacion.FechaAsignacion, Asignacion.Solicitud_Codigo, Asignacion.Funcionario_Cedula
         FROM Asignacion INNER JOIN SOLICITUD ON Asignacion.Solicitud_Codigo = Solicitud.Codigo
         WHERE Asignacion.FechaAsignacion - (SELECT SYSDATE
-        FROM dual) < (SELECT VALOR FROM PARAMETROS WHERE Parametros.Codigo = '135')
+        FROM dual) < (SELECT VALOR FROM PARAMETROS WHERE Parametros.Codigo = '16')
         AND (SOLICITUD.TIPO = 'reporteDanios') AND SOLICITUD.ESTADO = 'Asignado';
         
     BEGIN
