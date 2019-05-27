@@ -72,6 +72,25 @@ public class SistemaGestion {
 		return mensaje;
 	}
 	
+	public String crearProducto(Producto p) {
+		String mensaje = "";
+		
+		try {
+			conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
+			String query = "{CALL pkProductoNivel2.registrarProducto(?,?,?)}";
+			CallableStatement stmt = conn.prepareCall(query);
+			stmt.setString(1, p.getCodigo());
+			stmt.setString(2, p.getDescripcion());
+			stmt.setString(3, p.getTipo());
+			stmt.executeQuery();
+			mensaje = "El producto con codigo " + p.getCodigo() + " insertado satisfactoriamente";
+		} catch (SQLException e) {
+			mensaje = e.getMessage();
+		}
+		
+		return mensaje;
+	}
+	
 	public void crearParametro(Parametro p) throws SQLException {
 		conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
 		String query = "{CALL PKGESTIONTABLAS.pRegistrarParametro(?,?)}";

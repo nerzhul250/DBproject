@@ -11,6 +11,8 @@ import java.util.ResourceBundle;
 
 import com.sun.corba.se.impl.protocol.giopmsgheaders.Message;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -271,6 +273,8 @@ public class ViewController implements Initializable{
 	@FXML
 	private TextArea txtComentarioFuncionario;
 	
+	private ObservableList<String> listaTiposPorductos = FXCollections.observableArrayList("Servicio de Voz", "Servicio de Datos", "Servicio Integrado");
+	
 	
 	
 	@Override
@@ -280,6 +284,8 @@ public class ViewController implements Initializable{
 		setUpClienteOps();
 		setUpParametrosOps();
 		setUpRegistroSolicitudes();
+		mbCrearTipoProducto.setItems(listaTiposPorductos);
+		mbModificarTipoProducto.setItems(listaTiposPorductos);
 	}
 	
 	/**
@@ -342,7 +348,10 @@ public class ViewController implements Initializable{
 		if(txfCrearCodigoProducto.getText().equals("")) {
 			mensaje = "Por favor esciba el codigo del producto";
 		}else {
-			//mensaje = sistemaGestion
+			int n;
+			mbCrearTipoProducto.getSelectionModel().getSelectedItem();
+			Producto p = new Producto(txfCrearCodigoProducto.getText(), txfCrearDescripcionProducto.getText(), "1");
+			mensaje = sistemaGestion.crearProducto(p);
 		}
 	}
 	
