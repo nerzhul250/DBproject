@@ -10,7 +10,7 @@ BEGIN
    pkAsignacionNivel2.realizarAsignacion (SYSDATE,TRIM(cedula), :NEW.solicitud_codigo,NULL, NULL, NULL);
 EXCEPTION
 WHEN OTHERS THEN
-    RAISE_APPLICATION_ERROR(-20002,'No se pudo hacer la asignación automatica'||SQLERRM||SQLCODE);
+     dbms_output.put_line( 'no se hizo la asignacion automatica' ); 
 END;
 /
 CREATE OR REPLACE TRIGGER asignacionAutomaticaSolReporte
@@ -21,10 +21,11 @@ DECLARE
 BEGIN
    cedula:=pkAsignacionNivel2.fRetornarFuncionarioDisponible;
 
-   pkAsignacionNivel2.realizarAsignacion (SYSDATE,TRIM(cedula), :NEW.solicitud_codigo,NULL, NULL, NULL);
+   pkAsignacionNivel2.realizarAsignacion (SYSDATE,TRIM(cedula),:NEW.solicitud_codigo ,NULL, NULL, NULL);
+   pkAsignacionNivel2.cambiarEstadoSolicitud (:NEW.solicitud_codigo, 'Asignado');
 EXCEPTION
 WHEN OTHERS THEN
-    RAISE_APPLICATION_ERROR(-20002,'No se pudo hacer la asignación automatica'||SQLERRM||SQLCODE);
+    dbms_output.put_line( 'no se hizo la asignacion automatica' ); 
 END ;
 /
 CREATE OR REPLACE TRIGGER asignacionAutomaticaSolCancelacion
@@ -36,9 +37,10 @@ BEGIN
    cedula:=pkAsignacionNivel2.fRetornarFuncionarioDisponible;
 
    pkAsignacionNivel2.realizarAsignacion (SYSDATE,TRIM(cedula), :NEW.solicitud_codigo,NULL, NULL, NULL);
+    pkAsignacionNivel2.cambiarEstadoSolicitud (:NEW.solicitud_codigo, 'Asignado');
 EXCEPTION
 WHEN OTHERS THEN
-    RAISE_APPLICATION_ERROR(-20002,'No se pudo hacer la asignación automatica'||SQLERRM||SQLCODE);
+    dbms_output.put_line( 'no se hizo la asignacion automatica' ); 
 END ;
 /
 CREATE OR REPLACE TRIGGER asignacionAutomaticaSolCreacion
@@ -50,9 +52,10 @@ BEGIN
    cedula:=pkAsignacionNivel2.fRetornarFuncionarioDisponible;
    
    pkAsignacionNivel2.realizarAsignacion (SYSDATE,TRIM(cedula),:NEW.solicitud_codigo,NULL, NULL, NULL);
+    pkAsignacionNivel2.cambiarEstadoSolicitud (:NEW.solicitud_codigo, 'Asignado');
 EXCEPTION
 WHEN OTHERS THEN
-    RAISE_APPLICATION_ERROR(-20002,'No se pudo hacer la asignación automatica'||SQLERRM||SQLCODE);
+    dbms_output.put_line( 'no se hizo la asignacion automatica' ); 
 END ;
 /
 CREATE OR REPLACE TRIGGER asignacionAutomaticaSolReclamo
@@ -64,9 +67,10 @@ BEGIN
    cedula:=pkAsignacionNivel2.fRetornarFuncionarioDisponible;
    
    pkAsignacionNivel2.realizarAsignacion (SYSDATE,TRIM(cedula), :NEW.solicitud_codigo,NULL, NULL, NULL);
+    pkAsignacionNivel2.cambiarEstadoSolicitud (:NEW.solicitud_codigo, 'Asignado');
 EXCEPTION
 WHEN OTHERS THEN
-    RAISE_APPLICATION_ERROR(-20002,'No se pudo hacer la asignación automatica'||SQLERRM||SQLCODE);
+    dbms_output.put_line( 'no se hizo la asignacion automatica' ); 
 END ;
 /
 
