@@ -41,25 +41,25 @@ BEGIN
     
     SELECT data INTO VCedulaCliente
     FROM
-    (SELECT LEVEL AS id, REGEXP_SUBSTR('A,B,C,D', '[^,]+', 1, LEVEL) AS data
+    (SELECT LEVEL AS id, REGEXP_SUBSTR(pkSolCreacion.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) AS data
     FROM dual
     CONNECT BY REGEXP_SUBSTR(pkSolCreacion.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) IS NOT NULL)
     where id = 4;
     
     SELECT data INTO vDescripcionSolicitud
-    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR('A,B,C,D', '[^,]+', 1, LEVEL) AS data
+    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR(pkSolCreacion.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) AS data
     FROM dual
     CONNECT BY REGEXP_SUBSTR(pkSolCreacion.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) IS NOT NULL))
     WHERE id = 3;
     
      SELECT data INTO vCodigoProducto
-    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR('A,B,C,D', '[^,]+', 1, LEVEL) AS data
+    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR(pkSolCreacion.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) AS data
     FROM dual
     CONNECT BY REGEXP_SUBSTR(pkSolCreacion.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) IS NOT NULL))
     WHERE id = 5;
     
     SELECT TO_DATE(data) INTO vFechaCreacion
-    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR('A,B,C,D', '[^,]+', 1, LEVEL) AS data
+    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR(pkSolCreacion.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) AS data
     FROM dual
     CONNECT BY REGEXP_SUBSTR(pkSolCreacion.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) IS NOT NULL))
     WHERE id = 6;
@@ -78,7 +78,7 @@ BEGIN
     
 EXCEPTION
     WHEN OTHERS THEN
-    RAISE_APPLICATION_ERROR(-20001, 'Error, la solicitud especificada no está asignada a ese funcionario');
+    RAISE_APPLICATION_ERROR(-20001, 'Error, la solicitud especificada no está asignada a ese funcionario ' || VCedulaCliente);
     
 END pAtenderSolicitudCreacion;
 
@@ -106,25 +106,25 @@ BEGIN
     vFechaAsignacion := vConsultaAsignacion.fechaasignacion;
     
     SELECT data INTO vCedulaCliente
-    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR('A,B,C,D', '[^,]+', 1, LEVEL) AS data
+    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR(pkSolCancelacionProducto.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) AS data
     FROM dual
     CONNECT BY REGEXP_SUBSTR(pkSolCancelacionProducto.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) IS NOT NULL))
     WHERE id = 4;
     
     SELECT data INTO vDescripcionSolicitud
-    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR('A,B,C,D', '[^,]+', 1, LEVEL) AS data
+    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR(pkSolCancelacionProducto.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) AS data
     FROM dual
     CONNECT BY REGEXP_SUBSTR(pkSolCancelacionProducto.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) IS NOT NULL))
     WHERE id = 3;
     
      SELECT data INTO vCodigoProducto
-    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR('A,B,C,D', '[^,]+', 1, LEVEL) AS data
+    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR(pkSolCancelacionProducto.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) AS data
     FROM dual
     CONNECT BY REGEXP_SUBSTR(pkSolCancelacionProducto.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) IS NOT NULL))
     WHERE id = 5;
     
     SELECT TO_DATE(data) INTO vFechaCreacion
-    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR('A,B,C,D', '[^,]+', 1, LEVEL) AS data
+    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR(pkSolCancelacionProducto.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) AS data
     FROM dual
     CONNECT BY REGEXP_SUBSTR(pkSolCancelacionProducto.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) IS NOT NULL))
     WHERE id = 6;
@@ -136,7 +136,7 @@ BEGIN
     FROM dual;
     
     SELECT TO_DATE(data) INTO vFechaInicio
-    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR('A,B,C,D', '[^,]+', 1, LEVEL) AS data
+    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR(pkSolCancelacionProducto.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) AS data
     FROM dual
     CONNECT BY REGEXP_SUBSTR(pkSolCancelacionProducto.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) IS NOT NULL))
     WHERE id = 3;
@@ -178,25 +178,25 @@ BEGIN
     vFechaAsignacion := vConsultaAsignacion.fechaasignacion;
     
     SELECT data INTO vCedulaCliente
-    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR('A,B,C,D', '[^,]+', 1, LEVEL) AS data
+    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR(pkSolReclamo.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) AS data
     FROM dual
     CONNECT BY REGEXP_SUBSTR(pkSolReclamo.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) IS NOT NULL))
     WHERE id = 4;
     
     SELECT data INTO vDescripcionSolicitud
-    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR('A,B,C,D', '[^,]+', 1, LEVEL) AS data
+    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR(pkSolReclamo.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) AS data
     FROM dual
     CONNECT BY REGEXP_SUBSTR(pkSolReclamo.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) IS NOT NULL))
     WHERE id = 3;
     
      SELECT data INTO vCodigoProducto
-    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR('A,B,C,D', '[^,]+', 1, LEVEL) AS data
+    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR(pkSolReclamo.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) AS data
     FROM dual
     CONNECT BY REGEXP_SUBSTR(pkSolReclamo.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) IS NOT NULL))
     WHERE id = 5;
     
     SELECT TO_DATE(data) INTO vFechaCreacion
-    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR('A,B,C,D', '[^,]+', 1, LEVEL) AS data
+    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR(pkSolReclamo.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) AS data
     FROM dual
     CONNECT BY REGEXP_SUBSTR(pkSolReclamo.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) IS NOT NULL))
     WHERE id = 6;
@@ -208,7 +208,7 @@ BEGIN
     FROM dual;
     
     SELECT TO_DATE(data) INTO vFechaInicio
-    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR('A,B,C,D', '[^,]+', 1, LEVEL) AS data
+    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR(pkSolReclamo.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) AS data
     FROM dual
     CONNECT BY REGEXP_SUBSTR(pkSolReclamo.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) IS NOT NULL))
     WHERE id = 3;
@@ -250,31 +250,31 @@ BEGIN
     vFechaAsignacion := vConsultaAsignacion.fechaasignacion;
     
     SELECT data INTO vCedulaCliente
-    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR('A,B,C,D', '[^,]+', 1, LEVEL) AS data
+    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR(pkSolReporteDanios.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) AS data
     FROM dual
     CONNECT BY REGEXP_SUBSTR(pkSolReporteDanios.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) IS NOT NULL))
     WHERE id = 4;
     
     SELECT data INTO vDescripcionSolicitud
-    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR('A,B,C,D', '[^,]+', 1, LEVEL) AS data
+    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR(pkSolReporteDanios.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) AS data
     FROM dual
     CONNECT BY REGEXP_SUBSTR(pkSolReporteDanios.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) IS NOT NULL))
     WHERE id = 3;
     
      SELECT data INTO vCodigoProducto
-    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR('A,B,C,D', '[^,]+', 1, LEVEL) AS data
+    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR(pkSolReporteDanios.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) AS data
     FROM dual
     CONNECT BY REGEXP_SUBSTR(pkSolReporteDanios.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) IS NOT NULL))
     WHERE id = 5;
     
     SELECT TO_DATE(data) INTO vFechaCreacion
-    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR('A,B,C,D', '[^,]+', 1, LEVEL) AS data
+    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR(pkSolReporteDanios.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) AS data
     FROM dual
     CONNECT BY REGEXP_SUBSTR(pkSolReporteDanios.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) IS NOT NULL))
     WHERE id = 6;
     
     SELECT data INTO vTipoAnomalia
-    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR('A,B,C,D', '[^,]+', 1, LEVEL) AS data
+    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR(pkSolReporteDanios.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) AS data
     FROM dual
     CONNECT BY REGEXP_SUBSTR(pkSolReporteDanios.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) IS NOT NULL))
     WHERE id = 7;
@@ -286,7 +286,7 @@ BEGIN
     FROM dual;
     
     SELECT TO_DATE(data) INTO vFechaInicio
-    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR('A,B,C,D', '[^,]+', 1, LEVEL) AS data
+    FROM ((SELECT LEVEL AS id, REGEXP_SUBSTR(pkSolReporteDanios.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) AS data
     FROM dual
     CONNECT BY REGEXP_SUBSTR(pkSolReporteDanios.fConsultar(vCodigoSolicitud), '[^,]+', 1, LEVEL) IS NOT NULL))
     WHERE id = 3;
@@ -310,6 +310,7 @@ BEGIN
 SELECT TIPO into ovTipoSolicitud
 FROM SOLICITUD
 WHERE CODIGO = ivSolicitudCodigo;
+RETURN ovTipoSolicitud;
 EXCEPTION
     WHEN NO_DATA_FOUND THEN
     RAISE_APPLICATION_ERROR(-20001,'Error, no existe una solicitud con ese id');
@@ -323,14 +324,14 @@ PROCEDURE pAutoAccept IS
         FROM Asignacion INNER JOIN SOLICITUD ON Asignacion.Solicitud_Codigo = Solicitud.Codigo
         WHERE Asignacion.FechaAsignacion - (SELECT SYSDATE
         FROM dual) < (SELECT VALOR FROM PARAMETROS WHERE Parametros.Codigo = '135')
-        AND (SOLICITUD.TIPO = 'RECLAMO') AND SOLICITUD.ESTADO = 'Asignado';
+        AND (SOLICITUD.TIPO = 'reclamo') AND SOLICITUD.ESTADO = 'Asignado';
         
     CURSOR toModifyDanio IS
         SELECT Asignacion.FechaAsignacion, Asignacion.Solicitud_Codigo, Asignacion.Funcionario_Cedula
         FROM Asignacion INNER JOIN SOLICITUD ON Asignacion.Solicitud_Codigo = Solicitud.Codigo
         WHERE Asignacion.FechaAsignacion - (SELECT SYSDATE
         FROM dual) < (SELECT VALOR FROM PARAMETROS WHERE Parametros.Codigo = '135')
-        AND (SOLICITUD.TIPO = 'DANIO') AND SOLICITUD.ESTADO = 'Asignado';
+        AND (SOLICITUD.TIPO = 'reporteDanios') AND SOLICITUD.ESTADO = 'Asignado';
         
     BEGIN
     FOR Asig IN toModifyReclamo

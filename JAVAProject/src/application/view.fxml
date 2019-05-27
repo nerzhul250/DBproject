@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="694.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ViewController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="694.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ViewController">
   <tabs>
     <Tab text="Gestion de Tablas">
          <content>
@@ -157,7 +159,14 @@
       </Tab>
       <Tab text="Atencion">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="txtCodigoFuncionario" layoutX="32.0" layoutY="55.0" promptText="Cedula Funcionario" />
+                  <TextField fx:id="txtCodigoSolicitud" layoutX="198.0" layoutY="55.0" promptText="Codigo Solicitud" />
+                  <TextArea fx:id="txtComentarioFuncionario" layoutX="393.0" layoutY="41.0" prefHeight="200.0" prefWidth="200.0" promptText="Comentarios funcionario" />
+                  <CheckBox fx:id="cbAprobado" layoutX="54.0" layoutY="241.0" mnemonicParsing="false" text="Aprobar solicitud (Si aplica)" />
+                  <Button layoutX="294.0" layoutY="345.0" mnemonicParsing="false" onAction="#atenderSolicitud" text="Atender solicitud" />
+               </children></AnchorPane>
         </content>
       </Tab>
       <Tab text="Consultas">
