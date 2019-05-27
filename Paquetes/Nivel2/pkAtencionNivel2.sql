@@ -10,6 +10,8 @@ PROCEDURE pAtenderSolicitudReclamo (ivCedulaFuncionario funcionario.cedula%TYPE,
 
 PROCEDURE pAtenderSolicitudDanio (ivCedulaFuncionario funcionario.cedula%TYPE, ivCodigoSolicitud solicitud.codigo%TYPE, 
     ivComentariosFuncionario asignacion.ComentariosFuncionario%TYPE, ivRespuesta solicitud.estado%TYPE);
+
+FUNCTION fTipoSolicitud(ivSolicitudCodigo solicitud.codigo%TYPE) RETURN solicitud.tipo%TYPE;
 END pkAtencionNivel2;
 /
 CREATE OR REPLACE PACKAGE BODY pkAtencionNivel2 AS --body
@@ -284,6 +286,19 @@ BEGIN
     
     
 END pAtenderSolicitudDanio;
+
+FUNCTION fTipoSolicitud(ivSolicitudCodigo solicitud.codigo%TYPE) 
+RETURN solicitud.tipo%TYPE IS ovTipoSolicitud solicitud.tipo%TYPE; 
+BEGIN
+SELECT TIPO into ovTipoSolicitud
+FROM SOLICITUD
+WHERE CODIGO = ivSolicitudCodigo;
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+    RAISE_APPLICATION_ERROR(-20001,'Error, no existe una asignacion con ese id');
+    WHEN OTHERS THEN
+    RAISE_APPLICATION_ERROR(-20001,'Error desconocido'||SQLERRM||SQLCODE);
+END fTipoSolicitud;
 
 END pkAtencionNivel2;
 
