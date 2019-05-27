@@ -30,7 +30,7 @@
                               <TextField fx:id="txfModificarDescripcionAnomalia" alignment="TOP_LEFT" layoutX="11.0" layoutY="210.0" prefHeight="81.0" prefWidth="318.0" promptText="Nueva descripción" />
                               <Button fx:id="btModificarAnomalia" layoutX="346.0" layoutY="238.0" mnemonicParsing="false" text="Modificar" />
                               <Label layoutX="18.0" layoutY="307.0" text="Eliminar tipo de anomalia" />
-                              <TextField fx:id="txfEliminarAnomalia" layoutX="18.0" layoutY="338.0" promptText="Id" />
+                              <TextField fx:id="txfEliminarIdAnomalia" layoutX="18.0" layoutY="338.0" promptText="Id" />
                               <Button fx:id="btEliminarAnomalia" layoutX="189.0" layoutY="338.0" mnemonicParsing="false" text="Eliminar" />
                            </children></AnchorPane>
                     </content>
@@ -69,7 +69,7 @@
                               <DatePicker fx:id="dpCrearFechaNacimientoFuncionario" layoutX="341.0" layoutY="44.0" promptText="Fecha de nacimiento" />
                               <TextField fx:id="txfCrearDireccionFuncionario" layoutX="525.0" layoutY="44.0" promptText="Dirección" />
                               <TextField fx:id="txfCrearTelefonoFuncionario" layoutX="23.0" layoutY="79.0" promptText="Teléfono" />
-                              <Button fx:id="btCrearFuncionario" layoutX="182.0" layoutY="79.0" mnemonicParsing="false" text="Crear" />
+                              <Button fx:id="btCrearFuncionario" layoutX="182.0" layoutY="79.0" mnemonicParsing="false" onAction="#registrarFuncionario" text="Crear" />
                               <Label layoutX="23.0" layoutY="114.0" prefHeight="17.0" prefWidth="237.0" text="Modificar la información de un funcionario" />
                               <TextField fx:id="txfModificarCedulaFuncionario" layoutX="23.0" layoutY="141.0" promptText="Cédula" />
                               <TextField fx:id="txfModificarNombreFuncionario" layoutX="182.0" layoutY="141.0" promptText="Nombre" />
@@ -80,6 +80,7 @@
                               <Label layoutX="23.0" layoutY="211.0" text="Eliminar un funcionario" />
                               <TextField fx:id="txfEliminarCedulaFuncionario" layoutX="23.0" layoutY="238.0" promptText="Cédula" />
                               <Button fx:id="btEliminarFuncionario" layoutX="182.0" layoutY="238.0" mnemonicParsing="false" text="Eliminar" />
+                              <Label fx:id="labelResultadoFuncionario" layoutX="23.0" layoutY="342.0" prefHeight="17.0" prefWidth="652.0" text="Resultado: " />
                            </children>
                         </AnchorPane>
                      </content></Tab>

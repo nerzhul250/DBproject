@@ -3,6 +3,7 @@ package application;
 import java.net.URL;
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
@@ -11,10 +12,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import model.OracleConnection;
+import model.*;
+import oracle.sql.DATE;
 
 public class ViewController implements Initializable{
+	
+	
+	SistemaGestion sistemaGestion;
+	
 	/**
 	 * Creacion tipo anomalia
 	 */
@@ -35,7 +42,7 @@ public class ViewController implements Initializable{
 	 * Eliminar tipo anomalia
 	 */
 	@FXML
-	private TextField txfEliminarAnomalia;
+	private TextField txfEliminarIdAnomalia;
 	@FXML
 	private Button btEliminarAnomalia;
 	
@@ -178,6 +185,9 @@ public class ViewController implements Initializable{
 	@FXML
 	private Button btEliminarFuncionario;
 	
+	@FXML
+	private Label labelResultadoFuncionario;
+	
 	/**
 	 * Crear producto
 	 */
@@ -223,11 +233,30 @@ public class ViewController implements Initializable{
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		sistemaGestion = new SistemaGestion();
 		setUpTipoAnomaliaOps();
 		setUpClienteOps();
 		setUpParametrosOps();
 		setUpRegistroSolicitudes();
 	}
+	
+	/**
+	 * Registro funcionario
+	 */
+	
+	@FXML
+	private void registrarFuncionario() {
+		String mensaje = "";
+		if(!txfCrearCedulaFuncionario.getText().equals("") && !txfCrearNombreFuncionario.getText().equals("") && !dpCrearFechaNacimientoFuncionario.getEditor().getText().equals("") && !txfCrearDireccionFuncionario.getText().equals("") && !txfCrearTelefonoFuncionario.getText().equals("")){
+			mensaje = "Por favor llene todos los campos";	
+		}else{
+			Funcionario f = new Funcionario(txfCrearCedulaFuncionario.getText(),txfCrearNombreFuncionario.getText(), dpCrearFechaNacimientoFuncionario.getEditor().getText(), txfCrearDireccionFuncionario.getText(), txfCrearTelefonoFuncionario.getText());
+			mensaje = sistemaGestion.registrarFuncionario(f);
+		}
+		labelResultadoFuncionario.setText(labelResultadoFuncionario.getText() + " " + mensaje);
+		
+	}
+	
 	private void setUpRegistroSolicitudes() {
 		btRegistrarSolRepDan.setOnAction(value->{
 			try {
@@ -262,42 +291,27 @@ public class ViewController implements Initializable{
 	}
 	private void setUpParametrosOps() {
 		btCrearParametro.setOnAction(value-> {
-			Connection conn;
 			try {
-				conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
-				String query = "{CALL PKGESTIONTABLAS.pRegistrarParametro(?,?)}";
-				CallableStatement stmt = conn.prepareCall(query);
-				stmt.setString(1,txfCrearNombreParametro.getText());
-				stmt.setString(2,txfCrearValorParametro.getText());
-				stmt.execute();
+				Parametro p=new Parametro(null,txfCrearNombreParametro.getText(),txfCrearValorParametro.getText());
+				sistemaGestion.crearParametro(p);
 			} catch (SQLException e) {
 				System.out.println(e.getMessage());
 				e.printStackTrace();
 			}
 		});
 		btModificarParametro.setOnAction(value-> {
-			Connection conn;
 			try {
-				conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
-				String query = "{CALL PKGESTIONTABLAS.pModificarParametro(?,?,?)}";
-				CallableStatement stmt = conn.prepareCall(query);
-				stmt.setString(1,txfModificarCodigoParametro.getText());
-				stmt.setString(2,txfModificarNombreParametro.getText());
-				stmt.setString(3,txfModificarValorParametro.getText());				
-				stmt.execute();
+				Parametro p=new Parametro(txfModificarCodigoParametro.getText(),txfModificarNombreParametro.getText(),txfModificarValorParametro.getText());
+				sistemaGestion.modificarParametro(p);
 			} catch (SQLException e) {
 				System.out.println(e.getMessage());
 				e.printStackTrace();
 			}
 		});
 		btEliminarParametro.setOnAction(value-> {
-			Connection conn;
 			try {
-				conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
-				String query = "{CALL PKGESTIONTABLAS.pEliminarParametro(?)}";
-				CallableStatement stmt = conn.prepareCall(query);
-				stmt.setString(1,txfEliminarCodigoParametro.getText());				
-				stmt.execute();
+				Parametro p=new Parametro(txfEliminarCodigoParametro.getText(),null,null);
+				sistemaGestion.eliminarParametro(p);
 			} catch (SQLException e) {
 				System.out.println(e.getMessage());
 				e.printStackTrace();
@@ -308,15 +322,11 @@ public class ViewController implements Initializable{
 	private void setUpClienteOps() {
 		btCrearCliente.setOnAction(value-> {
 			try {
-				Connection conn=OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
-				String query = "{CALL PKGESTIONTABLAS.pRegistrarCliente(?,?,?,?,?)}";
-				CallableStatement stmt = conn.prepareCall(query);
-				stmt.setString(1,txfCrearCedulaCliente.getText());
-				stmt.setString(2,txfCrearNombreCliente.getText());
-				stmt.setString(3,dpCrearFechaNacimientoCliente.getEditor().getText());
-				stmt.setString(4,txfCrearDireccionCliente.getText());
-				stmt.setString(5,txfCrearTelefonoCliente.getText());
-				stmt.execute();
+				Cliente c=new Cliente(txfCrearCedulaCliente.getText(),txfCrearNombreCliente.getText()
+						,dpCrearFechaNacimientoCliente.getEditor().getText()
+						, txfCrearDireccionCliente.getText()
+						,txfCrearTelefonoCliente.getText());
+				sistemaGestion.registrarCliente(c);
 			}catch(SQLException e) {
 				e.printStackTrace();
 				System.out.println(e.getMessage());
@@ -324,50 +334,47 @@ public class ViewController implements Initializable{
 		});
 		btModificarCliente.setOnAction(value-> {
 			try {
-				Connection conn=OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
-				String query = "{CALL PKGESTIONTABLAS.pModificarCliente(?,?,?,?,?)}";
-				CallableStatement stmt = conn.prepareCall(query);
-				
-				stmt.setString(1,txfModificarCedulaCliente.getText());
-				
+				Cliente c;
+				c=new Cliente(txfCrearCedulaCliente.getText(),txfCrearNombreCliente.getText()
+						,dpCrearFechaNacimientoCliente.getEditor().getText()
+						, txfCrearDireccionCliente.getText()
+						,txfCrearTelefonoCliente.getText());
+				c.setCedula(txfModificarCedulaCliente.getText());
 				if(txfModificarNombreCliente.getText().isEmpty()) {
-					stmt.setString(2,null);					
+					c.setNombre(null);
 				}else {
-					stmt.setString(2,txfModificarNombreCliente.getText());					
+					c.setNombre(txfModificarNombreCliente.getText());
 				}
-				
 				if(dpModificarFechaNacimientoCliente.getEditor().getText().isEmpty()) {
-					stmt.setString(3,null);					
+					c.setFechaNacimiento(null);
 				}else {
-					stmt.setString(3,dpModificarFechaNacimientoCliente.getEditor().getText());					
+					c.setFechaNacimiento(dpModificarFechaNacimientoCliente.getEditor().getText());
 				}
-				
 				if(txfModificarDireccionCliente.getText().isEmpty()) {
-					stmt.setString(4,null);					
+					c.setDireccion(null);
 				}else {
-					stmt.setString(4,txfModificarDireccionCliente.getText());					
+					c.setDireccion(txfModificarDireccionCliente.getText());
 				}
-				
 				if(txfModificarTelefonoCliente.getText().isEmpty()) {
-					stmt.setString(5,null);					
+					c.setTelefono(null);					
 				}else {
-					stmt.setString(5,txfModificarTelefonoCliente.getText());
-				}				
-				
-				stmt.execute();
+					c.setTelefono(txfModificarTelefonoCliente.getText());					
+				}								
+				sistemaGestion.modificarCliente(c);
 			}catch(SQLException e) {
 				e.printStackTrace();
 				System.out.println(e.getMessage());
 			}
 		});
 		btEliminarCliente.setOnAction(value-> {
-			Connection conn;
 			try {
-				conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
-				String query = "{CALL PKGESTIONTABLAS.pEliminarCliente(?)}";
-				CallableStatement stmt = conn.prepareCall(query);
-				stmt.setString(1,txfEliminarCedulaCliente.getText());
-				stmt.execute();
+				Cliente c;
+				c=new Cliente(txfCrearCedulaCliente.getText(),txfCrearNombreCliente.getText()
+						,dpCrearFechaNacimientoCliente.getEditor().getText()
+						, txfCrearDireccionCliente.getText()
+						,txfCrearTelefonoCliente.getText());
+				c.setCedula(txfEliminarCedulaCliente.getText());
+				sistemaGestion.eliminarCliente(c);
 			} catch (SQLException e) {
 				e.printStackTrace();
 				System.out.println(e.getMessage());
@@ -378,11 +385,8 @@ public class ViewController implements Initializable{
 	private void setUpTipoAnomaliaOps() {
 		btCrearAnomalia.setOnAction(value-> {
 			try {
-				Connection conn=OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
-				String query = "{CALL PKGESTIONTABLAS.pRegistrarTipoAnomalia(?)}";
-				CallableStatement stmt = conn.prepareCall(query);
-				stmt.setString(1,txfCrearDescripcionAnomalia.getText());
-				stmt.execute();
+				TipoAnomalia t=new TipoAnomalia(null,txfCrearDescripcionAnomalia.getText());
+				sistemaGestion.registrarTipoAnomalia(t);
 			} catch (SQLException e) {
 				e.printStackTrace();
 				System.out.println(e.getMessage());
@@ -390,29 +394,22 @@ public class ViewController implements Initializable{
 		});
 		btModificarAnomalia.setOnAction(value-> {
 			try {
-				Connection conn=OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
-				String query = "{CALL PKGESTIONTABLAS.pModificarTipoAnomalia(?,?)}";
-				CallableStatement stmt = conn.prepareCall(query);
-				stmt.setString(1,txfModificarIdAnomalia.getText());
+				TipoAnomalia t;
 				if(txfModificarDescripcionAnomalia.getText().isEmpty()) {
-					stmt.setString(2,null);					
+					t=new TipoAnomalia(txfModificarIdAnomalia.getText(),null);
 				}else {
-					stmt.setString(2,txfModificarDescripcionAnomalia.getText());					
+					t=new TipoAnomalia(txfModificarIdAnomalia.getText(),txfModificarDescripcionAnomalia.getText());
 				}
-				stmt.execute();
+				sistemaGestion.modificarTipoAnomalia(t);
 			} catch (SQLException e) {
 				e.printStackTrace();
 				System.out.println(e.getMessage());
 			}
 		});
 		btEliminarAnomalia.setOnAction(value->{
-			Connection conn;
 			try {
-				conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
-				String query = "{CALL PKGESTIONTABLAS.pEliminarTipoAnomalia(?)}";
-				CallableStatement stmt = conn.prepareCall(query);
-				stmt.setString(1,txfEliminarAnomalia.getText());
-				stmt.execute();
+				TipoAnomalia t=new TipoAnomalia(txfEliminarIdAnomalia.getText(),null);
+				sistemaGestion.eliminarTipoAnomalia(t);
 			} catch (SQLException e) {
 				e.printStackTrace();
 				System.out.println(e.getMessage());
