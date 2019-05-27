@@ -8,13 +8,13 @@ public class Funcionario {
 	
 	private String nombre;
 	
-	private Date fechaNacimiento;
+	private String fechaNacimiento;
 	
 	private String direccion;
 	
 	private String telefono;
 
-	public Funcionario(String cedula, String nombre, Date fechaNacimiento, String direccion, String telefono) {
+	public Funcionario(String cedula, String nombre, String fechaNacimiento, String direccion, String telefono) {
 		super();
 		this.cedula = cedula;
 		this.nombre = nombre;
@@ -39,11 +39,11 @@ public class Funcionario {
 		this.nombre = nombre;
 	}
 
-	public Date getFechaNacimiento() {
+	public String getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 
-	public void setFechaNacimiento(Date fechaNacimiento) {
+	public void setFechaNacimiento(String fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
