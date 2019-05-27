@@ -32,7 +32,7 @@ CREATE OR REPLACE PACKAGE BODY pkServicioPrestado AS
 		FROM servicioprestado
 		WHERE producto_codigo = ivProductoCodigo AND cliente_cedula= ivClienteCedula;
 		ovConsulta:= vproductocodigo||','||vclientecedula||','||vfechainicioservicio||','||vfechaterminacionservicio;
-		return ovConsulta;
+		RETURN ovConsulta;
 		EXCEPTION
 			WHEN NO_DATA_FOUND THEN
 			RAISE_APPLICATION_ERROR(-20001,'Error, no existe el servicio prestado solicitado');

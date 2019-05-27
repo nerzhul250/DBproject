@@ -30,6 +30,7 @@ RETURN asignacion%rowtype IS ovConsulta asignacion%rowtype;
 BEGIN
 SELECT * into ovConsulta 
 FROM asignacion WHERE funcionario_cedula = ivFuncionarioCedula AND solicitud_codigo = ivSolicitudCodigo;
+RETURN ovConsulta;
 EXCEPTION
     WHEN NO_DATA_FOUND THEN
     RAISE_APPLICATION_ERROR(-20001,'Error, no existe una asignacion con ese id');
