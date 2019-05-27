@@ -11,7 +11,10 @@ PROCEDURE pAtenderSolicitudReclamo (ivCedulaFuncionario funcionario.cedula%TYPE,
 PROCEDURE pAtenderSolicitudDanio (ivCedulaFuncionario funcionario.cedula%TYPE, ivCodigoSolicitud solicitud.codigo%TYPE, 
     ivComentariosFuncionario asignacion.ComentariosFuncionario%TYPE, ivRespuesta solicitud.estado%TYPE);
 
+PROCEDURE pAutoAccept;
+
 FUNCTION fTipoSolicitud(ivSolicitudCodigo solicitud.codigo%TYPE) RETURN solicitud.tipo%TYPE;
+
 END pkAtencionNivel2;
 /
 CREATE OR REPLACE PACKAGE BODY pkAtencionNivel2 AS --body
@@ -313,6 +316,38 @@ EXCEPTION
     WHEN OTHERS THEN
     RAISE_APPLICATION_ERROR(-20001,'Error desconocido'||SQLERRM||SQLCODE);
 END fTipoSolicitud;
+
+PROCEDURE pAutoAccept IS
+    CURSOR toModifyReclamo IS
+        SELECT Asignacion.FechaAsignacion, Asignacion.Solicitud_Codigo, Asignacion.Funcionario_Cedula
+        FROM Asignacion INNER JOIN SOLICITUD ON Asignacion.Solicitud_Codigo = Solicitud.Codigo
+        WHERE Asignacion.FechaAsignacion - (SELECT SYSDATE
+        FROM dual) < (SELECT VALOR FROM PARAMETROS WHERE Parametros.Codigo = '135')
+        AND (SOLICITUD.TIPO = 'RECLAMO') AND SOLICITUD.ESTADO = 'Asignado';
+        
+    CURSOR toModifyDanio IS
+        SELECT Asignacion.FechaAsignacion, Asignacion.Solicitud_Codigo, Asignacion.Funcionario_Cedula
+        FROM Asignacion INNER JOIN SOLICITUD ON Asignacion.Solicitud_Codigo = Solicitud.Codigo
+        WHERE Asignacion.FechaAsignacion - (SELECT SYSDATE
+        FROM dual) < (SELECT VALOR FROM PARAMETROS WHERE Parametros.Codigo = '135')
+        AND (SOLICITUD.TIPO = 'DANIO') AND SOLICITUD.ESTADO = 'Asignado';
+        
+    BEGIN
+    FOR Asig IN toModifyReclamo
+    LOOP
+    
+        pkAtencionNivel2.pAtenderSolicitudReclamo (Asig.Funcionario_Cedula, Asig.Solicitud_Codigo, 
+    'ATENDIDA AUTOMATICAMENTE POR EL SISTEMA', 'ATENDIDA');
+    END LOOP;
+    
+    FOR Asig IN toModifyDanio
+    LOOP
+    
+        pkAtencionNivel2.pAtenderSolicitudDanio (Asig.Funcionario_Cedula, Asig.Solicitud_Codigo, 
+    'ATENDIDA AUTOMATICAMENTE POR EL SISTEMA', 'ATENDIDA');
+    END LOOP;
+        
+END pAutoAccept;
 
 END pkAtencionNivel2;
 
