@@ -9,6 +9,8 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
@@ -223,10 +225,6 @@ public class ViewController implements Initializable{
 	@FXML
 	private Button btEliminarProducto;
 	
-	
-	
-	
-	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		sistemaGestion = new SistemaGestion();
@@ -260,8 +258,7 @@ public class ViewController implements Initializable{
 				stmt.setString(4,txfRegistrarIdAnomSolRepDan.getText());
 				stmt.execute();
 			} catch (SQLException e) {
-				System.out.println(e.getMessage());
-				e.printStackTrace();
+				showErrorMessage(e.getMessage());
 			}
 		});
 		btRegistrarSolModProd.setOnAction(value -> {
@@ -275,8 +272,7 @@ public class ViewController implements Initializable{
 				stmt.setString(4,txfRegistrarIdNuevoProdSolModProd.getText());
 				stmt.execute();
 			}catch(SQLException e) {
-				System.out.println(e.getMessage());
-				e.printStackTrace();
+				showErrorMessage(e.getMessage());
 			}
 		});
 	}
@@ -286,8 +282,7 @@ public class ViewController implements Initializable{
 				Parametro p=new Parametro(null,txfCrearNombreParametro.getText(),txfCrearValorParametro.getText());
 				sistemaGestion.crearParametro(p);
 			} catch (SQLException e) {
-				System.out.println(e.getMessage());
-				e.printStackTrace();
+				showErrorMessage(e.getMessage());
 			}
 		});
 		btModificarParametro.setOnAction(value-> {
@@ -295,8 +290,7 @@ public class ViewController implements Initializable{
 				Parametro p=new Parametro(txfModificarCodigoParametro.getText(),txfModificarNombreParametro.getText(),txfModificarValorParametro.getText());
 				sistemaGestion.modificarParametro(p);
 			} catch (SQLException e) {
-				System.out.println(e.getMessage());
-				e.printStackTrace();
+				showErrorMessage(e.getMessage());
 			}
 		});
 		btEliminarParametro.setOnAction(value-> {
@@ -304,8 +298,7 @@ public class ViewController implements Initializable{
 				Parametro p=new Parametro(txfEliminarCodigoParametro.getText(),null,null);
 				sistemaGestion.eliminarParametro(p);
 			} catch (SQLException e) {
-				System.out.println(e.getMessage());
-				e.printStackTrace();
+				showErrorMessage(e.getMessage());
 			}
 		});
 		
@@ -319,8 +312,7 @@ public class ViewController implements Initializable{
 						,txfCrearTelefonoCliente.getText());
 				sistemaGestion.registrarCliente(c);
 			}catch(SQLException e) {
-				e.printStackTrace();
-				System.out.println(e.getMessage());
+				showErrorMessage(e.getMessage());
 			}
 		});
 		btModificarCliente.setOnAction(value-> {
@@ -353,8 +345,7 @@ public class ViewController implements Initializable{
 				}								
 				sistemaGestion.modificarCliente(c);
 			}catch(SQLException e) {
-				e.printStackTrace();
-				System.out.println(e.getMessage());
+				showErrorMessage(e.getMessage());
 			}
 		});
 		btEliminarCliente.setOnAction(value-> {
@@ -367,8 +358,7 @@ public class ViewController implements Initializable{
 				c.setCedula(txfEliminarCedulaCliente.getText());
 				sistemaGestion.eliminarCliente(c);
 			} catch (SQLException e) {
-				e.printStackTrace();
-				System.out.println(e.getMessage());
+				showErrorMessage(e.getMessage());
 			}
 		});
 	}
@@ -379,8 +369,7 @@ public class ViewController implements Initializable{
 				TipoAnomalia t=new TipoAnomalia(null,txfCrearDescripcionAnomalia.getText());
 				sistemaGestion.registrarTipoAnomalia(t);
 			} catch (SQLException e) {
-				e.printStackTrace();
-				System.out.println(e.getMessage());
+				showErrorMessage(e.getMessage());
 			}
 		});
 		btModificarAnomalia.setOnAction(value-> {
@@ -393,8 +382,7 @@ public class ViewController implements Initializable{
 				}
 				sistemaGestion.modificarTipoAnomalia(t);
 			} catch (SQLException e) {
-				e.printStackTrace();
-				System.out.println(e.getMessage());
+				showErrorMessage(e.getMessage());
 			}
 		});
 		btEliminarAnomalia.setOnAction(value->{
@@ -402,9 +390,17 @@ public class ViewController implements Initializable{
 				TipoAnomalia t=new TipoAnomalia(txfEliminarIdAnomalia.getText(),null);
 				sistemaGestion.eliminarTipoAnomalia(t);
 			} catch (SQLException e) {
-				e.printStackTrace();
-				System.out.println(e.getMessage());
+				showErrorMessage(e.getMessage());
 			}
 		});
+	}
+	public void showErrorMessage(String message) {
+		Alert alert = new Alert(AlertType.ERROR);
+		alert.setTitle("Error");
+		alert.setHeaderText("Error");
+		String error=message.split("\n")[0];
+		error=error.substring(error.indexOf(" "));
+		alert.setContentText(error);
+		alert.showAndWait();
 	}
 }
