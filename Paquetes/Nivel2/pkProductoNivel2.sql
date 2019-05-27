@@ -18,15 +18,15 @@ CREATE OR REPLACE PACKAGE BODY pkProductoNivel2 AS
 	
 		PROCEDURE modificarProducto(ivCodigo producto.codigo%TYPE, ivDescripcion producto.descripcion%TYPE, ivTipo producto.tipo%TYPE) IS
 		cantidad NUMBER(1);
-		oldRow Producto%rowtype;
-		vDescripcion Producto.descripcion%TYPE;
-		vTipo Producto.tipo%TYPE;
+		oldRow producto%rowtype;
+		vDescripcion producto.descripcion%TYPE;
+		vTipo producto.tipo%TYPE;
 		BEGIN 
             SELECT COUNT(*) INTO cantidad FROM producto WHERE codigo = ivCodigo;
 			IF cantidad = 1 THEN
 				oldRow := pkProducto.fConsultar(ivCodigo);
-				IF  ivDescripcionIS NULL THEN
-					vDescripcion := oldRow.direccion;
+				IF  ivDescripcion IS NULL THEN
+					vDescripcion := oldRow.descripcion;
 				ELSE
 					vDescripcion := ivDescripcion;
 				END IF;
@@ -37,7 +37,7 @@ CREATE OR REPLACE PACKAGE BODY pkProductoNivel2 AS
 					vTipo := ivTipo;
 				END IF;
 				
-				pkProducto.pModificar(ivCedula, vDescripcion, vTipo);
+				pkProducto.pModificar(ivCodigo, vDescripcion, vTipo);
 			ELSE
 				RAISE_APPLICATION_ERROR(-20001,'El producto con codigo ' || ivCodigo ||' no existe');
 			END IF;
