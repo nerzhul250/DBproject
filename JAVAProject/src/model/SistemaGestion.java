@@ -32,6 +32,8 @@ public class SistemaGestion {
 		}
 	}
 	
+	
+	
 	public String registrarFuncionario(Funcionario f) {
 		String mensaje = "";
 		try {
@@ -49,5 +51,89 @@ public class SistemaGestion {
 		}
 		return mensaje;
 
+	}
+
+	public void crearParametro(Parametro p) throws SQLException {
+		conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
+		String query = "{CALL PKGESTIONTABLAS.pRegistrarParametro(?,?)}";
+		CallableStatement stmt = conn.prepareCall(query);
+		stmt.setString(1,p.getNombre());
+		stmt.setString(2,p.getValor());
+		stmt.execute();
+	}
+
+	public void modificarParametro(Parametro p) throws SQLException {
+		conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
+		String query = "{CALL PKGESTIONTABLAS.pModificarParametro(?,?,?)}";
+		CallableStatement stmt = conn.prepareCall(query);
+		stmt.setString(1,p.getCodigo());
+		stmt.setString(2,p.getNombre());
+		stmt.setString(3,p.getValor());				
+		stmt.execute();
+	}
+
+	public void eliminarParametro(Parametro p) throws SQLException {
+		conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
+		String query = "{CALL PKGESTIONTABLAS.pEliminarParametro(?)}";
+		CallableStatement stmt = conn.prepareCall(query);
+		stmt.setString(1,p.getCodigo());				
+		stmt.execute();
+	}
+
+	public void registrarTipoAnomalia(TipoAnomalia t) throws SQLException {
+		conn=OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
+		String query = "{CALL PKGESTIONTABLAS.pRegistrarTipoAnomalia(?)}";
+		CallableStatement stmt = conn.prepareCall(query);
+		stmt.setString(1,t.getDescripcion());
+		stmt.execute();
+	}
+
+	public void modificarTipoAnomalia(TipoAnomalia t) throws SQLException {
+		conn=OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
+		String query = "{CALL PKGESTIONTABLAS.pModificarTipoAnomalia(?,?)}";
+		CallableStatement stmt = conn.prepareCall(query);
+		stmt.setString(1,t.getId());
+		stmt.setString(2,t.getDescripcion());					
+		stmt.execute();
+	}
+
+	public void eliminarTipoAnomalia(TipoAnomalia t) throws SQLException {
+		conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
+		String query = "{CALL PKGESTIONTABLAS.pEliminarTipoAnomalia(?)}";
+		CallableStatement stmt = conn.prepareCall(query);
+		stmt.setString(1,t.getId());
+		stmt.execute();
+	}
+
+	public void registrarCliente(Cliente c) throws SQLException {
+		Connection conn=OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
+		String query = "{CALL PKGESTIONTABLAS.pRegistrarCliente(?,?,?,?,?)}";
+		CallableStatement stmt = conn.prepareCall(query);
+		stmt.setString(1,c.getCedula());
+		stmt.setString(2,c.getNombre());
+		stmt.setString(3,c.getFechaNacimiento());
+		stmt.setString(4,c.getDireccion());
+		stmt.setString(5,c.getTelefono());
+		stmt.execute();
+	}
+
+	public void modificarCliente(Cliente c) throws SQLException {
+		Connection conn=OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
+		String query = "{CALL PKGESTIONTABLAS.pModificarCliente(?,?,?,?,?)}";
+		CallableStatement stmt = conn.prepareCall(query);				
+		stmt.setString(1,c.getCedula());
+		stmt.setString(2,c.getNombre());					
+		stmt.setString(3,c.getFechaNacimiento());
+		stmt.setString(4,c.getDireccion());
+		stmt.setString(5,c.getTelefono());
+		stmt.execute();
+	}
+
+	public void eliminarCliente(Cliente c) throws SQLException {
+		conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
+		String query = "{CALL PKGESTIONTABLAS.pEliminarCliente(?)}";
+		CallableStatement stmt = conn.prepareCall(query);
+		stmt.setString(1,c.getCedula());
+		stmt.execute();
 	}
 }
