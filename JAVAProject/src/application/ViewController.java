@@ -9,11 +9,10 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import model.*;
 import oracle.sql.DATE;
@@ -186,6 +185,9 @@ public class ViewController implements Initializable{
 	@FXML
 	private Button btEliminarFuncionario;
 	
+	@FXML
+	private Label labelResultadoFuncionario;
+	
 	/**
 	 * Crear producto
 	 */
@@ -225,6 +227,10 @@ public class ViewController implements Initializable{
 	@FXML
 	private Button btEliminarProducto;
 	
+	
+	
+	
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		sistemaGestion = new SistemaGestion();
@@ -240,10 +246,15 @@ public class ViewController implements Initializable{
 	
 	@FXML
 	private void registrarFuncionario() {
-		Date d = new Date(1999, 02, 26);
-		Funcionario f = new Funcionario("12","Juan", d, "Terranova", "3206457287");
-		String mensaje = sistemaGestion.registrarFuncionario(f);
-		System.out.println(mensaje);
+		String mensaje = "";
+		if(!txfCrearCedulaFuncionario.getText().equals("") && !txfCrearNombreFuncionario.getText().equals("") && !dpCrearFechaNacimientoFuncionario.getEditor().getText().equals("") && !txfCrearDireccionFuncionario.getText().equals("") && !txfCrearTelefonoFuncionario.getText().equals("")){
+			mensaje = "Por favor llene todos los campos";	
+		}else{
+			Funcionario f = new Funcionario(txfCrearCedulaFuncionario.getText(),txfCrearNombreFuncionario.getText(), dpCrearFechaNacimientoFuncionario.getEditor().getText(), txfCrearDireccionFuncionario.getText(), txfCrearTelefonoFuncionario.getText());
+			mensaje = sistemaGestion.registrarFuncionario(f);
+		}
+		labelResultadoFuncionario.setText(labelResultadoFuncionario.getText() + " " + mensaje);
+		
 	}
 	
 	private void setUpRegistroSolicitudes() {
@@ -258,7 +269,8 @@ public class ViewController implements Initializable{
 				stmt.setString(4,txfRegistrarIdAnomSolRepDan.getText());
 				stmt.execute();
 			} catch (SQLException e) {
-				showErrorMessage(e.getMessage());
+				System.out.println(e.getMessage());
+				e.printStackTrace();
 			}
 		});
 		btRegistrarSolModProd.setOnAction(value -> {
@@ -272,7 +284,8 @@ public class ViewController implements Initializable{
 				stmt.setString(4,txfRegistrarIdNuevoProdSolModProd.getText());
 				stmt.execute();
 			}catch(SQLException e) {
-				showErrorMessage(e.getMessage());
+				System.out.println(e.getMessage());
+				e.printStackTrace();
 			}
 		});
 	}
@@ -282,7 +295,8 @@ public class ViewController implements Initializable{
 				Parametro p=new Parametro(null,txfCrearNombreParametro.getText(),txfCrearValorParametro.getText());
 				sistemaGestion.crearParametro(p);
 			} catch (SQLException e) {
-				showErrorMessage(e.getMessage());
+				System.out.println(e.getMessage());
+				e.printStackTrace();
 			}
 		});
 		btModificarParametro.setOnAction(value-> {
@@ -290,7 +304,8 @@ public class ViewController implements Initializable{
 				Parametro p=new Parametro(txfModificarCodigoParametro.getText(),txfModificarNombreParametro.getText(),txfModificarValorParametro.getText());
 				sistemaGestion.modificarParametro(p);
 			} catch (SQLException e) {
-				showErrorMessage(e.getMessage());
+				System.out.println(e.getMessage());
+				e.printStackTrace();
 			}
 		});
 		btEliminarParametro.setOnAction(value-> {
@@ -298,7 +313,8 @@ public class ViewController implements Initializable{
 				Parametro p=new Parametro(txfEliminarCodigoParametro.getText(),null,null);
 				sistemaGestion.eliminarParametro(p);
 			} catch (SQLException e) {
-				showErrorMessage(e.getMessage());
+				System.out.println(e.getMessage());
+				e.printStackTrace();
 			}
 		});
 		
@@ -312,7 +328,8 @@ public class ViewController implements Initializable{
 						,txfCrearTelefonoCliente.getText());
 				sistemaGestion.registrarCliente(c);
 			}catch(SQLException e) {
-				showErrorMessage(e.getMessage());
+				e.printStackTrace();
+				System.out.println(e.getMessage());
 			}
 		});
 		btModificarCliente.setOnAction(value-> {
@@ -345,7 +362,8 @@ public class ViewController implements Initializable{
 				}								
 				sistemaGestion.modificarCliente(c);
 			}catch(SQLException e) {
-				showErrorMessage(e.getMessage());
+				e.printStackTrace();
+				System.out.println(e.getMessage());
 			}
 		});
 		btEliminarCliente.setOnAction(value-> {
@@ -358,7 +376,8 @@ public class ViewController implements Initializable{
 				c.setCedula(txfEliminarCedulaCliente.getText());
 				sistemaGestion.eliminarCliente(c);
 			} catch (SQLException e) {
-				showErrorMessage(e.getMessage());
+				e.printStackTrace();
+				System.out.println(e.getMessage());
 			}
 		});
 	}
@@ -369,7 +388,8 @@ public class ViewController implements Initializable{
 				TipoAnomalia t=new TipoAnomalia(null,txfCrearDescripcionAnomalia.getText());
 				sistemaGestion.registrarTipoAnomalia(t);
 			} catch (SQLException e) {
-				showErrorMessage(e.getMessage());
+				e.printStackTrace();
+				System.out.println(e.getMessage());
 			}
 		});
 		btModificarAnomalia.setOnAction(value-> {
@@ -382,7 +402,8 @@ public class ViewController implements Initializable{
 				}
 				sistemaGestion.modificarTipoAnomalia(t);
 			} catch (SQLException e) {
-				showErrorMessage(e.getMessage());
+				e.printStackTrace();
+				System.out.println(e.getMessage());
 			}
 		});
 		btEliminarAnomalia.setOnAction(value->{
@@ -390,17 +411,9 @@ public class ViewController implements Initializable{
 				TipoAnomalia t=new TipoAnomalia(txfEliminarIdAnomalia.getText(),null);
 				sistemaGestion.eliminarTipoAnomalia(t);
 			} catch (SQLException e) {
-				showErrorMessage(e.getMessage());
+				e.printStackTrace();
+				System.out.println(e.getMessage());
 			}
 		});
-	}
-	public void showErrorMessage(String message) {
-		Alert alert = new Alert(AlertType.ERROR);
-		alert.setTitle("Error");
-		alert.setHeaderText("Error");
-		String error=message.split("\n")[0];
-		error=error.substring(error.indexOf(" "));
-		alert.setContentText(error);
-		alert.showAndWait();
 	}
 }

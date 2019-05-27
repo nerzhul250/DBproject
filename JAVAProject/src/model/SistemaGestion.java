@@ -13,35 +13,17 @@ public class SistemaGestion {
 
 	
 	public SistemaGestion() {
-		try {
-			registerDriver();
-			conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
 	}
-	
-	private void registerDriver() {
-		try {
-			Class.forName(JDBC_DRIVER);
-		} catch (ClassNotFoundException e) {
-			System.err.println("ERROR: failed to load JDBC driver.");
-			System.out.println("Error");
-			e.printStackTrace();
-		}
-	}
-	
-	
 	
 	public String registrarFuncionario(Funcionario f) {
 		String mensaje = "";
 		try {
+			conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
 			String query = "{CALL pkFuncionarioNivel2.registrarFuncionario(?,?,?,?,?)}";
 			CallableStatement stmt = conn.prepareCall(query);
 			stmt.setString(1, f.getCedula());
 			stmt.setString(2, f.getNombre());
-			stmt.setDate(3, f.getFechaNacimiento());
+			stmt.setString(3, f.getFechaNacimiento());
 			stmt.setString(4, f.getDireccion());
 			stmt.setString(5, f.getTelefono());
 			stmt.executeQuery();
