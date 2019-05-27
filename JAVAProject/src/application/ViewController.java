@@ -137,6 +137,21 @@ public class ViewController implements Initializable{
 	@FXML
 	private Button btRegistrarSolModProd;
 	/**
+	 * Registrar solicitud de reclamo
+	 */
+	@FXML
+	private Button btRegistrarSolReclamo;
+	/**
+	 * Registrar solicitud de creacion
+	 */
+	@FXML
+	private Button btRegistrarSolCreacion;
+	/**
+	 * Registrar solicitud de cancelacion de producto
+	 */
+	@FXML
+	private Button btRegistrarSolCancProd;
+	/**
 	 *  Crear funcionario
 	 */
 	@FXML
@@ -283,6 +298,45 @@ public class ViewController implements Initializable{
 				stmt.setString(2,txfRegistrarCodProdSolicitud.getText());
 				stmt.setString(3,txfRegistrarDescripSolicitud.getText());
 				stmt.setString(4,txfRegistrarIdNuevoProdSolModProd.getText());
+				stmt.execute();
+			}catch(SQLException e) {
+				showErrorMessage(e.getMessage());
+			}
+		});
+		btRegistrarSolReclamo.setOnAction(value -> {
+			try {
+				Connection conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
+				String query = "{CALL PKREGISTRONIVEL2.pRegistrarSolicitudReclamo(?,?,?)}";
+				CallableStatement stmt = conn.prepareCall(query);
+				stmt.setString(1,txfRegistrarCeduCliSolicitud.getText());
+				stmt.setString(2,txfRegistrarCodProdSolicitud.getText());
+				stmt.setString(3,txfRegistrarDescripSolicitud.getText());
+				stmt.execute();
+			}catch(SQLException e) {
+				showErrorMessage(e.getMessage());
+			}
+		});
+		btRegistrarSolCreacion.setOnAction(value -> {
+			try {
+				Connection conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
+				String query = "{CALL PKREGISTRONIVEL2.pRegistrarSolicitudCreacion(?,?,?)}";
+				CallableStatement stmt = conn.prepareCall(query);
+				stmt.setString(1,txfRegistrarCeduCliSolicitud.getText());
+				stmt.setString(2,txfRegistrarCodProdSolicitud.getText());
+				stmt.setString(3,txfRegistrarDescripSolicitud.getText());
+				stmt.execute();
+			}catch(SQLException e) {
+				showErrorMessage(e.getMessage());
+			}
+		});
+		btRegistrarSolCancProd.setOnAction(value -> {
+			try {
+				Connection conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
+				String query = "{CALL PKREGISTRONIVEL2.pRegistrarSolicitudCancelacionProducto(?,?,?)}";
+				CallableStatement stmt = conn.prepareCall(query);
+				stmt.setString(1,txfRegistrarCeduCliSolicitud.getText());
+				stmt.setString(2,txfRegistrarCodProdSolicitud.getText());
+				stmt.setString(3,txfRegistrarDescripSolicitud.getText());
 				stmt.execute();
 			}catch(SQLException e) {
 				showErrorMessage(e.getMessage());
