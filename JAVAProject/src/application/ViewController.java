@@ -372,6 +372,33 @@ public class ViewController implements Initializable{
 	}
 	
 	@FXML
+	public void modificarProducto() {
+		String mensaje;
+		if(txfModificarCodigoProducto.getText().equals("")) {
+			mensaje = "Por favor esciba el codigo del producto";
+		}else {
+			int n = -1;
+			String selection = mbModificarTipoProducto.getSelectionModel().getSelectedItem();
+			if(selection.equals("Servicio de Voz")) {
+				n = 1;
+			}else if(selection.equals("Servicio de Datos")) {
+				n = 2;
+			}else if(selection.equals("Servicio Integrado")) {
+				n = 3;
+			}
+			
+			Producto p = new Producto(txfModificarCodigoProducto.getText(), txfModificarDescripcionProducto.getText(),n);
+			
+			if(txfModificarDescripcionProducto.getText().equals("")) {
+				p.setDescripcion(null);
+			}
+			
+			mensaje = sistemaGestion.modificarProducto(p);
+		}
+		labelResultadoProducto.setText(mensaje);	
+	}
+	
+	@FXML
 	public void asignarSolicitudAFuncionario(ActionEvent e) {
 		try {
 
