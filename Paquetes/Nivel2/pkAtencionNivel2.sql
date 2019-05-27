@@ -67,11 +67,15 @@ BEGIN
     SELECT SYSDATE into vSysDate
     FROM dual;
     
-    pkServicioPrestado.pInsertar(vCodigoProducto, vCedulaCliente, vPrimerDiaSigMes, NULL);
-    
     pkSolCreacion.pModificar (ivCodigoSolicitud ,'ATENDIDA', vDescripcionSolicitud, vCedulaCliente, vCodigoProducto, 'CREACION', vFechaCreacion);
     
     pkAsignacion.pModificar(vFechaAsignacion, ivCedulaFuncionario, ivCodigoSolicitud, vSysDate, ivComentariosFuncionario, 'T');
+    
+    pkServicioPrestado.pInsertar(vCodigoProducto, vCedulaCliente, vPrimerDiaSigMes, NULL);
+    
+EXCEPTION
+    WHEN OTHERS THEN
+    RAISE_APPLICATION_ERROR(-20001, 'Error, la solicitud especificada no está asignada a ese funcionario');
     
 END pAtenderSolicitudCreacion;
 
@@ -141,6 +145,10 @@ BEGIN
     
     pkAsignacion.pModificar(vFechaAsignacion, ivCedulaFuncionario, ivCodigoSolicitud, vSysDate, ivComentariosFuncionario, 'T');
     
+EXCEPTION
+    WHEN OTHERS THEN
+    RAISE_APPLICATION_ERROR(-20001, 'Error, la solicitud especificada no está asignada a ese funcionario');
+    
 END pAtenderSolicitudRetiro;
 
 
@@ -209,6 +217,9 @@ BEGIN
     
     pkAsignacion.pModificar(vFechaAsignacion, ivCedulaFuncionario, ivCodigoSolicitud, vSysDate, ivComentariosFuncionario, 'T');
     
+EXCEPTION
+    WHEN OTHERS THEN
+    RAISE_APPLICATION_ERROR(-20001, 'Error, la solicitud especificada no está asignada a ese funcionario');
     
 END pAtenderSolicitudReclamo;
 
@@ -284,6 +295,9 @@ BEGIN
     
     pkAsignacion.pModificar(vFechaAsignacion, ivCedulaFuncionario, ivCodigoSolicitud, vSysDate, ivComentariosFuncionario, 'T');
     
+EXCEPTION
+    WHEN OTHERS THEN
+    RAISE_APPLICATION_ERROR(-20001, 'Error, la solicitud especificada no está asignada a ese funcionario');
     
 END pAtenderSolicitudDanio;
 
@@ -295,7 +309,7 @@ FROM SOLICITUD
 WHERE CODIGO = ivSolicitudCodigo;
 EXCEPTION
     WHEN NO_DATA_FOUND THEN
-    RAISE_APPLICATION_ERROR(-20001,'Error, no existe una asignacion con ese id');
+    RAISE_APPLICATION_ERROR(-20001,'Error, no existe una solicitud con ese id');
     WHEN OTHERS THEN
     RAISE_APPLICATION_ERROR(-20001,'Error desconocido'||SQLERRM||SQLCODE);
 END fTipoSolicitud;
