@@ -2,7 +2,7 @@ CREATE OR REPLACE PACKAGE pkProducto AS -- spec
 	PROCEDURE pInsertar (ivCodigo producto.codigo%TYPE, ivDescripcion producto.descripcion%TYPE, ivTipo producto.tipo%TYPE);
 	PROCEDURE pBorrar(ivCodigo producto.codigo%TYPE);
 	PROCEDURE pModificar(ivCodigo producto.codigo%TYPE, ivDescripcion producto.descripcion%TYPE, ivTipo producto.tipo%TYPE);
-	FUNCTION fConsultar (ivCodigo producto.codigo%TYPE) RETURN VARCHAR2;
+	FUNCTION fConsultar (ivCodigo producto.codigo%TYPE) RETURN producto%rowtype;
 END pkProducto;
 /
 CREATE OR REPLACE PACKAGE BODY pkProducto AS
@@ -21,16 +21,9 @@ CREATE OR REPLACE PACKAGE BODY pkProducto AS
 		UPDATE producto SET codigo= ivCodigo, descripcion = ivDescripcion, tipo = ivTipo WHERE codigo= ivCodigo;
 	END pModificar;
 	
-	FUNCTION fConsultar (ivCodigo producto.codigo%TYPE) RETURN VARCHAR2 IS
-		vCodigo producto.codigo%TYPE;
-		vDescripcion producto.descripcion%TYPE;
-		vTipo producto.tipo%TYPE;
-		ovConsulta VARCHAR2(5000);
+	FUNCTION fConsultar (ivCodigo producto.codigo%TYPE) RETURN producto%rowtype IS ovConsulta producto%rowtype;
 	BEGIN
-		SELECT codigo, descripcion, tipo INTO vCodigo, vDescripcion, vTipo
-		FROM producto
-		WHERE codigo = ivCodigo;
-		ovConsulta:= vCodigo||','||vDescripcion||','||vTipo;
+		SELECT * INTO  ovConsulta FROM producto WHERE codigo = ivCodigo;
 		return ovConsulta;
 		EXCEPTION
 			WHEN NO_DATA_FOUND THEN
