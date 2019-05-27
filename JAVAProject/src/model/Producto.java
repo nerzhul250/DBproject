@@ -6,9 +6,9 @@ private String codigo;
 
 private String descripcion;
 
-private String tipo;
+private int tipo;
 
-public Producto(String codigo, String descripcion, String tipo) {
+public Producto(String codigo, String descripcion, int tipo) {
 	super();
 	this.codigo = codigo;
 	this.descripcion = descripcion;
@@ -31,11 +31,11 @@ public void setDescripcion(String descripcion) {
 	this.descripcion = descripcion;
 }
 
-public String getTipo() {
+public int getTipo() {
 	return tipo;
 }
 
-public void setTipo(String tipo) {
+public void setTipo(int tipo) {
 	this.tipo = tipo;
 }
 

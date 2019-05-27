@@ -81,7 +81,7 @@ public class SistemaGestion {
 			CallableStatement stmt = conn.prepareCall(query);
 			stmt.setString(1, p.getCodigo());
 			stmt.setString(2, p.getDescripcion());
-			stmt.setString(3, p.getTipo());
+			stmt.setInt(3, p.getTipo());
 			stmt.executeQuery();
 			mensaje = "El producto con codigo " + p.getCodigo() + " insertado satisfactoriamente";
 		} catch (SQLException e) {

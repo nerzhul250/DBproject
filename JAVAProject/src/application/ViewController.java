@@ -348,11 +348,25 @@ public class ViewController implements Initializable{
 		if(txfCrearCodigoProducto.getText().equals("")) {
 			mensaje = "Por favor esciba el codigo del producto";
 		}else {
-			int n;
-			mbCrearTipoProducto.getSelectionModel().getSelectedItem();
-			Producto p = new Producto(txfCrearCodigoProducto.getText(), txfCrearDescripcionProducto.getText(), "1");
+			int n = -1;
+			String selection = mbCrearTipoProducto.getSelectionModel().getSelectedItem();
+			if(selection.equals("Servicio de Voz")) {
+				n = 1;
+			}else if(selection.equals("Servicio de Datos")) {
+				n = 2;
+			}else if(selection.equals("Servicio Integrado")) {
+				n = 3;
+			}
+			
+			Producto p = new Producto(txfCrearCodigoProducto.getText(), txfCrearDescripcionProducto.getText(),n);
+			
+			if(txfCrearDescripcionProducto.getText().equals("")) {
+				p.setDescripcion(null);
+			}
+			
 			mensaje = sistemaGestion.crearProducto(p);
 		}
+		
 	}
 	
 	@FXML
