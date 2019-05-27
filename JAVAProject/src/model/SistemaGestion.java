@@ -48,6 +48,7 @@ public class SistemaGestion {
 			stmt.setString(4, f.getDireccion());
 			stmt.setString(5, f.getTelefono());
 			stmt.executeQuery();
+			System.out.println("Entra");
 			mensaje = "La informacion del funcionario con cedula " + f.getCedula() + " fue modificada satisfactoriamente";
 		} catch (SQLException e) {
 			mensaje = e.getMessage();

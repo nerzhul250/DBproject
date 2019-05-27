@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
@@ -11,7 +14,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="694.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ViewController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="694.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ViewController">
   <tabs>
     <Tab text="Gestion de Tablas">
          <content>
@@ -75,7 +78,7 @@
                               <TextField fx:id="txfModificarDireccionFuncionario" layoutX="525.0" layoutY="141.0" promptText="Dirección" />
                               <TextField fx:id="txfModificarTelefonoFuncionario" layoutX="23.0" layoutY="176.0" promptText="Teléfono" />
                               <DatePicker fx:id="dpModificarFechaNacimientoFuncionario" layoutX="341.0" layoutY="141.0" promptText="Fecha de nacimiento" />
-                              <Button fx:id="btModificarFuncionario" layoutX="181.0" layoutY="176.0" mnemonicParsing="false" text="Modificar" />
+                              <Button fx:id="btModificarFuncionario" layoutX="181.0" layoutY="176.0" mnemonicParsing="false" onAction="#modificarFuncionario" text="Modificar" />
                               <Label layoutX="23.0" layoutY="211.0" text="Eliminar un funcionario" />
                               <TextField fx:id="txfEliminarCedulaFuncionario" layoutX="23.0" layoutY="238.0" promptText="Cédula" />
                               <Button fx:id="btEliminarFuncionario" layoutX="182.0" layoutY="238.0" mnemonicParsing="false" text="Eliminar" />

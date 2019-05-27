@@ -275,7 +275,6 @@ public class ViewController implements Initializable{
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-	//	dpCrearFechaNacimientoFuncionario;
 		sistemaGestion = new SistemaGestion();
 		setUpTipoAnomaliaOps();
 		setUpClienteOps();
@@ -301,6 +300,26 @@ public class ViewController implements Initializable{
 	
 	@FXML
 	private void modificarFuncionario() {
+		String mensaje = "";
+		if(txfModificarCedulaFuncionario.getText().equals("")) {
+			mensaje = "Por favor escriba la cedula de funcionario a modificar";	
+		}else {
+			Funcionario f = new Funcionario(txfModificarCedulaFuncionario.getText(), txfModificarNombreFuncionario.getText(), dpModificarFechaNacimientoFuncionario.getEditor().getText(), txfModificarDireccionFuncionario.getText(), txfModificarTelefonoFuncionario.getText());
+			if(txfModificarNombreFuncionario.getText().equals("")) {
+				f.setNombre(null);
+			}
+			if(dpModificarFechaNacimientoFuncionario.getEditor().getText().equals("")) {
+				f.setFechaNacimiento(null);
+			}
+			if(txfModificarDireccionFuncionario.getText().equals("")) {
+				f.setDireccion(null);
+			}
+			if(txfModificarTelefonoFuncionario.getText().equals("")) {
+				f.setTelefono(null);
+			}
+			mensaje = sistemaGestion.modificarFuncionario(f);
+		}
+		labelResultadoFuncionario.setText(mensaje);
 		
 	}
 	
