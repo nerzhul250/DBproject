@@ -1,11 +1,15 @@
 package application;
 
+import java.awt.Dialog;
 import java.net.URL;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.GregorianCalendar;
 import java.util.ResourceBundle;
+
+import com.sun.corba.se.impl.protocol.giopmsgheaders.Message;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -245,6 +249,12 @@ public class ViewController implements Initializable{
 	@FXML
 	private Button btEliminarProducto;
 	
+	// AQUI EMPIEZA LA COSA DE ASIGNACION
+	@FXML
+	private TextField txtSolicitudCodigo;
+	
+	@FXML
+	private TextField txtFuncionarioCedula;
 	
 	
 	
@@ -277,13 +287,27 @@ public class ViewController implements Initializable{
 	@FXML
 	public void asignarSolicitudAFuncionario(ActionEvent e) {
 		try {
+
 			Connection conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
-			String query = "{CALL PKASIGNACIONNIVEL2.realizarAsignacion(SYSDATE,?,?,null,null,null)}";
+			String query = "{CALL PKASIGNACIONNIVEL2.realizarAsignacion(?,?,?,?,?,?)}";
 			CallableStatement stmt = conn.prepareCall(query);
+			stmt.setDate(1, new java.sql.Date(System.currentTimeMillis()));
 			stmt.setString(2,txtFuncionarioCedula.getText());
-			stmt.setString(3,txtSolicitudCodigo.getText());
+
+			stmt.setInt(3,Integer.parseInt(txtSolicitudCodigo.getText().trim()));
+
+			stmt.setNull(4, java.sql.Types.DATE);
+			stmt.setNull(5, java.sql.Types.VARCHAR);
+			stmt.setNull(6, java.sql.Types.CHAR);
+
+			Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+			alert.setHeaderText("Succeded!");
+			alert.getDialogPane().setContentText("Asignación con éxito");
+			alert.showAndWait();
+			//("Asignacion con exito");
+			stmt.execute();
 		}catch(SQLException ex) {
-			showErrorMessage(ex.getMessage());
+			showErrorMessage("error en la base: "+ex.getMessage());
 		}
 	}
 	private void setUpRegistroSolicitudes() {
