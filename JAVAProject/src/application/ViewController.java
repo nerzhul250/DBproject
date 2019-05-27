@@ -289,8 +289,8 @@ public class ViewController implements Initializable{
 	@FXML
 	private void registrarFuncionario() {
 		String mensaje = "";
-		if(txfCrearCedulaFuncionario.getText().equals("") || txfCrearNombreFuncionario.getText().equals("") || dpCrearFechaNacimientoFuncionario.getEditor().getText().equals("") || txfCrearDireccionFuncionario.getText().equals("") || txfCrearTelefonoFuncionario.getText().equals("")){
-			mensaje = "Por favor llene todos los campos";	
+		if(txfCrearCedulaFuncionario.getText().equals("")){
+			mensaje = "Por favor rellene el campo de la cedula del funcionario";	
 		}else{
 			Funcionario f = new Funcionario(txfCrearCedulaFuncionario.getText(),txfCrearNombreFuncionario.getText(), dpCrearFechaNacimientoFuncionario.getEditor().getText(), txfCrearDireccionFuncionario.getText(), txfCrearTelefonoFuncionario.getText());
 			mensaje = sistemaGestion.registrarFuncionario(f);
