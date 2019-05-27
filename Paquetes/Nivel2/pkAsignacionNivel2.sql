@@ -36,16 +36,17 @@ CREATE OR REPLACE PACKAGE BODY pkAsignacionNivel2 AS
         GROUP BY funcionario_cedula
         HAVING COUNT(*) < 3
         ORDER BY COUNT(*);
+    Cursor c2 IS
+        SELECT cedula 
+        FROM funcionario
+        WHERE (SELECT COUNT(*)
+        FROM asignacion
+        WHERE asignacion.funcionario_cedula= cedula)<3;
     BEGIN
-        OPEN c1;
-        FETCH c1 INTO ovCedula, vCant;
+        OPEN c2;
+        FETCH c2 INTO ovCedula;
         
-        CLOSE c1;
-        RETURN ovCedula;
-    EXCEPTION
-    WHEN NO_DATA_FOUND THEN
-    RAISE_APPLICATION_ERROR(-20001,'Error, no existe una asignacion con ese id');
-    WHEN OTHERS THEN
-    RAISE_APPLICATION_ERROR(-20001,'Error desconocido'||SQLERRM||SQLCODE);
+        CLOSE c2;
+        RETURN TRIM(ovCedula);
     END fRetornarFuncionarioDisponible;
 END pkAsignacionNivel2;
