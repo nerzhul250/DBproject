@@ -233,6 +233,7 @@ public class ViewController implements Initializable{
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+	//	dpCrearFechaNacimientoFuncionario;
 		sistemaGestion = new SistemaGestion();
 		setUpTipoAnomaliaOps();
 		setUpClienteOps();
@@ -247,14 +248,13 @@ public class ViewController implements Initializable{
 	@FXML
 	private void registrarFuncionario() {
 		String mensaje = "";
-		if(!txfCrearCedulaFuncionario.getText().equals("") && !txfCrearNombreFuncionario.getText().equals("") && !dpCrearFechaNacimientoFuncionario.getEditor().getText().equals("") && !txfCrearDireccionFuncionario.getText().equals("") && !txfCrearTelefonoFuncionario.getText().equals("")){
+		if(txfCrearCedulaFuncionario.getText().equals("") || txfCrearNombreFuncionario.getText().equals("") || dpCrearFechaNacimientoFuncionario.getEditor().getText().equals("") || txfCrearDireccionFuncionario.getText().equals("") || txfCrearTelefonoFuncionario.getText().equals("")){
 			mensaje = "Por favor llene todos los campos";	
 		}else{
 			Funcionario f = new Funcionario(txfCrearCedulaFuncionario.getText(),txfCrearNombreFuncionario.getText(), dpCrearFechaNacimientoFuncionario.getEditor().getText(), txfCrearDireccionFuncionario.getText(), txfCrearTelefonoFuncionario.getText());
 			mensaje = sistemaGestion.registrarFuncionario(f);
 		}
-		labelResultadoFuncionario.setText(labelResultadoFuncionario.getText() + " " + mensaje);
-		
+		labelResultadoFuncionario.setText(mensaje);	
 	}
 	
 	private void setUpRegistroSolicitudes() {
