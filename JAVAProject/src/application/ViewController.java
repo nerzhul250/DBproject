@@ -7,6 +7,7 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -137,6 +138,21 @@ public class ViewController implements Initializable{
 	@FXML
 	private Button btRegistrarSolModProd;
 	/**
+	 * Registrar solicitud de reclamo
+	 */
+	@FXML
+	private Button btRegistrarSolReclamo;
+	/**
+	 * Registrar solicitud de creacion
+	 */
+	@FXML
+	private Button btRegistrarSolCreacion;
+	/**
+	 * Registrar solicitud de cancelacion de producto
+	 */
+	@FXML
+	private Button btRegistrarSolCancProd;
+	/**
 	 *  Crear funcionario
 	 */
 	@FXML
@@ -258,7 +274,18 @@ public class ViewController implements Initializable{
 		}
 		labelResultadoFuncionario.setText(mensaje);	
 	}
-	
+	@FXML
+	public void asignarSolicitudAFuncionario(ActionEvent e) {
+		try {
+			Connection conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
+			String query = "{CALL PKASIGNACIONNIVEL2.realizarAsignacion(SYSDATE,?,?,null,null,null)}";
+			CallableStatement stmt = conn.prepareCall(query);
+			stmt.setString(2,txtFuncionarioCedula.getText());
+			stmt.setString(3,txtSolicitudCodigo.getText());
+		}catch(SQLException ex) {
+			showErrorMessage(ex.getMessage());
+		}
+	}
 	private void setUpRegistroSolicitudes() {
 		btRegistrarSolRepDan.setOnAction(value->{
 			try {
@@ -283,6 +310,45 @@ public class ViewController implements Initializable{
 				stmt.setString(2,txfRegistrarCodProdSolicitud.getText());
 				stmt.setString(3,txfRegistrarDescripSolicitud.getText());
 				stmt.setString(4,txfRegistrarIdNuevoProdSolModProd.getText());
+				stmt.execute();
+			}catch(SQLException e) {
+				showErrorMessage(e.getMessage());
+			}
+		});
+		btRegistrarSolReclamo.setOnAction(value -> {
+			try {
+				Connection conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
+				String query = "{CALL PKREGISTRONIVEL2.pRegistrarSolicitudReclamo(?,?,?)}";
+				CallableStatement stmt = conn.prepareCall(query);
+				stmt.setString(1,txfRegistrarCeduCliSolicitud.getText());
+				stmt.setString(2,txfRegistrarCodProdSolicitud.getText());
+				stmt.setString(3,txfRegistrarDescripSolicitud.getText());
+				stmt.execute();
+			}catch(SQLException e) {
+				showErrorMessage(e.getMessage());
+			}
+		});
+		btRegistrarSolCreacion.setOnAction(value -> {
+			try {
+				Connection conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
+				String query = "{CALL PKREGISTRONIVEL2.pRegistrarSolicitudCreacion(?,?,?)}";
+				CallableStatement stmt = conn.prepareCall(query);
+				stmt.setString(1,txfRegistrarCeduCliSolicitud.getText());
+				stmt.setString(2,txfRegistrarCodProdSolicitud.getText());
+				stmt.setString(3,txfRegistrarDescripSolicitud.getText());
+				stmt.execute();
+			}catch(SQLException e) {
+				showErrorMessage(e.getMessage());
+			}
+		});
+		btRegistrarSolCancProd.setOnAction(value -> {
+			try {
+				Connection conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
+				String query = "{CALL PKREGISTRONIVEL2.pRegistrarSolicitudCancelacionProducto(?,?,?)}";
+				CallableStatement stmt = conn.prepareCall(query);
+				stmt.setString(1,txfRegistrarCeduCliSolicitud.getText());
+				stmt.setString(2,txfRegistrarCodProdSolicitud.getText());
+				stmt.setString(3,txfRegistrarDescripSolicitud.getText());
 				stmt.execute();
 			}catch(SQLException e) {
 				showErrorMessage(e.getMessage());

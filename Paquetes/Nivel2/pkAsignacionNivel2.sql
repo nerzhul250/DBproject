@@ -29,11 +29,16 @@ CREATE OR REPLACE PACKAGE BODY pkAsignacionNivel2 AS
         WHERE asignacion.funcionario_cedula= cedula)<3;
         codigoSol solicitud.codigo%TYPE;
    BEGIN
+     dbms_output.put_line( 'STARTING' ); 
         OPEN c1;
         FOR fun in c2
         LOOP
             FETCH c1 INTO codigoSol;
+            EXIT WHEN c1%notfound;
+             dbms_output.put_line( fun.cedula ); 
+             
             pkAsignacionnivel2.realizarAsignacion(SYSDATE, fun.cedula, codigoSol,null,null,null);
+            cambiarEstadoSolicitud(codigosol,'Asignado');
         END LOOP;
         CLOSE c1;
    END asignacionProgramada;
@@ -51,6 +56,7 @@ CREATE OR REPLACE PACKAGE BODY pkAsignacionNivel2 AS
     SELECT COUNT(*) INTO numRegistrosAsignacion FROM asignacion WHERE funcionario_cedula= ivfuncionarioCedula AND solicitud_codigo= ivSolicitudCodigo;
         IF numRegistrosSolicitud =1 AND numRegistrosFuncionarios =1 AND numRegistrosAsignacion=0 THEN   
           pkAsignacion.pInsertar(ivFechaAsignacion, ivFuncionarioCedula,ivSolicitudCodigo,ivFechaAtencion,ivcomentariosfuncionario,ivAtendido);
+          cambiarEstadoSolicitud(ivSolicitudCodigo, 'Asignado');
             ELSE
         RAISE ex_custom;
 
