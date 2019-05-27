@@ -275,6 +275,8 @@ public class ViewController implements Initializable{
 	
 	private ObservableList<String> listaTiposPorductos = FXCollections.observableArrayList("Servicio de Voz", "Servicio de Datos", "Servicio Integrado");
 	
+	@FXML
+	private Label labelResultadoProducto;
 	
 	
 	@Override
@@ -366,7 +368,7 @@ public class ViewController implements Initializable{
 			
 			mensaje = sistemaGestion.crearProducto(p);
 		}
-		
+		labelResultadoProducto.setText(mensaje);	
 	}
 	
 	@FXML
