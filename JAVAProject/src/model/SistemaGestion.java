@@ -40,7 +40,7 @@ public class SistemaGestion {
 		
 		try {
 			conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
-			String query = "{CALL pkFuncionarioNivel2.modificarFuncinario(?,?,?,?,?)}";
+			String query = "{CALL pkFuncionarioNivel2.modificarFuncionario(?,?,?,?,?)}";
 			CallableStatement stmt = conn.prepareCall(query);
 			stmt.setString(1, f.getCedula());
 			stmt.setString(2, f.getNombre());

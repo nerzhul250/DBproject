@@ -6,18 +6,26 @@ END pkFuncionarioNivel2;
 /
 CREATE OR REPLACE PACKAGE BODY pkFuncionarioNivel2 AS
 		PROCEDURE registrarFuncionario (ivCedula funcionario.cedula%TYPE, ivNombre funcionario.nombre%TYPE, ivFechaNacimiento funcionario.fechanacimiento%TYPE, ivDireccion funcionario.direccion%TYPE, ivTelefono funcionario.telefono%TYPE) IS
-        cantidad NUMBER(1);
-		oldRow funcionario%rowtype;
-		vNombre funcionario.nombre%TYPE;
-		vFechaNacimiento funcionario.fechanacimiento%TYPE;
-		vDireccion funcionario.direccion%TYPE;
-		ivTelefono funcionario.telefono%TYPE;
-		
+        cantidad NUMBER(1);	
         BEGIN
             SELECT COUNT(*) INTO cantidad FROM funcionario WHERE cedula = ivCedula;
 			IF cantidad = 1 THEN
 				RAISE_APPLICATION_ERROR(-20001,'El funcionario con cedula ' || ivCedula || ' ya existe');
 			ELSE
+				pkFuncionario.pInsertar(ivCedula, ivNombre, ivFechaNacimiento, ivDireccion, ivTelefono);
+            END IF;
+		END registrarFuncionario;
+	
+		PROCEDURE modificarFuncionario(ivCedula funcionario.cedula%TYPE, ivNombre funcionario.nombre%TYPE, ivFechaNacimiento funcionario.fechanacimiento%TYPE, ivDireccion funcionario.direccion%TYPE, ivTelefono funcionario.telefono%TYPE) IS
+		cantidad NUMBER(1);
+		oldRow funcionario%rowtype;
+		vNombre funcionario.nombre%TYPE;
+		vFechaNacimiento funcionario.fechanacimiento%TYPE;
+		vDireccion funcionario.direccion%TYPE;
+		vTelefono funcionario.telefono%TYPE;
+		BEGIN 
+            SELECT COUNT(*) INTO cantidad FROM funcionario WHERE cedula = ivCedula;
+			IF cantidad = 1 THEN
 				oldRow := pkFuncionario.fConsultar(ivCedula);
 				IF  ivNombre IS NULL THEN
 					vNombre := oldRow.nombre;
@@ -31,16 +39,18 @@ CREATE OR REPLACE PACKAGE BODY pkFuncionarioNivel2 AS
 					vFechaNacimiento := ivFechaNacimiento;
 				END IF;
 				
-				pkFuncionario.pInsertar(ivCedula, ivNombre, ivFechaNacimiento, ivDireccion, ivTelefono);
-            END IF;
-		END registrarFuncionario;
-	
-		PROCEDURE modificarFuncionario(ivCedula funcionario.cedula%TYPE, ivNombre funcionario.nombre%TYPE, ivFechaNacimiento funcionario.fechanacimiento%TYPE, ivDireccion funcionario.direccion%TYPE, ivTelefono funcionario.telefono%TYPE) IS
-		cantidad NUMBER(1);
-		BEGIN 
-            SELECT COUNT(*) INTO cantidad FROM funcionario WHERE cedula = ivCedula;
-			IF cantidad = 1 THEN
-				pkFuncionario.pModificar(ivCedula, ivNombre, ivFechaNacimiento, ivDireccion, ivTelefono);
+				IF ivDireccion IS NULL THEN
+					vDireccion := oldRow.direccion;
+				ELSE 
+					vDireccion := ivDireccion;
+				END IF;
+				
+				IF ivTelefono IS NULL THEN 
+					vTelefono := oldRow.telefono;
+				ELSE
+					vTelefono := ivTelefono;
+				END IF;
+				pkFuncionario.pModificar(ivCedula, vNombre, vFechaNacimiento, vDireccion, vTelefono);
 			ELSE
 				RAISE_APPLICATION_ERROR(-20001,'El funcionario con cedula ' || ivCedula ||' no existe');
 			END IF;

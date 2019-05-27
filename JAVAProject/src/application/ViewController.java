@@ -318,6 +318,7 @@ public class ViewController implements Initializable{
 				f.setTelefono(null);
 			}
 			mensaje = sistemaGestion.modificarFuncionario(f);
+			System.out.println(mensaje);
 		}
 		labelResultadoFuncionario.setText(mensaje);
 		
