@@ -34,6 +34,27 @@ public class SistemaGestion {
 		return mensaje;
 
 	}
+	
+	public String modificarFuncionario(Funcionario f) {
+		String mensaje = "";
+		
+		try {
+			conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
+			String query = "{CALL pkFuncionarioNivel2.modificarFuncinario(?,?,?,?,?)}";
+			CallableStatement stmt = conn.prepareCall(query);
+			stmt.setString(1, f.getCedula());
+			stmt.setString(2, f.getNombre());
+			stmt.setString(3, f.getFechaNacimiento());
+			stmt.setString(4, f.getDireccion());
+			stmt.setString(5, f.getTelefono());
+			stmt.executeQuery();
+			mensaje = "La informacion del funcionario con cedula " + f.getCedula() + " fue modificada satisfactoriamente";
+		} catch (SQLException e) {
+			mensaje = e.getMessage();
+		}
+		
+		return mensaje;
+	}
 
 	public void crearParametro(Parametro p) throws SQLException {
 		conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);

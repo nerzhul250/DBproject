@@ -298,6 +298,12 @@ public class ViewController implements Initializable{
 		}
 		labelResultadoFuncionario.setText(mensaje);	
 	}
+	
+	@FXML
+	private void modificarFuncionario() {
+		
+	}
+	
 	@FXML
 	public void asignarSolicitudAFuncionario(ActionEvent e) {
 		try {
@@ -374,6 +380,7 @@ public class ViewController implements Initializable{
 					stmt.execute();
 					System.out.println("Chau jejejjej");
 					break;
+					
 				case "CANCELACIONPRODUCTO":
 					accepted = cbAprobado.isSelected() ? "ATENIDA" : "ANULADA";
 					conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
