@@ -324,6 +324,18 @@ public class ViewController implements Initializable{
 		
 	}
 	
+	@FXML	
+	public void borrarFuncionario() {
+		String mensaje = "";
+		if(txfEliminarCedulaFuncionario.getText().equals("")) {
+			mensaje = "Por favor escriba la cedula de funcionario a eliminar";	
+		}else {
+			mensaje = sistemaGestion.borrarFuncionario(txfEliminarCedulaFuncionario.getText());
+			System.out.println(mensaje);
+		}
+		labelResultadoFuncionario.setText(mensaje);
+	}
+	
 	@FXML
 	public void asignarSolicitudAFuncionario(ActionEvent e) {
 		try {

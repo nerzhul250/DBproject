@@ -41,8 +41,7 @@ CREATE TABLE asignacion (
 )
 LOGGING;
 
-ALTER TABLE asignacion ADD CONSTRAINT asignacion_pk PRIMARY KEY ( funcionario_cedula,
-                                                                  solicitud_codigo );
+ALTER TABLE asignacion ADD CONSTRAINT asignacion_pk PRIMARY KEY ( funcionario_cedula, solicitud_codigo );
 
 CREATE TABLE cliente (
     cedula            VARCHAR2(20 CHAR) NOT NULL,

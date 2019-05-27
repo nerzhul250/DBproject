@@ -81,7 +81,7 @@
                               <Button fx:id="btModificarFuncionario" layoutX="181.0" layoutY="176.0" mnemonicParsing="false" onAction="#modificarFuncionario" text="Modificar" />
                               <Label layoutX="23.0" layoutY="211.0" text="Eliminar un funcionario" />
                               <TextField fx:id="txfEliminarCedulaFuncionario" layoutX="23.0" layoutY="238.0" promptText="Cédula" />
-                              <Button fx:id="btEliminarFuncionario" layoutX="182.0" layoutY="238.0" mnemonicParsing="false" text="Eliminar" />
+                              <Button fx:id="btEliminarFuncionario" layoutX="182.0" layoutY="238.0" mnemonicParsing="false" onAction="#borrarFuncionario" text="Eliminar" />
                               <Label fx:id="labelResultadoFuncionario" layoutX="23.0" layoutY="342.0" prefHeight="17.0" prefWidth="652.0" text="Resultado: " />
                            </children>
                         </AnchorPane>

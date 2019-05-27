@@ -48,7 +48,6 @@ public class SistemaGestion {
 			stmt.setString(4, f.getDireccion());
 			stmt.setString(5, f.getTelefono());
 			stmt.executeQuery();
-			System.out.println("Entra");
 			mensaje = "La informacion del funcionario con cedula " + f.getCedula() + " fue modificada satisfactoriamente";
 		} catch (SQLException e) {
 			mensaje = e.getMessage();
@@ -57,6 +56,22 @@ public class SistemaGestion {
 		return mensaje;
 	}
 
+	public String borrarFuncionario(String pCedula) {
+		String mensaje = "";		
+		try {
+			conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
+			String query = "{CALL pkFuncionarioNivel2.borrarFuncionario(?)}";
+			CallableStatement stmt = conn.prepareCall(query);
+			stmt.setString(1, pCedula);
+			stmt.executeQuery();
+			mensaje = "El funcionario con cedula " + pCedula + " fue eliminado satisfactoriamente";
+		} catch (SQLException e) {
+			mensaje = e.getMessage();
+		}
+		
+		return mensaje;
+	}
+	
 	public void crearParametro(Parametro p) throws SQLException {
 		conn = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
 		String query = "{CALL PKGESTIONTABLAS.pRegistrarParametro(?,?)}";

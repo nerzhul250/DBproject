@@ -62,6 +62,7 @@ CREATE OR REPLACE PACKAGE BODY pkFuncionarioNivel2 AS
 			SELECT COUNT(*) INTO cantidad FROM funcionario WHERE cedula = ivCedula;
 			IF cantidad = 1 THEN
 				pkFuncionario.pBorrar(ivCedula);
+			
 			ELSE
 				RAISE_APPLICATION_ERROR(-20001,'El funcionario con cedula ' || ivCedula ||' no existe');
 			END IF;
