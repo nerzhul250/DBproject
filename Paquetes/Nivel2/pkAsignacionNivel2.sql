@@ -2,6 +2,7 @@ CREATE OR REPLACE PACKAGE pkAsignacionNivel2 AS -- spec
 	PROCEDURE realizarAsignacion (ivFechaAsignacion asignacion.fechaasignacion%TYPE, ivFuncionarioCedula asignacion.funcionario_cedula%TYPE, ivSolicitudCodigo asignacion.solicitud_codigo%TYPE, ivFechaAtencion asignacion.fechaatencion%TYPE, ivComentariosFuncionario asignacion.comentariosfuncionario%TYPE, ivAtendido asignacion.atendido%TYPE);
 	FUNCTION fRetornarFuncionarioDisponible RETURN funcionario.cedula%TYPE;
     PROCEDURE cambiarEstadoSolicitud (ivCodigo solicitud.codigo%TYPE, ivestado solicitud.estado%TYPE);
+    PROCEDURE asignacionProgramada; 
 END pkAsignacionNivel2;
 /
 CREATE OR REPLACE PACKAGE BODY pkAsignacionNivel2 AS
@@ -13,7 +14,31 @@ CREATE OR REPLACE PACKAGE BODY pkAsignacionNivel2 AS
         WHERE codigo = ivCodigo;
     END cambiarEstadoSolicitud;
     
-    
+   PROCEDURE asignacionProgramada IS
+    Cursor c1 IS
+        SELECT codigo
+        FROM solicitud
+        WHERE estado= 'Pendiente'
+        ORDER BY SYSDATE- fechacreacion;
+   
+     Cursor c2 IS
+        SELECT cedula 
+        FROM funcionario
+        WHERE (SELECT COUNT(*)
+        FROM asignacion
+        WHERE asignacion.funcionario_cedula= cedula)<3;
+        codigoSol solicitud.codigo%TYPE;
+   BEGIN
+        OPEN c1;
+        FOR fun in c2
+        LOOP
+            FETCH c1 INTO codigoSol;
+            pkAsignacionnivel2.realizarAsignacion(SYSDATE, fun.cedula, codigoSol,null,null,null);
+        END LOOP;
+        CLOSE c1;
+   END asignacionProgramada;
+   
+   
 	PROCEDURE realizarAsignacion (ivFechaAsignacion asignacion.fechaasignacion%TYPE, ivFuncionarioCedula asignacion.funcionario_cedula%TYPE, ivSolicitudCodigo asignacion.solicitud_codigo%TYPE, ivFechaAtencion asignacion.fechaatencion%TYPE, ivComentariosFuncionario asignacion.comentariosfuncionario%TYPE, ivAtendido asignacion.atendido%TYPE) IS
 	numRegistrosSolicitud integer;
     numRegistrosFuncionarios integer;
