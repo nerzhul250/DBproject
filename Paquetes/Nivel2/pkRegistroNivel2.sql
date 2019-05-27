@@ -23,7 +23,7 @@ SELECT MAX(codigo) into vLastId FROM solicitud;
 IF vLastId IS NULL then
     vLastId:=0;
 END IF;
-PKSOLMODIFICACIONPRODUCTO.pInsertar(vLastId+1,'pendiente',ivDescripcion,ivCedulaCliente,ivProducto,sysdate,'reporteDanios',ivNuevoProducto);
+PKSOLMODIFICACIONPRODUCTO.pInsertar(vLastId+1,'pendiente',ivDescripcion,ivCedulaCliente,ivProducto,sysdate,'modificacionProducto',ivNuevoProducto);
 END pRegistrarSolicitudModificacionProducto;
 PROCEDURE pRegistrarSolicitudReclamo(ivCedulaCliente solicitud.cliente_cedula%TYPE,ivProducto solicitud.producto_codigo%TYPE,ivDescripcion solicitud.descripcion%TYPE) IS
 vLastId NUMBER;
