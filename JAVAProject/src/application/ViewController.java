@@ -5,7 +5,9 @@ import java.net.URL;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.Date;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.GregorianCalendar;
 import java.util.ResourceBundle;
 
@@ -278,6 +280,17 @@ public class ViewController implements Initializable{
 	@FXML
 	private Label labelResultadoProducto;
 	
+	/**
+	 * Consulta solicitudes
+	 */
+	@FXML
+	private TextArea txtConsulta;
+	@FXML
+	private Button btConsultaSolicitud;
+	@FXML
+	private Button btConsultaAsignacion;
+	@FXML
+	private Button btConsultaServicioPrestado;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -289,7 +302,66 @@ public class ViewController implements Initializable{
 		mbCrearTipoProducto.setItems(listaTiposPorductos);
 		mbModificarTipoProducto.setItems(listaTiposPorductos);
 	}
-	
+	/**
+	 * Consultas
+	 */
+	@FXML
+	private void consultarSolicitudes() {
+		Connection connection;
+		try {
+			connection = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
+			Statement statement = connection.createStatement();
+			ResultSet rs = statement.executeQuery("SELECT * FROM solicitud");
+			String report="";
+			while (rs.next()) {
+				report += "\n" + rs.getInt("CODIGO") + "\t\t" + rs.getString("ESTADO") + "\t\t" +
+			 rs.getString("DESCRIPCION") + "\t\t" + rs.getString("CLIENTE_CEDULA") +"\t\t"+ rs.getString("PRODUCTO_CODIGO")+"\t\t"
+			 + rs.getDate("FECHACREACION").toString()+"\t\t"+rs.getString("TIPO");
+			}
+			txtConsulta.setText(report);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	@FXML
+	private void consultarAsignaciones() {
+		Connection connection;
+		try {
+			connection = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
+			Statement statement = connection.createStatement();
+			ResultSet rs = statement.executeQuery("SELECT * FROM asignacion");
+			String report="";
+			while (rs.next()) {
+				report += "\n" + rs.getDate("FECHAASIGNACION").toString() + "\t\t" + rs.getString("FUNCIONARIO_CEDULA") + "\t\t" +
+			 rs.getInt("SOLICITUD_CODIGO") + "\t\t" + (rs.getDate("FECHAATENCION")==null?"null":rs.getDate("FECHAATENCION").toString()) +"\t\t"+ (rs.getString("COMENTARIOSFUNCIONARIO")==null?"null":rs.getString("COMENTARIOSFUNCIONARIO"))+"\t\t"
+			 + rs.getBoolean("ATENDIDO");
+			}
+			txtConsulta.setText(report);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	@FXML
+	private void consultarServiciosPrestados() {
+		Connection connection;
+		try {
+			connection = OracleConnection.returnConnection(OracleConnection.USER,OracleConnection.PASS);
+			Statement statement = connection.createStatement();
+			ResultSet rs = statement.executeQuery("SELECT * FROM servicioprestado");
+			String report="";
+			while (rs.next()) {
+				report += "\n" +rs.getString("PRODUCTO_CODIGO") + "\t\t" +
+			 rs.getString("CLIENTE_CEDULA") + "\t\t" + (rs.getDate("FECHATERMINACIONSERVICIO")==null?"null":rs.getDate("FECHATERMINACIONSERVICIO").toString())+"\t\t"
+			 + rs.getDate("FECHAINICIOSERVICIO").toString();
+			}
+			txtConsulta.setText(report);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	/**
 	 * Registro funcionario
 	 */

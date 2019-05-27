@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
@@ -14,7 +11,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="694.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ViewController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="694.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ViewController">
   <tabs>
     <Tab text="Gestion de Tablas">
          <content>
@@ -175,7 +172,14 @@
       </Tab>
       <Tab text="Consultas">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="btConsultaSolicitud" layoutX="14.0" layoutY="381.0" mnemonicParsing="false" onAction="#consultarSolicitudes" text="Consultar solicitudes" />
+                  <TextArea fx:id="txtConsulta" layoutX="57.0" layoutY="24.0" prefHeight="301.0" prefWidth="561.0" />
+                  <AnchorPane layoutX="183.0" layoutY="381.0" />
+                  <Button fx:id="btConsultaServicioPrestado" layoutX="425.0" layoutY="381.0" mnemonicParsing="false" onAction="#consultarServiciosPrestados" text="Consultar servicios Prestados" />
+                  <Button fx:id="btConsultaAsignacion" layoutX="198.0" layoutY="381.0" mnemonicParsing="false" onAction="#consultarAsignaciones" prefHeight="25.0" prefWidth="170.0" text="Consultar Asignaciones" />
+               </children></AnchorPane>
         </content>
       </Tab>
   </tabs>
